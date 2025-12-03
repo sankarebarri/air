@@ -63,7 +63,9 @@ class AirForm:
     """
 
     model: type[BaseModel] | None = None
-    data: Any = None  # TODO change type to something more specific
+    data: BaseModel | None = None
+    """After successful validation, this will hold an instance of the Pydantic model,
+    populated with the validated form data."""
     initial_data: dict | None = None
     errors: list[ErrorDetails] | None = None
     is_valid: bool = False

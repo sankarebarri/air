@@ -78,8 +78,12 @@ class HtmxDetails:
     trigger_name: str | None = field(init=False)
     """The name of the triggered element if it exists, or `None`. Based on the `HX-Trigger-Name` header."""
 
-    # TODO this requires an HTMX extension, evaluate if it makes sense to use it
     triggering_event: Any = field(init=False)
+    """The `HX-Triggering-Event` header, if present.
+
+    Note: This header is sent by a non-standard HTMX extension. Its value can be a string
+    or a JSON object, so `Any` is used for the type hint.
+    """
 
     def __post_init__(self) -> None:
         self.is_hx_request = self.headers.get(HX_REQUEST) == "true"
