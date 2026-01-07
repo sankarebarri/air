@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="http://feldroy.github.io/air/learn/layouts/">
+        <link rel="canonical" href="https://docs.airwebframework.org/learn/layouts/">
       
       
         <link rel="prev" href="../jinja/">
@@ -2551,26 +2551,22 @@
 <p>This document covers how <strong>Layouts</strong> work. The full reference for them is the <a href="https://feldroy.github.io/air/api/layouts/">Layouts reference</a>.</p>
 </blockquote>
 <h2 id="understanding-airs-layout-philosophy">Understanding Air's Layout Philosophy</h2>
-<p>Air's layout functions automatically sort your tags into the right places using intelligent filtering.  This allows you eliminate repetitive <code>air.Html</code>, <code>air.Body</code>, and <code>air.Head</code> boilerplate.</p>
+<p>Air's layout functions automatically sort your tags into the right places using intelligent filtering. This allows you eliminate repetitive <code>air.Html</code>, <code>air.Body</code>, and <code>air.Head</code> boilerplate.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Verbose Way</span>
 <span class="n">air</span><span class="o">.</span><span class="n">Html</span><span class="p">(</span>
     <span class="n">air</span><span class="o">.</span><span class="n">Head</span><span class="p">(</span>
-        <span class="n">air</span><span class="o">.</span><span class="n">Title</span><span class="p">(</span><span class="s2">&quot;My App&quot;</span><span class="p">),</span>
-        <span class="n">air</span><span class="o">.</span><span class="n">Link</span><span class="p">(</span><span class="n">rel</span><span class="o">=</span><span class="s2">&quot;stylesheet&quot;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;style.css&quot;</span><span class="p">)</span>
+        <span class="n">air</span><span class="o">.</span><span class="n">Title</span><span class="p">(</span><span class="s2">&quot;My App&quot;</span><span class="p">),</span> <span class="n">air</span><span class="o">.</span><span class="n">Link</span><span class="p">(</span><span class="n">rel</span><span class="o">=</span><span class="s2">&quot;stylesheet&quot;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;style.css&quot;</span><span class="p">)</span>
     <span class="p">),</span>
-    <span class="n">air</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span>
-        <span class="n">air</span><span class="o">.</span><span class="n">H1</span><span class="p">(</span><span class="s2">&quot;Welcome&quot;</span><span class="p">),</span>
-        <span class="n">air</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="s2">&quot;Content here&quot;</span><span class="p">)</span>
-    <span class="p">)</span>
+    <span class="n">air</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="n">air</span><span class="o">.</span><span class="n">H1</span><span class="p">(</span><span class="s2">&quot;Welcome&quot;</span><span class="p">),</span> <span class="n">air</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="s2">&quot;Content here&quot;</span><span class="p">)),</span>
 <span class="p">)</span>
 
 <span class="c1"># Air Layouts</span>
 <span class="n">air</span><span class="o">.</span><span class="n">layouts</span><span class="o">.</span><span class="n">mvpcss</span><span class="p">(</span>
-    <span class="n">air</span><span class="o">.</span><span class="n">Title</span><span class="p">(</span><span class="s2">&quot;My App&quot;</span><span class="p">),</span>           <span class="c1"># Automatically goes to &lt;head&gt;</span>
+    <span class="n">air</span><span class="o">.</span><span class="n">Title</span><span class="p">(</span><span class="s2">&quot;My App&quot;</span><span class="p">),</span>  <span class="c1"># Automatically goes to &lt;head&gt;</span>
     <span class="n">air</span><span class="o">.</span><span class="n">Link</span><span class="p">(</span><span class="n">rel</span><span class="o">=</span><span class="s2">&quot;stylesheet&quot;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;style.css&quot;</span><span class="p">),</span>  <span class="c1"># Also goes to &lt;head&gt;</span>
-    <span class="n">air</span><span class="o">.</span><span class="n">H1</span><span class="p">(</span><span class="s2">&quot;Welcome&quot;</span><span class="p">),</span>             <span class="c1"># Goes to &lt;body&gt;</span>
-    <span class="n">air</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="s2">&quot;Content here&quot;</span><span class="p">)</span>          <span class="c1"># Also goes to &lt;body&gt;</span>
-    <span class="p">)</span>
+    <span class="n">air</span><span class="o">.</span><span class="n">H1</span><span class="p">(</span><span class="s2">&quot;Welcome&quot;</span><span class="p">),</span>  <span class="c1"># Goes to &lt;body&gt;</span>
+    <span class="n">air</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="s2">&quot;Content here&quot;</span><span class="p">),</span>  <span class="c1"># Also goes to &lt;body&gt;</span>
+<span class="p">)</span>
 </code></pre></div>
 <h2 id="the-tag-filtering-system">The Tag Filtering System</h2>
 <p>Air layouts use two core functions to organize content:</p>
@@ -2588,21 +2584,22 @@
         <span class="n">air</span><span class="o">.</span><span class="n">H1</span><span class="p">(</span><span class="s2">&quot;Welcome to the Dashboard&quot;</span><span class="p">),</span>
         <span class="n">air</span><span class="o">.</span><span class="n">Meta</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;description&quot;</span><span class="p">,</span> <span class="n">content</span><span class="o">=</span><span class="s2">&quot;User dashboard&quot;</span><span class="p">),</span>
         <span class="n">air</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="s2">&quot;Your stats here&quot;</span><span class="p">),</span>
-        <span class="n">air</span><span class="o">.</span><span class="n">Script</span><span class="p">(</span><span class="n">src</span><span class="o">=</span><span class="s2">&quot;dashboard.js&quot;</span><span class="p">)</span>
+        <span class="n">air</span><span class="o">.</span><span class="n">Script</span><span class="p">(</span><span class="n">src</span><span class="o">=</span><span class="s2">&quot;dashboard.js&quot;</span><span class="p">),</span>
     <span class="p">)</span>
 </code></pre></div>
 <p>Air transforms this into proper HTML structure automatically.</p>
 <h2 id="built-in-minimal-layouts">Built-in Minimal Layouts</h2>
-<p>Air provides minimal ready-to-use layouts for rapid prototyping, <code>mvpcss</code> and <code>picocss</code> for MVP.css and PicoCSS respectively.  They both work and are used in the exact same way.</p>
+<p>Air provides minimal ready-to-use layouts for rapid prototyping, <code>mvpcss</code> and <code>picocss</code> for MVP.css and PicoCSS respectively. They both work and are used in the exact same way.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">air</span>
+
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">home</span><span class="p">():</span>
-    <span class="k">return</span> <span class="n">air</span><span class="o">.</span><span class="n">layouts</span><span class="o">.</span><span class="n">picocss</span><span class="p">(</span> <span class="c1"># or mvpcss</span>
+    <span class="k">return</span> <span class="n">air</span><span class="o">.</span><span class="n">layouts</span><span class="o">.</span><span class="n">picocss</span><span class="p">(</span>  <span class="c1"># or mvpcss</span>
         <span class="n">air</span><span class="o">.</span><span class="n">Title</span><span class="p">(</span><span class="s2">&quot;My App&quot;</span><span class="p">),</span>
         <span class="n">air</span><span class="o">.</span><span class="n">H1</span><span class="p">(</span><span class="s2">&quot;Welcome&quot;</span><span class="p">),</span>
         <span class="n">air</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="s2">&quot;This automatically looks great!&quot;</span><span class="p">),</span>
-        <span class="n">air</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s2">&quot;Get Started&quot;</span><span class="p">)</span>
+        <span class="n">air</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s2">&quot;Get Started&quot;</span><span class="p">),</span>
     <span class="p">)</span>
 </code></pre></div>
 <p><strong>What you get:</strong></p>
@@ -2619,9 +2616,10 @@
 <li>Learning Air basics</li>
 </ul>
 <h2 id="beyond-built-in-layouts">Beyond Built-in Layouts</h2>
-<p>The included layouts are designed for <strong>quick prototyping</strong>, not production commercial applications.  Custom layouts give you complete control while preserving Air's automatic tag filtering benefits.</p>
+<p>The included layouts are designed for <strong>quick prototyping</strong>, not production commercial applications. Custom layouts give you complete control while preserving Air's automatic tag filtering benefits.</p>
 <p>Here's the foundational pattern for any Air layout:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">air</span>
+
 
 <span class="k">def</span><span class="w"> </span><span class="nf">my_layout</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;My custom layout function.&quot;&quot;&quot;</span>
@@ -2633,14 +2631,13 @@
     <span class="k">return</span> <span class="n">air</span><span class="o">.</span><span class="n">Html</span><span class="p">(</span>
         <span class="n">air</span><span class="o">.</span><span class="n">Head</span><span class="p">(</span>
             <span class="c1"># Your custom head content</span>
-            <span class="o">...</span>
             <span class="o">*</span><span class="n">head_tags</span>  <span class="c1"># User&#39;s head tags</span>
         <span class="p">),</span>
         <span class="n">air</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span>
             <span class="c1"># Your custom body structure</span>
-            <span class="o">...</span> <span class="c1"># Header content</span>
+            <span class="c1"># Header content</span>
             <span class="n">air</span><span class="o">.</span><span class="n">Main</span><span class="p">(</span><span class="o">*</span><span class="n">body_tags</span><span class="p">),</span>  <span class="c1"># User&#39;s body content</span>
-            <span class="o">...</span> <span class="c1"># Footer Content</span>
+            <span class="c1"># Footer Content</span>
         <span class="p">),</span>
     <span class="p">)</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
 </code></pre></div>

@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="http://feldroy.github.io/air/api/routing/">
+        <link rel="canonical" href="https://docs.airwebframework.org/api/routing/">
       
       
         <link rel="prev" href="../responses/">
@@ -2804,9 +2804,10 @@
 
 <span class="n">router</span> <span class="o">=</span> <span class="n">air</span><span class="o">.</span><span class="n">AirRouter</span><span class="p">()</span>
 
+
 <span class="nd">@router</span><span class="o">.</span><span class="n">page</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">cart</span><span class="p">():</span>
-    <span class="k">return</span> <span class="n">air</span><span class="o">.</span><span class="n">H1</span><span class="p">(</span><span class="s1">&#39;I am a shopping cart&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">air</span><span class="o">.</span><span class="n">H1</span><span class="p">(</span><span class="s2">&quot;I am a shopping cart&quot;</span><span class="p">)</span>
 </code></pre></div>
 <p>Then in our main page we can load that and tie it into our main <code>app</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">air</span>
@@ -2815,9 +2816,10 @@
 <span class="n">app</span> <span class="o">=</span> <span class="n">air</span><span class="o">.</span><span class="n">Air</span><span class="p">()</span>
 <span class="n">app</span><span class="o">.</span><span class="n">include_router</span><span class="p">(</span><span class="n">cart_router</span><span class="p">)</span>
 
+
 <span class="nd">@app</span><span class="o">.</span><span class="n">page</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">index</span><span class="p">():</span>
-    <span class="k">return</span> <span class="n">air</span><span class="o">.</span><span class="n">H1</span><span class="p">(</span><span class="s1">&#39;Home page&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">air</span><span class="o">.</span><span class="n">H1</span><span class="p">(</span><span class="s2">&quot;Home page&quot;</span><span class="p">)</span>
 </code></pre></div>
 <p>Note that the router allows sharing of sessions and other application states.</p>
 <p>In addition, we can add links through the <code>.url()</code> method available on route functions, which generates URLs programmatically:</p>
@@ -2827,12 +2829,10 @@
 <span class="n">app</span> <span class="o">=</span> <span class="n">air</span><span class="o">.</span><span class="n">Air</span><span class="p">()</span>
 <span class="n">app</span><span class="o">.</span><span class="n">include_router</span><span class="p">(</span><span class="n">cart_router</span><span class="p">)</span>
 
+
 <span class="nd">@app</span><span class="o">.</span><span class="n">page</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">index</span><span class="p">():</span>
-    <span class="k">return</span> <span class="n">air</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span>
-        <span class="n">air</span><span class="o">.</span><span class="n">H1</span><span class="p">(</span><span class="s1">&#39;Home page&#39;</span><span class="p">),</span>
-        <span class="n">air</span><span class="o">.</span><span class="n">A</span><span class="p">(</span><span class="s1">&#39;View cart&#39;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="n">cart</span><span class="o">.</span><span class="n">url</span><span class="p">())</span>
-    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">air</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span><span class="n">air</span><span class="o">.</span><span class="n">H1</span><span class="p">(</span><span class="s2">&quot;Home page&quot;</span><span class="p">),</span> <span class="n">air</span><span class="o">.</span><span class="n">A</span><span class="p">(</span><span class="s2">&quot;View cart&quot;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="n">cart</span><span class="o">.</span><span class="n">url</span><span class="p">()))</span>
 </code></pre></div>
 <h2 id="query-parameters">Query Parameters</h2>
 <p>Air supports query parameters through FastAPI's <code>Query()</code> validator, which you can import as <code>air.Query()</code>:</p>
@@ -2840,21 +2840,26 @@
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">air</span><span class="o">.</span><span class="n">Air</span><span class="p">()</span>
 
-<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/search&#39;</span><span class="p">)</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/search&quot;</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">search</span><span class="p">(</span><span class="n">q</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">air</span><span class="o">.</span><span class="n">Query</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">),</span> <span class="n">page</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">air</span><span class="o">.</span><span class="n">Query</span><span class="p">(</span><span class="mi">1</span><span class="p">)):</span>
     <span class="k">return</span> <span class="n">air</span><span class="o">.</span><span class="n">H1</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Search: </span><span class="si">{</span><span class="n">q</span><span class="si">}</span><span class="s2"> (page </span><span class="si">{</span><span class="n">page</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+
 
 <span class="c1"># Generate URLs with query parameters</span>
 <span class="nd">@app</span><span class="o">.</span><span class="n">page</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">index</span><span class="p">():</span>
     <span class="k">return</span> <span class="n">air</span><span class="o">.</span><span class="n">Div</span><span class="p">(</span>
-        <span class="n">air</span><span class="o">.</span><span class="n">A</span><span class="p">(</span><span class="s1">&#39;Search&#39;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="n">search</span><span class="o">.</span><span class="n">url</span><span class="p">(</span><span class="n">query_params</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="s2">&quot;air&quot;</span><span class="p">,</span> <span class="s2">&quot;page&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}))</span>
+        <span class="n">air</span><span class="o">.</span><span class="n">A</span><span class="p">(</span><span class="s2">&quot;Search&quot;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="n">search</span><span class="o">.</span><span class="n">url</span><span class="p">(</span><span class="n">query_params</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;q&quot;</span><span class="p">:</span> <span class="s2">&quot;air&quot;</span><span class="p">,</span> <span class="s2">&quot;page&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">}))</span>
     <span class="p">)</span>
 </code></pre></div>
 <p>The <code>.url()</code> method accepts a <code>query_params</code> argument for generating URLs with query strings. This works with both scalar values and lists:</p>
-<div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;/filter&#39;</span><span class="p">)</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">filter_items</span><span class="p">(</span><span class="n">tags</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">air</span><span class="o">.</span><span class="n">Query</span><span class="p">(</span><span class="kc">None</span><span class="p">)):</span> <span class="c1"># List parameters require explicit air.Query(None) for parsing</span>
+<div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/filter&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">filter_items</span><span class="p">(</span>
+    <span class="n">tags</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">air</span><span class="o">.</span><span class="n">Query</span><span class="p">(</span><span class="kc">None</span><span class="p">),</span>
+<span class="p">):</span>  <span class="c1"># List parameters require explicit air.Query(None) for parsing</span>
     <span class="k">return</span> <span class="n">air</span><span class="o">.</span><span class="n">H1</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Filtered by: </span><span class="si">{</span><span class="n">tags</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
 
 <span class="c1"># Generates: /filter?tags=python&amp;tags=web</span>
 <span class="n">url</span> <span class="o">=</span> <span class="n">filter_items</span><span class="o">.</span><span class="n">url</span><span class="p">(</span><span class="n">query_params</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="s2">&quot;web&quot;</span><span class="p">]})</span>

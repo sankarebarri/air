@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="http://feldroy.github.io/air/api/forms/">
+        <link rel="canonical" href="https://docs.airwebframework.org/api/forms/">
       
       
         <link rel="prev" href="../exceptions/">
@@ -2875,7 +2875,7 @@ awaited form data or with FastAPI's dependency injection system.</p>
         <span class="n">air</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="s2">&quot;This example uses a custom AirForm.widget to wrap the default form HTML.&quot;</span><span class="p">),</span>
         <span class="n">air</span><span class="o">.</span><span class="n">Form</span><span class="p">(</span>
             <span class="n">form</span><span class="o">.</span><span class="n">render</span><span class="p">(),</span>
-            <span class="n">air</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s2">&quot;Send message&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span><span class="p">),</span>
+            <span class="n">air</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s2">&quot;Send message&quot;</span><span class="p">,</span> <span class="n">type_</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span><span class="p">),</span>
             <span class="n">method</span><span class="o">=</span><span class="s2">&quot;post&quot;</span><span class="p">,</span>
             <span class="n">action</span><span class="o">=</span><span class="s2">&quot;/contact&quot;</span><span class="p">,</span>
         <span class="p">),</span>
@@ -2899,7 +2899,7 @@ awaited form data or with FastAPI's dependency injection system.</p>
         <span class="n">air</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{</span><span class="n">error_count</span><span class="si">}</span><span class="s2"> validation error(s).&quot;</span><span class="p">),</span>
         <span class="n">air</span><span class="o">.</span><span class="n">Form</span><span class="p">(</span>
             <span class="n">form</span><span class="o">.</span><span class="n">render</span><span class="p">(),</span>
-            <span class="n">air</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s2">&quot;Send message&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span><span class="p">),</span>
+            <span class="n">air</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s2">&quot;Send message&quot;</span><span class="p">,</span> <span class="n">type_</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span><span class="p">),</span>
             <span class="n">method</span><span class="o">=</span><span class="s2">&quot;post&quot;</span><span class="p">,</span>
             <span class="n">action</span><span class="o">=</span><span class="s2">&quot;/contact&quot;</span><span class="p">,</span>
         <span class="p">),</span>
@@ -3177,7 +3177,7 @@ awaited form data or with FastAPI's dependency injection system.</p>
         <span class="n">air</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="s2">&quot;This form is rendered using AirForm.render().&quot;</span><span class="p">),</span>
         <span class="n">air</span><span class="o">.</span><span class="n">Form</span><span class="p">(</span>
             <span class="n">form</span><span class="o">.</span><span class="n">render</span><span class="p">(),</span>
-            <span class="n">air</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s2">&quot;Send message&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span><span class="p">),</span>
+            <span class="n">air</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s2">&quot;Send message&quot;</span><span class="p">,</span> <span class="n">type_</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span><span class="p">),</span>
             <span class="n">method</span><span class="o">=</span><span class="s2">&quot;post&quot;</span><span class="p">,</span>
             <span class="n">action</span><span class="o">=</span><span class="n">submit</span><span class="o">.</span><span class="n">url</span><span class="p">(),</span>  <span class="c1"># type: ignore[unresolved-attribute]</span>
         <span class="p">),</span>
@@ -3206,7 +3206,7 @@ awaited form data or with FastAPI's dependency injection system.</p>
         <span class="n">air</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Found </span><span class="si">{</span><span class="n">error_count</span><span class="si">}</span><span class="s2"> validation error(s).&quot;</span><span class="p">),</span>
         <span class="n">air</span><span class="o">.</span><span class="n">Form</span><span class="p">(</span>
             <span class="n">form</span><span class="o">.</span><span class="n">render</span><span class="p">(),</span>
-            <span class="n">air</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s2">&quot;Send message&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span><span class="p">),</span>
+            <span class="n">air</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s2">&quot;Send message&quot;</span><span class="p">,</span> <span class="n">type_</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span><span class="p">),</span>
             <span class="n">method</span><span class="o">=</span><span class="s2">&quot;post&quot;</span><span class="p">,</span>
             <span class="n">action</span><span class="o">=</span><span class="n">submit</span><span class="o">.</span><span class="n">url</span><span class="p">(),</span>  <span class="c1"># type: ignore[unresolved-attribute]</span>
         <span class="p">),</span>
@@ -3343,7 +3343,7 @@ awaited form data or with FastAPI's dependency injection system.</p>
 <span class="sd">                air.P(&quot;This form is rendered using AirForm.render().&quot;),</span>
 <span class="sd">                air.Form(</span>
 <span class="sd">                    form.render(),</span>
-<span class="sd">                    air.Button(&quot;Send message&quot;, type=&quot;submit&quot;),</span>
+<span class="sd">                    air.Button(&quot;Send message&quot;, type_=&quot;submit&quot;),</span>
 <span class="sd">                    method=&quot;post&quot;,</span>
 <span class="sd">                    action=submit.url(),  # type: ignore[unresolved-attribute]</span>
 <span class="sd">                ),</span>
@@ -3372,7 +3372,7 @@ awaited form data or with FastAPI's dependency injection system.</p>
 <span class="sd">                air.P(f&quot;Found {error_count} validation error(s).&quot;),</span>
 <span class="sd">                air.Form(</span>
 <span class="sd">                    form.render(),</span>
-<span class="sd">                    air.Button(&quot;Send message&quot;, type=&quot;submit&quot;),</span>
+<span class="sd">                    air.Button(&quot;Send message&quot;, type_=&quot;submit&quot;),</span>
 <span class="sd">                    method=&quot;post&quot;,</span>
 <span class="sd">                    action=submit.url(),  # type: ignore[unresolved-attribute]</span>
 <span class="sd">                ),</span>
@@ -3729,7 +3729,7 @@ special input types and labels in air forms.</p>
         <span class="n">air</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="s2">&quot;Submit the form below to see AirField + AirForm in action.&quot;</span><span class="p">),</span>
         <span class="n">air</span><span class="o">.</span><span class="n">Form</span><span class="p">(</span>
             <span class="n">form</span><span class="o">.</span><span class="n">render</span><span class="p">(),</span>
-            <span class="n">air</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s2">&quot;Submit&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span><span class="p">),</span>
+            <span class="n">air</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s2">&quot;Submit&quot;</span><span class="p">,</span> <span class="n">type_</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span><span class="p">),</span>
             <span class="n">method</span><span class="o">=</span><span class="s2">&quot;post&quot;</span><span class="p">,</span>
             <span class="n">action</span><span class="o">=</span><span class="n">submit</span><span class="o">.</span><span class="n">url</span><span class="p">(),</span>  <span class="c1"># ty: ignore[unresolved-attribute]</span>
         <span class="p">),</span>
@@ -3765,7 +3765,7 @@ special input types and labels in air forms.</p>
             <span class="n">air</span><span class="o">.</span><span class="n">H1</span><span class="p">(</span><span class="s2">&quot;Please fix the errors below.&quot;</span><span class="p">),</span>
             <span class="n">air</span><span class="o">.</span><span class="n">Form</span><span class="p">(</span>
                 <span class="n">form</span><span class="o">.</span><span class="n">render</span><span class="p">(),</span>
-                <span class="n">air</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s2">&quot;Submit&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span><span class="p">),</span>
+                <span class="n">air</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s2">&quot;Submit&quot;</span><span class="p">,</span> <span class="n">type_</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span><span class="p">),</span>
                 <span class="n">method</span><span class="o">=</span><span class="s2">&quot;post&quot;</span><span class="p">,</span>
                 <span class="n">action</span><span class="o">=</span><span class="n">submit</span><span class="o">.</span><span class="n">url</span><span class="p">(),</span>  <span class="c1"># ty: ignore[unresolved-attribute]</span>
             <span class="p">),</span>
@@ -4055,7 +4055,7 @@ special input types and labels in air forms.</p>
 <span class="sd">                air.P(&quot;Submit the form below to see AirField + AirForm in action.&quot;),</span>
 <span class="sd">                air.Form(</span>
 <span class="sd">                    form.render(),</span>
-<span class="sd">                    air.Button(&quot;Submit&quot;, type=&quot;submit&quot;),</span>
+<span class="sd">                    air.Button(&quot;Submit&quot;, type_=&quot;submit&quot;),</span>
 <span class="sd">                    method=&quot;post&quot;,</span>
 <span class="sd">                    action=submit.url(),  # ty: ignore[unresolved-attribute]</span>
 <span class="sd">                ),</span>
@@ -4091,7 +4091,7 @@ special input types and labels in air forms.</p>
 <span class="sd">                    air.H1(&quot;Please fix the errors below.&quot;),</span>
 <span class="sd">                    air.Form(</span>
 <span class="sd">                        form.render(),</span>
-<span class="sd">                        air.Button(&quot;Submit&quot;, type=&quot;submit&quot;),</span>
+<span class="sd">                        air.Button(&quot;Submit&quot;, type_=&quot;submit&quot;),</span>
 <span class="sd">                        method=&quot;post&quot;,</span>
 <span class="sd">                        action=submit.url(),  # ty: ignore[unresolved-attribute]</span>
 <span class="sd">                    ),</span>
@@ -4317,7 +4317,7 @@ special input types and labels in air forms.</p>
                 <span class="n">air</span><span class="o">.</span><span class="n">Legend</span><span class="p">(</span><span class="s2">&quot;Passenger Count&quot;</span><span class="p">),</span>
                 <span class="n">air</span><span class="o">.</span><span class="n">Raw</span><span class="p">(</span><span class="n">passenger_info</span><span class="p">),</span>
             <span class="p">),</span>
-            <span class="n">air</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s2">&quot;Submit&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span><span class="p">),</span>
+            <span class="n">air</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s2">&quot;Submit&quot;</span><span class="p">,</span> <span class="n">type_</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span><span class="p">),</span>
             <span class="n">method</span><span class="o">=</span><span class="s2">&quot;post&quot;</span><span class="p">,</span>
             <span class="n">action</span><span class="o">=</span><span class="s2">&quot;/submit&quot;</span><span class="p">,</span>
         <span class="p">),</span>
@@ -4363,7 +4363,7 @@ special input types and labels in air forms.</p>
                 <span class="n">air</span><span class="o">.</span><span class="n">Legend</span><span class="p">(</span><span class="s2">&quot;Passenger Count&quot;</span><span class="p">),</span>
                 <span class="n">air</span><span class="o">.</span><span class="n">Raw</span><span class="p">(</span><span class="n">passenger_info</span><span class="p">),</span>
             <span class="p">),</span>
-            <span class="n">air</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s2">&quot;Submit&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span><span class="p">),</span>
+            <span class="n">air</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s2">&quot;Submit&quot;</span><span class="p">,</span> <span class="n">type_</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span><span class="p">),</span>
             <span class="n">method</span><span class="o">=</span><span class="s2">&quot;post&quot;</span><span class="p">,</span>
             <span class="n">action</span><span class="o">=</span><span class="s2">&quot;/submit&quot;</span><span class="p">,</span>
         <span class="p">),</span>
@@ -4595,7 +4595,7 @@ special input types and labels in air forms.</p>
 <span class="sd">                        air.Legend(&quot;Passenger Count&quot;),</span>
 <span class="sd">                        air.Raw(passenger_info),</span>
 <span class="sd">                    ),</span>
-<span class="sd">                    air.Button(&quot;Submit&quot;, type=&quot;submit&quot;),</span>
+<span class="sd">                    air.Button(&quot;Submit&quot;, type_=&quot;submit&quot;),</span>
 <span class="sd">                    method=&quot;post&quot;,</span>
 <span class="sd">                    action=&quot;/submit&quot;,</span>
 <span class="sd">                ),</span>
@@ -4641,7 +4641,7 @@ special input types and labels in air forms.</p>
 <span class="sd">                        air.Legend(&quot;Passenger Count&quot;),</span>
 <span class="sd">                        air.Raw(passenger_info),</span>
 <span class="sd">                    ),</span>
-<span class="sd">                    air.Button(&quot;Submit&quot;, type=&quot;submit&quot;),</span>
+<span class="sd">                    air.Button(&quot;Submit&quot;, type_=&quot;submit&quot;),</span>
 <span class="sd">                    method=&quot;post&quot;,</span>
 <span class="sd">                    action=&quot;/submit&quot;,</span>
 <span class="sd">                ),</span>
@@ -4700,8 +4700,8 @@ special input types and labels in air forms.</p>
                     <span class="n">json_schema_extra</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;label&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">field_name</span><span class="p">,</span>
                     <span class="n">for_</span><span class="o">=</span><span class="n">field_name</span><span class="p">,</span>
                 <span class="p">),</span>
-                <span class="n">tags</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">field_name</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">input_type</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="n">field_name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">),</span>
-                <span class="p">(</span><span class="n">tags</span><span class="o">.</span><span class="n">Small</span><span class="p">(</span><span class="n">get_user_error_message</span><span class="p">(</span><span class="n">error</span><span class="p">),</span> <span class="nb">id</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field_name</span><span class="si">}</span><span class="s2">-error&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="n">error</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span><span class="p">),</span>
+                <span class="n">tags</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">field_name</span><span class="p">,</span> <span class="n">type_</span><span class="o">=</span><span class="n">input_type</span><span class="p">,</span> <span class="n">id_</span><span class="o">=</span><span class="n">field_name</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">),</span>
+                <span class="p">(</span><span class="n">tags</span><span class="o">.</span><span class="n">Small</span><span class="p">(</span><span class="n">get_user_error_message</span><span class="p">(</span><span class="n">error</span><span class="p">),</span> <span class="n">id_</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">field_name</span><span class="si">}</span><span class="s2">-error&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="n">error</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span><span class="p">),</span>
             <span class="p">),</span>
         <span class="p">)</span>
 

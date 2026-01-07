@@ -14,22 +14,18 @@ Air's layout functions automatically sort your tags into the right places using 
 # Verbose Way
 air.Html(
     air.Head(
-        air.Title("My App"),
-        air.Link(rel="stylesheet", href="style.css")
+        air.Title("My App"), air.Link(rel="stylesheet", href="style.css")
     ),
-    air.Body(
-        air.H1("Welcome"),
-        air.P("Content here")
-    )
+    air.Body(air.H1("Welcome"), air.P("Content here")),
 )
 
 # Air Layouts
 air.layouts.mvpcss(
-    air.Title("My App"),           # Automatically goes to <head>
+    air.Title("My App"),  # Automatically goes to <head>
     air.Link(rel="stylesheet", href="style.css"),  # Also goes to <head>
-    air.H1("Welcome"),             # Goes to <body>
-    air.P("Content here")          # Also goes to <body>
-    )
+    air.H1("Welcome"),  # Goes to <body>
+    air.P("Content here"),  # Also goes to <body>
+)
 ```
 
 ## The Tag Filtering System
@@ -52,7 +48,7 @@ def home():
         air.H1("Welcome to the Dashboard"),
         air.Meta(name="description", content="User dashboard"),
         air.P("Your stats here"),
-        air.Script(src="dashboard.js")
+        air.Script(src="dashboard.js"),
     )
 ```
 
@@ -65,13 +61,14 @@ Air provides minimal ready-to-use layouts for rapid prototyping, `mvpcss` and `p
 ```
 import air
 
+
 @app.get("/")
 def home():
-    return air.layouts.picocss( # or mvpcss
+    return air.layouts.picocss(  # or mvpcss
         air.Title("My App"),
         air.H1("Welcome"),
         air.P("This automatically looks great!"),
-        air.Button("Get Started")
+        air.Button("Get Started"),
     )
 ```
 
@@ -97,6 +94,7 @@ Here's the foundational pattern for any Air layout:
 ```
 import air
 
+
 def my_layout(*children, **kwargs):
     """My custom layout function."""
     # 1. Separate head and body content
@@ -107,14 +105,13 @@ def my_layout(*children, **kwargs):
     return air.Html(
         air.Head(
             # Your custom head content
-            ...
             *head_tags  # User's head tags
         ),
         air.Body(
             # Your custom body structure
-            ... # Header content
+            # Header content
             air.Main(*body_tags),  # User's body content
-            ... # Footer Content
+            # Footer Content
         ),
     ).render()
 ```

@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="http://feldroy.github.io/air/api/dependencies/">
+        <link rel="canonical" href="https://docs.airwebframework.org/api/dependencies/">
       
       
         <link rel="prev" href="../background/">
@@ -2595,6 +2595,7 @@
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">air</span><span class="o">.</span><span class="n">App</span><span class="p">()</span>
 
+
 <span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/users&quot;</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">get_users</span><span class="p">(</span><span class="n">is_htmx</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="n">Depends</span><span class="p">(</span><span class="n">air</span><span class="o">.</span><span class="n">is_htmx_request</span><span class="p">)):</span>
     <span class="n">users</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Alice&quot;</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">,</span> <span class="s2">&quot;Charlie&quot;</span><span class="p">]</span>
@@ -2604,13 +2605,17 @@
         <span class="k">return</span> <span class="n">air</span><span class="o">.</span><span class="n">Ul</span><span class="p">([</span><span class="n">air</span><span class="o">.</span><span class="n">Li</span><span class="p">(</span><span class="n">user</span><span class="p">)</span> <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">users</span><span class="p">])</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="c1"># Return full page for regular requests</span>
-        <span class="k">return</span> <span class="n">air</span><span class="o">.</span><span class="n">Html</span><span class="p">([</span>
-            <span class="n">air</span><span class="o">.</span><span class="n">Head</span><span class="p">(</span><span class="n">air</span><span class="o">.</span><span class="n">Title</span><span class="p">(</span><span class="s2">&quot;Users&quot;</span><span class="p">)),</span>
-            <span class="n">air</span><span class="o">.</span><span class="n">Body</span><span class="p">([</span>
-                <span class="n">air</span><span class="o">.</span><span class="n">H1</span><span class="p">(</span><span class="s2">&quot;User List&quot;</span><span class="p">),</span>
-                <span class="n">air</span><span class="o">.</span><span class="n">Ul</span><span class="p">([</span><span class="n">air</span><span class="o">.</span><span class="n">Li</span><span class="p">(</span><span class="n">user</span><span class="p">)</span> <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">users</span><span class="p">])</span>
-            <span class="p">])</span>
-        <span class="p">])</span>
+        <span class="k">return</span> <span class="n">air</span><span class="o">.</span><span class="n">Html</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="n">air</span><span class="o">.</span><span class="n">Head</span><span class="p">(</span><span class="n">air</span><span class="o">.</span><span class="n">Title</span><span class="p">(</span><span class="s2">&quot;Users&quot;</span><span class="p">)),</span>
+                <span class="n">air</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span>
+                    <span class="p">[</span>
+                        <span class="n">air</span><span class="o">.</span><span class="n">H1</span><span class="p">(</span><span class="s2">&quot;User List&quot;</span><span class="p">),</span>
+                        <span class="n">air</span><span class="o">.</span><span class="n">Ul</span><span class="p">([</span><span class="n">air</span><span class="o">.</span><span class="n">Li</span><span class="p">(</span><span class="n">user</span><span class="p">)</span> <span class="k">for</span> <span class="n">user</span> <span class="ow">in</span> <span class="n">users</span><span class="p">]),</span>
+                    <span class="p">]</span>
+                <span class="p">),</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
 </code></pre></div>
 <h4 id="form-handling">Form Handling</h4>
 <div class="highlight"><pre><span></span><code><span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/submit&quot;</span><span class="p">)</span>

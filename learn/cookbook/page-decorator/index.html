@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="http://feldroy.github.io/air/learn/cookbook/page-decorator/">
+        <link rel="canonical" href="https://docs.airwebframework.org/learn/cookbook/page-decorator/">
       
       
         <link rel="prev" href="../">
@@ -2376,17 +2376,19 @@
 <span class="nd">@app</span><span class="o">.</span><span class="n">page</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">index</span><span class="p">():</span>
     <span class="c1"># Same as route app.get(&#39;/&#39;)</span>
-    <span class="k">return</span> <span class="n">air</span><span class="o">.</span><span class="n">H1</span><span class="p">(</span><span class="s1">&#39;Welcome to our site!&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">air</span><span class="o">.</span><span class="n">H1</span><span class="p">(</span><span class="s2">&quot;Welcome to our site!&quot;</span><span class="p">)</span>
+
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">page</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">dashboard</span><span class="p">():</span>
     <span class="c1"># Same as route app.get(&#39;/dashboard&#39;)</span>
-    <span class="k">return</span> <span class="n">air</span><span class="o">.</span><span class="n">H1</span><span class="p">(</span><span class="s1">&#39;Dashboard&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">air</span><span class="o">.</span><span class="n">H1</span><span class="p">(</span><span class="s2">&quot;Dashboard&quot;</span><span class="p">)</span>
+
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">page</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">show_item</span><span class="p">():</span>
     <span class="c1"># same as app.get(&#39;/show-item&#39;)</span>
-    <span class="k">return</span> <span class="n">air</span><span class="o">.</span><span class="n">H1</span><span class="p">(</span><span class="s1">&#39;Showing an item&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">air</span><span class="o">.</span><span class="n">H1</span><span class="p">(</span><span class="s2">&quot;Showing an item&quot;</span><span class="p">)</span>
 </code></pre></div>
 <p>An option has been added to change the path separator to forward slashes instead of dashes.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">air</span>
@@ -2397,7 +2399,7 @@
 <span class="nd">@app</span><span class="o">.</span><span class="n">page</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">about_us</span><span class="p">():</span>
     <span class="c1"># same as app.get(&#39;/about/us`)</span>
-    <span class="k">return</span> <span class="n">air</span><span class="o">.</span><span class="n">H1</span><span class="p">(</span><span class="s1">&#39;About us!&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">air</span><span class="o">.</span><span class="n">H1</span><span class="p">(</span><span class="s2">&quot;About us!&quot;</span><span class="p">)</span>
 </code></pre></div>
 
 

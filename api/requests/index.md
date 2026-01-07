@@ -12,6 +12,7 @@ from air.requests import Request
 
 app = air.Air()
 
+
 @app.page
 async def request_info(request: Request):
     return air.layouts.mvpcss(
@@ -35,6 +36,7 @@ from air.requests import Request
 
 app = air.Air()
 
+
 @app.get("/search")
 async def search(request: Request):
     query = request.query_params.get("q", "none")
@@ -49,6 +51,7 @@ from air.requests import Request
 from air.responses import JSONResponse
 
 app = air.Air()
+
 
 @app.post("/items")
 async def create_item(request: Request):
@@ -65,13 +68,12 @@ from air.responses import JSONResponse
 
 app = air.Air()
 
+
 @app.post("/login")
 async def login(request: Request):
     form = await request.form()
     return air.layouts.mvpcss(
-        air.Section(
-            air.Aside({"username": form.get("username")})
-        )
+        air.Section(air.Aside({"username": form.get("username")}))
     )
 ```
 
@@ -82,11 +84,14 @@ import air
 
 app = air.Air()
 
+
 @app.page
 def index(request: air.Request):
     return air.layouts.mvpcss(
-        air.H1(f'From HTMX?'),
-        air.P(f"This request came from an HTMX element on a page: {request.htmx}")
+        air.H1(f"From HTMX?"),
+        air.P(
+            f"This request came from an HTMX element on a page: {request.htmx}"
+        ),
     )
 ```
 
@@ -141,14 +146,14 @@ def index(request: air.Request):
     if request.htmx:
         return air.H1(
             "Click me: ", randint(1, 100),
-            id="number",
+            id_="number",
             hx_get="/",
             hx_swap="outerHTML"
         )
     return air.layouts.mvpcss(
         air.H1(
             "Click me: ", randint(1, 100),
-            id="number",
+            id_="number",
             hx_get="/",
             hx_swap="outerHTML"
         )
@@ -181,14 +186,14 @@ def __bool__(self) -> bool:
             if request.htmx:
                 return air.H1(
                     "Click me: ", randint(1, 100),
-                    id="number",
+                    id_="number",
                     hx_get="/",
                     hx_swap="outerHTML"
                 )
             return air.layouts.mvpcss(
                 air.H1(
                     "Click me: ", randint(1, 100),
-                    id="number",
+                    id_="number",
                     hx_get="/",
                     hx_swap="outerHTML"
                 )

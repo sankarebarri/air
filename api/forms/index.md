@@ -136,7 +136,7 @@ def contact(request: air.Request) -> air.Html | air.Children:
         air.P("This example uses a custom AirForm.widget to wrap the default form HTML."),
         air.Form(
             form.render(),
-            air.Button("Send message", type="submit"),
+            air.Button("Send message", type_="submit"),
             method="post",
             action="/contact",
         ),
@@ -160,7 +160,7 @@ async def submit_contact(request: air.Request) -> air.Html:
         air.P(f"Found {error_count} validation error(s)."),
         air.Form(
             form.render(),
-            air.Button("Send message", type="submit"),
+            air.Button("Send message", type_="submit"),
             method="post",
             action="/contact",
         ),
@@ -321,7 +321,7 @@ def contact(request: air.Request) -> air.Html | air.Children:
         air.P("This form is rendered using AirForm.render()."),
         air.Form(
             form.render(),
-            air.Button("Send message", type="submit"),
+            air.Button("Send message", type_="submit"),
             method="post",
             action=submit.url(),  # type: ignore[unresolved-attribute]
         ),
@@ -350,7 +350,7 @@ async def submit(request: air.Request) -> air.Html:
         air.P(f"Found {error_count} validation error(s)."),
         air.Form(
             form.render(),
-            air.Button("Send message", type="submit"),
+            air.Button("Send message", type_="submit"),
             method="post",
             action=submit.url(),  # type: ignore[unresolved-attribute]
         ),
@@ -401,7 +401,7 @@ def render(self) -> SafeStr:
                 air.P("This form is rendered using AirForm.render()."),
                 air.Form(
                     form.render(),
-                    air.Button("Send message", type="submit"),
+                    air.Button("Send message", type_="submit"),
                     method="post",
                     action=submit.url(),  # type: ignore[unresolved-attribute]
                 ),
@@ -430,7 +430,7 @@ def render(self) -> SafeStr:
                 air.P(f"Found {error_count} validation error(s)."),
                 air.Form(
                     form.render(),
-                    air.Button("Send message", type="submit"),
+                    air.Button("Send message", type_="submit"),
                     method="post",
                     action=submit.url(),  # type: ignore[unresolved-attribute]
                 ),
@@ -655,7 +655,7 @@ def index(request: air.Request) -> air.Html | air.Children:
         air.P("Submit the form below to see AirField + AirForm in action."),
         air.Form(
             form.render(),
-            air.Button("Submit", type="submit"),
+            air.Button("Submit", type_="submit"),
             method="post",
             action=submit.url(),  # ty: ignore[unresolved-attribute]
         ),
@@ -691,7 +691,7 @@ async def submit(request: air.Request) -> air.Html:
             air.H1("Please fix the errors below."),
             air.Form(
                 form.render(),
-                air.Button("Submit", type="submit"),
+                air.Button("Submit", type_="submit"),
                 method="post",
                 action=submit.url(),  # ty: ignore[unresolved-attribute]
             ),
@@ -796,7 +796,7 @@ def AirField(
                 air.P("Submit the form below to see AirField + AirForm in action."),
                 air.Form(
                     form.render(),
-                    air.Button("Submit", type="submit"),
+                    air.Button("Submit", type_="submit"),
                     method="post",
                     action=submit.url(),  # ty: ignore[unresolved-attribute]
                 ),
@@ -832,7 +832,7 @@ def AirField(
                     air.H1("Please fix the errors below."),
                     air.Form(
                         form.render(),
-                        air.Button("Submit", type="submit"),
+                        air.Button("Submit", type_="submit"),
                         method="post",
                         action=submit.url(),  # ty: ignore[unresolved-attribute]
                     ),
@@ -963,7 +963,7 @@ def index(request: air.Request) -> air.Html:
                 air.Legend("Passenger Count"),
                 air.Raw(passenger_info),
             ),
-            air.Button("Submit", type="submit"),
+            air.Button("Submit", type_="submit"),
             method="post",
             action="/submit",
         ),
@@ -1009,7 +1009,7 @@ async def submit(request: air.Request) -> air.Html:
                 air.Legend("Passenger Count"),
                 air.Raw(passenger_info),
             ),
-            air.Button("Submit", type="submit"),
+            air.Button("Submit", type_="submit"),
             method="post",
             action="/submit",
         ),
@@ -1075,7 +1075,7 @@ def default_form_widget(  # noqa: C901
                         air.Legend("Passenger Count"),
                         air.Raw(passenger_info),
                     ),
-                    air.Button("Submit", type="submit"),
+                    air.Button("Submit", type_="submit"),
                     method="post",
                     action="/submit",
                 ),
@@ -1121,7 +1121,7 @@ def default_form_widget(  # noqa: C901
                         air.Legend("Passenger Count"),
                         air.Raw(passenger_info),
                     ),
-                    air.Button("Submit", type="submit"),
+                    air.Button("Submit", type_="submit"),
                     method="post",
                     action="/submit",
                 ),
@@ -1180,8 +1180,8 @@ def default_form_widget(  # noqa: C901
                     json_schema_extra.get("label") or field_name,
                     for_=field_name,
                 ),
-                tags.Input(name=field_name, type=input_type, id=field_name, **kwargs),
-                (tags.Small(get_user_error_message(error), id=f"{field_name}-error") if error else ""),
+                tags.Input(name=field_name, type_=input_type, id_=field_name, **kwargs),
+                (tags.Small(get_user_error_message(error), id_=f"{field_name}-error") if error else ""),
             ),
         )
 

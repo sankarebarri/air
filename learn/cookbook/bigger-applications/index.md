@@ -6,7 +6,7 @@ When building larger applications with Air, you may find yourself needing to org
 
 Note
 
-This approach shares state between the composited efforts. This means that authentication, database pooling, and other things will be usable between components. The [API reference](http://feldroy.github.io/air/api/routing/index.md) for this documentation displays options for more controls like Router-specific lifespans, URL prefixes, and more.
+This approach shares state between the composited efforts. This means that authentication, database pooling, and other things will be usable between components. The [API reference](https://docs.airwebframework.org/api/routing/index.md) for this documentation displays options for more controls like Router-specific lifespans, URL prefixes, and more.
 
 Let's imagine we have a landing page that links to a sophisticated dashboard. While our example dashboard is trivial, let's assume it is complicated enough that we want it in a separate Python module yet share state. We design the `main.py` as we would a normal Air application:
 
@@ -17,11 +17,11 @@ import air
 
 app = air.Air()
 
+
 @app.page
 def index():
     return air.layouts.mvpcss(
-        air.H1('Avatar Data'),
-        air.P(air.A('Dashboard', href='/dashboard'))
+        air.H1("Avatar Data"), air.P(air.A("Dashboard", href="/dashboard"))
     )
 ```
 
@@ -34,11 +34,11 @@ import air
 
 router = air.AirRouter()
 
+
 @router.page
 def dashboard():
     return air.layouts.mvpcss(
-        air.H1('Avatar Data Dashboard'),
-        air.P(air.A('<- Home', href='/'))
+        air.H1("Avatar Data Dashboard"), air.P(air.A("<- Home", href="/"))
     )
 ```
 
@@ -53,18 +53,18 @@ from .dashboard import router
 app = air.Air()
 app.include_router(router)
 
+
 @app.page
 def index():
     return air.layouts.mvpcss(
-        air.H1('Avatar Data'),
-        air.P(air.A('Dashboard', href='/dashboard'))
+        air.H1("Avatar Data"), air.P(air.A("Dashboard", href="/dashboard"))
     )
 ```
 
 If run locally these links should work:
 
-- http://localhost:8000
-- http://localhost:8000/dashboard
+- <http://localhost:8000>
+- <http://localhost:8000/dashboard>
 
 ## Mounting Air and FastAPI apps inside Air apps
 
@@ -78,28 +78,29 @@ One of the really nice features of Air is the ability to mount apps inside each 
 import air
 
 # Create the main app, which serves as the entry point
-app = air.Air(title='Air')
+app = air.Air(title="Air")
+
 
 @app.page
 def index():
     return air.layouts.mvpcss(
-        air.H1('Air landing page'),
-        air.P(air.A('Shop', href='/shop'))
+        air.H1("Air landing page"), air.P(air.A("Shop", href="/shop"))
     )
+
 
 # Creating a separate app for the shop,
 # which could be placed in a different file
-shop = air.Air(title='Air shop')
+shop = air.Air(title="Air shop")
+
 
 @shop.page
 def index():
-    return air.layouts.mvpcss(
-        air.H1('Shop for Air things')
-    )
+    return air.layouts.mvpcss(air.H1("Shop for Air things"))
+
 
 # Mount the shop app to the main app
 # This allows you to access the shop at /shop
-app.mount('/shop', shop)
+app.mount("/shop", shop)
 ```
 
 ## Mounting FastAPI inside of Air apps
@@ -110,8 +111,9 @@ You can easily mount a FastAPI app inside an Air app. A common scenario is to ha
 import air
 from fastapi import FastAPI
 
-# Create the landing page app using Air
+# Create the landing page app using Air
 app = air.Air()
+
 
 @app.get("/")
 def landing_page():
@@ -123,11 +125,14 @@ def landing_page():
         ),
     )
 
+
 api = FastAPI()
+
 
 @api.get("/")
 def api_root():
     return {"message": "Awesome SaaS is powered by FastAPI"}
+
 
 # Combining the Air and and FastAPI apps into one
 app.mount("/api", api)

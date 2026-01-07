@@ -15,9 +15,9 @@ Text(
     lengthAdjust=None,
     textLength=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -27,20 +27,20 @@ Defines text content
 
 Parameters:
 
-| Name           | Type            | Description                               | Default                                 |
-| -------------- | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children`     | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `x`            | \`str           | float                                     | None\`                                  |
-| `y`            | \`str           | float                                     | None\`                                  |
-| `dx`           | \`str           | float                                     | None\`                                  |
-| `dy`           | \`str           | float                                     | None\`                                  |
-| `rotate`       | \`str           | None\`                                    | Rotation of individual glyphs.          |
-| `lengthAdjust` | \`str           | None\`                                    | Text stretching method.                 |
-| `textLength`   | \`str           | float                                     | None\`                                  |
-| `class_`       | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`           | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`        | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs`     | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `x`                   | \`str           | float                                     | None\`                                  |
+| `y`                   | \`str           | float                                     | None\`                                  |
+| `dx`                  | \`str           | float                                     | None\`                                  |
+| `dy`                  | \`str           | float                                     | None\`                                  |
+| `rotate`              | \`str           | None\`                                    | Rotation of individual glyphs.          |
+| `lengthAdjust`        | \`str           | None\`                                    | Text stretching method.                 |
+| `textLength`          | \`str           | float                                     | None\`                                  |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -56,11 +56,11 @@ def __init__(
     lengthAdjust: str | None = None,
     textLength: str | float | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## TextPath
@@ -77,9 +77,9 @@ TextPath(
     startOffset=None,
     textLength=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -89,21 +89,21 @@ Defines text along a path
 
 Parameters:
 
-| Name           | Type            | Description                               | Default                                    |
-| -------------- | --------------- | ----------------------------------------- | ------------------------------------------ |
-| `children`     | `Renderable`    | Tags, strings, or other rendered content. | `()`                                       |
-| `href`         | \`str           | None\`                                    | Reference to path element for text layout. |
-| `lengthAdjust` | \`str           | None\`                                    | Length adjustment method.                  |
-| `method`       | \`str           | None\`                                    | Glyph rendering method.                    |
-| `path`         | \`str           | None\`                                    | Path data for text layout.                 |
-| `side`         | \`str           | None\`                                    | Which side of path to render text.         |
-| `spacing`      | \`str           | None\`                                    | Glyph spacing handling.                    |
-| `startOffset`  | \`str           | float                                     | None\`                                     |
-| `textLength`   | \`str           | float                                     | None\`                                     |
-| `class_`       | \`str           | None\`                                    | Substituted as the DOM class attribute.    |
-| `id`           | \`str           | None\`                                    | DOM ID attribute.                          |
-| `style`        | \`str           | None\`                                    | Inline style attribute.                    |
-| `**kwargs`     | `AttributeType` | Additional attributes.                    | `{}`                                       |
+| Name                  | Type            | Description                               | Default                                    |
+| --------------------- | --------------- | ----------------------------------------- | ------------------------------------------ |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                       |
+| `href`                | \`str           | None\`                                    | Reference to path element for text layout. |
+| `lengthAdjust`        | \`str           | None\`                                    | Length adjustment method.                  |
+| `method`              | \`str           | None\`                                    | Glyph rendering method.                    |
+| `path`                | \`str           | None\`                                    | Path data for text layout.                 |
+| `side`                | \`str           | None\`                                    | Which side of path to render text.         |
+| `spacing`             | \`str           | None\`                                    | Glyph spacing handling.                    |
+| `startOffset`         | \`str           | float                                     | None\`                                     |
+| `textLength`          | \`str           | float                                     | None\`                                     |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute.    |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                          |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                    |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                       |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -120,18 +120,22 @@ def __init__(
     startOffset: str | float | None = None,
     textLength: str | float | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## Title
 
 ```
 Title(
-    *children, class_=None, id=None, style=None, **kwargs
+    *children,
+    class_=None,
+    id_=None,
+    style=None,
+    **custom_attributes,
 )
 ```
 
@@ -141,13 +145,13 @@ Defines a title for the SVG document
 
 Parameters:
 
-| Name       | Type            | Description                               | Default                                 |
-| ---------- | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children` | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `class_`   | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`       | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`    | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs` | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -156,11 +160,11 @@ def __init__(
     self,
     *children: Renderable,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## Tspan
@@ -176,9 +180,9 @@ Tspan(
     lengthAdjust=None,
     textLength=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -188,20 +192,20 @@ Defines a text span
 
 Parameters:
 
-| Name           | Type            | Description                               | Default                                 |
-| -------------- | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children`     | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `x`            | \`str           | float                                     | None\`                                  |
-| `y`            | \`str           | float                                     | None\`                                  |
-| `dx`           | \`str           | float                                     | None\`                                  |
-| `dy`           | \`str           | float                                     | None\`                                  |
-| `rotate`       | \`str           | None\`                                    | Rotation of individual glyphs.          |
-| `lengthAdjust` | \`str           | None\`                                    | Text stretching method.                 |
-| `textLength`   | \`str           | float                                     | None\`                                  |
-| `class_`       | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`           | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`        | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs`     | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `x`                   | \`str           | float                                     | None\`                                  |
+| `y`                   | \`str           | float                                     | None\`                                  |
+| `dx`                  | \`str           | float                                     | None\`                                  |
+| `dy`                  | \`str           | float                                     | None\`                                  |
+| `rotate`              | \`str           | None\`                                    | Rotation of individual glyphs.          |
+| `lengthAdjust`        | \`str           | None\`                                    | Text stretching method.                 |
+| `textLength`          | \`str           | float                                     | None\`                                  |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -217,11 +221,11 @@ def __init__(
     lengthAdjust: str | None = None,
     textLength: str | float | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## Use
@@ -235,9 +239,9 @@ Use(
     width=None,
     height=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -247,18 +251,18 @@ References another element
 
 Parameters:
 
-| Name       | Type            | Description                               | Default                                 |
-| ---------- | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children` | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `href`     | \`str           | None\`                                    | Reference to element to duplicate.      |
-| `x`        | \`str           | float                                     | None\`                                  |
-| `y`        | \`str           | float                                     | None\`                                  |
-| `width`    | \`str           | float                                     | None\`                                  |
-| `height`   | \`str           | float                                     | None\`                                  |
-| `class_`   | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`       | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`    | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs` | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `href`                | \`str           | None\`                                    | Reference to element to duplicate.      |
+| `x`                   | \`str           | float                                     | None\`                                  |
+| `y`                   | \`str           | float                                     | None\`                                  |
+| `width`               | \`str           | float                                     | None\`                                  |
+| `height`              | \`str           | float                                     | None\`                                  |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -272,11 +276,11 @@ def __init__(
     width: str | float | None = None,
     height: str | float | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## View
@@ -287,9 +291,9 @@ View(
     viewBox=None,
     preserveAspectRatio=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -305,9 +309,9 @@ Parameters:
 | `viewBox`             | \`str           | None\`                                    | Viewport bounds.                        |
 | `preserveAspectRatio` | \`str           | None\`                                    | Aspect ratio handling.                  |
 | `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`                  | \`str           | None\`                                    | DOM ID attribute.                       |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
 | `style`               | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs`            | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -318,9 +322,9 @@ def __init__(
     viewBox: str | None = None,
     preserveAspectRatio: str | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```

@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="http://feldroy.github.io/air/">
+        <link rel="canonical" href="https://docs.airwebframework.org/">
       
       
       
@@ -2522,8 +2522,7 @@
   <h1>Home</h1>
 
 <p align="center">
-  <!-- <a href="http://feldroy.github.io/air/"><img src="https://raw.githubusercontent.com/feldroy/air/refs/heads/main/docs/img/air-neon.png" height="369" width="369" alt="Air: A FastAPI-powered breath of fresh air in Python web development."></a> -->
-  <a href="http://feldroy.github.io/air/"><img src="https://raw.githubusercontent.com/feldroy/air/refs/heads/main/img/air-neon.svg" height="369" width="369" alt="Air: A FastAPI-powered breath of fresh air in Python web development."></a>
+  <a href="https://airwebframework.org"><img src="https://raw.githubusercontent.com/feldroy/air/refs/heads/main/img/air-neon.svg" height="369" width="369" alt="Air: A FastAPI-powered breath of fresh air in Python web development."></a>
 </p>
 
 <p align="center">
@@ -2627,8 +2626,8 @@
 <li><strong>Easy to learn yet well documented</strong> - Hopefully Air is so intuitive and well-typed you'll barely need to use the documentation. In case you do need to look something up we're taking our experience writing technical books and using it to make documentation worth boasting about</li>
 </ul>
 <hr />
-<p><strong>Documentation</strong>: <a href="https://feldroy.github.io/air/" target="_blank">https://feldroy.github.io/air/</a></p>
-<p><strong>Source Code</strong>: <a href="https://github.com/feldroy/air" target="_blank">https://github.com/feldroy/air</a></p>
+<p><strong>Documentation</strong>: <a href="https://docs.airwebframework.org" target="_blank"><a href="https://docs.airwebframework.org">https://docs.airwebframework.org</a></a></p>
+<p><strong>Source Code</strong>: <a href="https://github.com/feldroy/air" target="_blank"><a href="https://github.com/feldroy/air">https://github.com/feldroy/air</a></a></p>
 <h2 id="installation">Installation</h2>
 <p>Install using <code>pip install -U air</code> or <code>conda install air -c conda-forge</code>.</p>
 <p>For <code>uv</code> users, just create a virtualenv and install the air package, like:</p>
@@ -2661,6 +2660,7 @@ uv<span class="w"> </span>add<span class="w"> </span><span class="s2">&quot;fast
 <span class="n">app</span> <span class="o">=</span> <span class="n">air</span><span class="o">.</span><span class="n">Air</span><span class="p">()</span>
 <span class="n">api</span> <span class="o">=</span> <span class="n">FastAPI</span><span class="p">()</span>
 
+
 <span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">landing_page</span><span class="p">():</span>
     <span class="k">return</span> <span class="n">air</span><span class="o">.</span><span class="n">Html</span><span class="p">(</span>
@@ -2676,6 +2676,7 @@ uv<span class="w"> </span>add<span class="w"> </span><span class="s2">&quot;fast
 <span class="k">def</span><span class="w"> </span><span class="nf">api_root</span><span class="p">():</span>
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Awesome SaaS is powered by FastAPI&quot;</span><span class="p">}</span>
 
+
 <span class="c1"># Combining the Air and FastAPI apps into one</span>
 <span class="n">app</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s2">&quot;/api&quot;</span><span class="p">,</span> <span class="n">api</span><span class="p">)</span>
 </code></pre></div>
@@ -2690,13 +2691,16 @@ uv<span class="w"> </span>add<span class="w"> </span><span class="s2">&quot;fast
 <span class="c1"># Air&#39;s JinjaRenderer is a shortcut for using Jinja templates</span>
 <span class="n">jinja</span> <span class="o">=</span> <span class="n">air</span><span class="o">.</span><span class="n">JinjaRenderer</span><span class="p">(</span><span class="n">directory</span><span class="o">=</span><span class="s2">&quot;templates&quot;</span><span class="p">)</span>
 
+
 <span class="nd">@app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">air</span><span class="o">.</span><span class="n">Request</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">jinja</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;home.html&quot;</span><span class="p">)</span>
 
+
 <span class="nd">@api</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">api_root</span><span class="p">():</span>
     <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="s2">&quot;Awesome SaaS is powered by FastAPI&quot;</span><span class="p">}</span>
+
 
 <span class="c1"># Combining the Air and and FastAPI apps into one</span>
 <span class="n">app</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s2">&quot;/api&quot;</span><span class="p">,</span> <span class="n">api</span><span class="p">)</span>

@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="http://feldroy.github.io/air/api/tags/tags-a-d/">
+        <link rel="canonical" href="https://docs.airwebframework.org/api/tags/tags-a-d/">
       
       
         <link rel="prev" href="../">
@@ -2776,14 +2776,14 @@
     <span class="n">download</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">rel</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">hreflang</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="nb">type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">type_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">referrerpolicy</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">media</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">ping</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 
@@ -2905,7 +2905,7 @@
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>type</code>
+                <code>type_</code>
             </td>
             <td>
                   <code><span title="str">str</span> | None</code>
@@ -2987,7 +2987,7 @@ Typically used for tracking.</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>id</code>
+                <code>id_</code>
             </td>
             <td>
                   <code><span title="str">str</span> | None</code>
@@ -3019,7 +3019,7 @@ Typically used for tracking.</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>kwargs</code>
+                <code>custom_attributes</code>
             </td>
             <td>
                   <code><span title="air.tags.models.types.AttributeType">AttributeType</span></code>
@@ -3070,16 +3070,16 @@ Typically used for tracking.</p>
     <span class="n">download</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">rel</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">hreflang</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="nb">type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">type_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">referrerpolicy</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">media</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">ping</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">custom_attributes</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
 </code></pre></div></td></tr></table></div>
                   </details>
 
@@ -3123,9 +3123,9 @@ Typically used for tracking.</p>
     <span class="n">shape</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">target</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 
@@ -3313,7 +3313,7 @@ Typically used for tracking.</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>id</code>
+                <code>id_</code>
             </td>
             <td>
                   <code><span title="str">str</span> | None</code>
@@ -3345,7 +3345,7 @@ Typically used for tracking.</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>kwargs</code>
+                <code>custom_attributes</code>
             </td>
             <td>
                   <code><span title="air.tags.models.types.AttributeType">AttributeType</span></code>
@@ -3401,11 +3401,11 @@ Typically used for tracking.</p>
     <span class="n">shape</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">target</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">custom_attributes</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
 </code></pre></div></td></tr></table></div>
                   </details>
 
@@ -3446,9 +3446,9 @@ Typically used for tracking.</p>
     <span class="n">preload</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">src</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 
@@ -3602,7 +3602,7 @@ Typically used for tracking.</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>id</code>
+                <code>id_</code>
             </td>
             <td>
                   <code><span title="str">str</span> | None</code>
@@ -3634,7 +3634,7 @@ Typically used for tracking.</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>kwargs</code>
+                <code>custom_attributes</code>
             </td>
             <td>
                   <code><span title="air.tags.models.types.AttributeType">AttributeType</span></code>
@@ -3684,11 +3684,11 @@ Typically used for tracking.</p>
     <span class="n">preload</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">src</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">custom_attributes</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
 </code></pre></div></td></tr></table></div>
                   </details>
 
@@ -3725,9 +3725,9 @@ Typically used for tracking.</p>
     <span class="n">href</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">target</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 
@@ -3769,7 +3769,7 @@ Typically used for tracking.</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>id</code>
+                <code>id_</code>
             </td>
             <td>
                   <code><span title="str">str</span> | None</code>
@@ -3801,7 +3801,7 @@ Typically used for tracking.</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>kwargs</code>
+                <code>custom_attributes</code>
             </td>
             <td>
                   <code><span title="air.tags.models.types.AttributeType">AttributeType</span></code>
@@ -3843,11 +3843,11 @@ Typically used for tracking.</p>
     <span class="n">href</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">target</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">custom_attributes</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
 </code></pre></div></td></tr></table></div>
                   </details>
 
@@ -3879,7 +3879,13 @@ Typically used for tracking.</p>
 
 
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span class="nf">Bdi</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span class="nf">Bdi</span><span class="p">(</span>
+    <span class="o">*</span><span class="n">children</span><span class="p">,</span>
+    <span class="n">class_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">style</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">,</span>
+<span class="p">)</span>
 </code></pre></div>
 
     <div class="doc doc-contents ">
@@ -3936,7 +3942,7 @@ Typically used for tracking.</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>id</code>
+                <code>id_</code>
             </td>
             <td>
                   <code><span title="str">str</span> | None</code>
@@ -3968,7 +3974,7 @@ Typically used for tracking.</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>kwargs</code>
+                <code>custom_attributes</code>
             </td>
             <td>
                   <code><span title="air.tags.models.types.AttributeType">AttributeType</span></code>
@@ -4006,11 +4012,11 @@ Typically used for tracking.</p>
     <span class="bp">self</span><span class="p">,</span>
     <span class="o">*</span><span class="n">children</span><span class="p">:</span> <span class="n">Renderable</span><span class="p">,</span>
     <span class="n">class_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">custom_attributes</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
 </code></pre></div></td></tr></table></div>
                   </details>
 
@@ -4046,9 +4052,9 @@ Typically used for tracking.</p>
     <span class="o">*</span><span class="n">children</span><span class="p">,</span>
     <span class="n">cite</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 
@@ -4122,7 +4128,7 @@ Typically used for tracking.</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>id</code>
+                <code>id_</code>
             </td>
             <td>
                   <code><span title="str">str</span> | None</code>
@@ -4154,7 +4160,7 @@ Typically used for tracking.</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>kwargs</code>
+                <code>custom_attributes</code>
             </td>
             <td>
                   <code><span title="air.tags.models.types.AttributeType">AttributeType</span></code>
@@ -4194,11 +4200,11 @@ Typically used for tracking.</p>
     <span class="o">*</span><span class="n">children</span><span class="p">:</span> <span class="n">Renderable</span><span class="p">,</span>
     <span class="n">cite</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">custom_attributes</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
 </code></pre></div></td></tr></table></div>
                   </details>
 
@@ -4233,7 +4239,7 @@ Typically used for tracking.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span class="nf">Button</span><span class="p">(</span>
     <span class="o">*</span><span class="n">children</span><span class="p">,</span>
     <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="nb">type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">type_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">autofocus</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">disabled</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -4246,9 +4252,9 @@ Typically used for tracking.</p>
     <span class="n">popovertarget</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">popovertargetaction</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 
@@ -4306,7 +4312,7 @@ Typically used for tracking.</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>type</code>
+                <code>type_</code>
             </td>
             <td>
                   <code><span title="str">str</span> | None</code>
@@ -4393,7 +4399,7 @@ Typically used for tracking.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Specifies where to send the form-data when a form is submitted. Only for type="submit".</p>
+                <p>Specifies where to send the form-data when a form is submitted. Only for type_="submit".</p>
               </div>
             </td>
             <td>
@@ -4410,7 +4416,7 @@ Typically used for tracking.</p>
             <td>
               <div class="doc-md-description">
                 <p>Specifies how the form-data should be encoded before sending it to a
-server. Only for type="submit".</p>
+server. Only for type_="submit".</p>
               </div>
             </td>
             <td>
@@ -4426,7 +4432,7 @@ server. Only for type="submit".</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Specifies how to send the form-data (which HTTP method to use). Only for type="submit".</p>
+                <p>Specifies how to send the form-data (which HTTP method to use). Only for type_="submit".</p>
               </div>
             </td>
             <td>
@@ -4442,7 +4448,7 @@ server. Only for type="submit".</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Specifies that the form-data should not be validated on submission. Only for type="submit".</p>
+                <p>Specifies that the form-data should not be validated on submission. Only for type_="submit".</p>
               </div>
             </td>
             <td>
@@ -4459,7 +4465,7 @@ server. Only for type="submit".</p>
             <td>
               <div class="doc-md-description">
                 <p>Specifies where to display the response that is received after submitting
-the form. Only for type="submit".</p>
+the form. Only for type_="submit".</p>
               </div>
             </td>
             <td>
@@ -4516,7 +4522,7 @@ the form. Only for type="submit".</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>id</code>
+                <code>id_</code>
             </td>
             <td>
                   <code><span title="str">str</span> | None</code>
@@ -4548,7 +4554,7 @@ the form. Only for type="submit".</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>kwargs</code>
+                <code>custom_attributes</code>
             </td>
             <td>
                   <code><span title="air.tags.models.types.AttributeType">AttributeType</span></code>
@@ -4599,7 +4605,7 @@ the form. Only for type="submit".</p>
     <span class="bp">self</span><span class="p">,</span>
     <span class="o">*</span><span class="n">children</span><span class="p">:</span> <span class="n">Renderable</span><span class="p">,</span>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="nb">type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">type_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">value</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">autofocus</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">disabled</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -4612,11 +4618,11 @@ the form. Only for type="submit".</p>
     <span class="n">popovertarget</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">popovertargetaction</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">custom_attributes</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
 </code></pre></div></td></tr></table></div>
                   </details>
 
@@ -4653,9 +4659,9 @@ the form. Only for type="submit".</p>
     <span class="n">width</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">height</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 
@@ -4745,7 +4751,7 @@ the form. Only for type="submit".</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>id</code>
+                <code>id_</code>
             </td>
             <td>
                   <code><span title="str">str</span> | None</code>
@@ -4777,7 +4783,7 @@ the form. Only for type="submit".</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>kwargs</code>
+                <code>custom_attributes</code>
             </td>
             <td>
                   <code><span title="air.tags.models.types.AttributeType">AttributeType</span></code>
@@ -4819,11 +4825,11 @@ the form. Only for type="submit".</p>
     <span class="n">width</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">height</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">custom_attributes</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
 </code></pre></div></td></tr></table></div>
                   </details>
 
@@ -4856,7 +4862,12 @@ the form. Only for type="submit".</p>
 
 </h2>
 <div class="doc-signature highlight"><pre><span></span><code><span class="nf">Col</span><span class="p">(</span>
-    <span class="o">*</span><span class="p">,</span> <span class="n">span</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">span</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">class_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">style</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 
@@ -4914,7 +4925,7 @@ the form. Only for type="submit".</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>id</code>
+                <code>id_</code>
             </td>
             <td>
                   <code><span title="str">str</span> | None</code>
@@ -4946,7 +4957,7 @@ the form. Only for type="submit".</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>kwargs</code>
+                <code>custom_attributes</code>
             </td>
             <td>
                   <code><span title="air.tags.models.types.AttributeType">AttributeType</span></code>
@@ -4986,11 +4997,11 @@ the form. Only for type="submit".</p>
     <span class="o">*</span><span class="p">,</span>
     <span class="n">span</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">custom_attributes</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
 </code></pre></div></td></tr></table></div>
                   </details>
 
@@ -5026,9 +5037,9 @@ the form. Only for type="submit".</p>
     <span class="o">*</span><span class="n">children</span><span class="p">,</span>
     <span class="n">span</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 
@@ -5102,7 +5113,7 @@ the form. Only for type="submit".</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>id</code>
+                <code>id_</code>
             </td>
             <td>
                   <code><span title="str">str</span> | None</code>
@@ -5134,7 +5145,7 @@ the form. Only for type="submit".</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>kwargs</code>
+                <code>custom_attributes</code>
             </td>
             <td>
                   <code><span title="air.tags.models.types.AttributeType">AttributeType</span></code>
@@ -5174,11 +5185,11 @@ the form. Only for type="submit".</p>
     <span class="o">*</span><span class="n">children</span><span class="p">:</span> <span class="n">Renderable</span><span class="p">,</span>
     <span class="n">span</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">custom_attributes</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
 </code></pre></div></td></tr></table></div>
                   </details>
 
@@ -5214,9 +5225,9 @@ the form. Only for type="submit".</p>
     <span class="o">*</span><span class="n">children</span><span class="p">,</span>
     <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 
@@ -5290,7 +5301,7 @@ the form. Only for type="submit".</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>id</code>
+                <code>id_</code>
             </td>
             <td>
                   <code><span title="str">str</span> | None</code>
@@ -5322,7 +5333,7 @@ the form. Only for type="submit".</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>kwargs</code>
+                <code>custom_attributes</code>
             </td>
             <td>
                   <code><span title="air.tags.models.types.AttributeType">AttributeType</span></code>
@@ -5362,11 +5373,11 @@ the form. Only for type="submit".</p>
     <span class="o">*</span><span class="n">children</span><span class="p">:</span> <span class="n">Renderable</span><span class="p">,</span>
     <span class="n">value</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">custom_attributes</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
 </code></pre></div></td></tr></table></div>
                   </details>
 
@@ -5403,9 +5414,9 @@ the form. Only for type="submit".</p>
     <span class="n">cite</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">datetime</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 
@@ -5495,7 +5506,7 @@ the form. Only for type="submit".</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>id</code>
+                <code>id_</code>
             </td>
             <td>
                   <code><span title="str">str</span> | None</code>
@@ -5527,7 +5538,7 @@ the form. Only for type="submit".</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>kwargs</code>
+                <code>custom_attributes</code>
             </td>
             <td>
                   <code><span title="air.tags.models.types.AttributeType">AttributeType</span></code>
@@ -5569,11 +5580,11 @@ the form. Only for type="submit".</p>
     <span class="n">cite</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">datetime</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">custom_attributes</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
 </code></pre></div></td></tr></table></div>
                   </details>
 
@@ -5607,11 +5618,11 @@ the form. Only for type="submit".</p>
 </h2>
 <div class="doc-signature highlight"><pre><span></span><code><span class="nf">Details</span><span class="p">(</span>
     <span class="o">*</span><span class="n">children</span><span class="p">,</span>
-    <span class="nb">open</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">open_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 
@@ -5653,7 +5664,7 @@ the form. Only for type="submit".</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>open</code>
+                <code>open_</code>
             </td>
             <td>
                   <code><span title="str">str</span> | None</code>
@@ -5685,7 +5696,7 @@ the form. Only for type="submit".</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>id</code>
+                <code>id_</code>
             </td>
             <td>
                   <code><span title="str">str</span> | None</code>
@@ -5717,7 +5728,7 @@ the form. Only for type="submit".</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>kwargs</code>
+                <code>custom_attributes</code>
             </td>
             <td>
                   <code><span title="air.tags.models.types.AttributeType">AttributeType</span></code>
@@ -5755,13 +5766,13 @@ the form. Only for type="submit".</p>
 <span class="normal">679</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="o">*</span><span class="n">children</span><span class="p">:</span> <span class="n">Renderable</span><span class="p">,</span>
-    <span class="nb">open</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">open_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">custom_attributes</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
 </code></pre></div></td></tr></table></div>
                   </details>
 
@@ -5795,11 +5806,11 @@ the form. Only for type="submit".</p>
 </h2>
 <div class="doc-signature highlight"><pre><span></span><code><span class="nf">Dialog</span><span class="p">(</span>
     <span class="o">*</span><span class="n">children</span><span class="p">,</span>
-    <span class="nb">open</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">open_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">id_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 
@@ -5841,7 +5852,7 @@ the form. Only for type="submit".</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>open</code>
+                <code>open_</code>
             </td>
             <td>
                   <code><span title="str">str</span> | None</code>
@@ -5873,9 +5884,10 @@ the form. Only for type="submit".</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>id</code>
+                <code>id_</code>
             </td>
             <td>
+                  <code><span title="str">str</span> | None</code>
             </td>
             <td>
               <div class="doc-md-description">
@@ -5883,7 +5895,7 @@ the form. Only for type="submit".</p>
               </div>
             </td>
             <td>
-                <em>required</em>
+                  <code>None</code>
             </td>
           </tr>
           <tr class="doc-section-item">
@@ -5904,7 +5916,7 @@ the form. Only for type="submit".</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>kwargs</code>
+                <code>custom_attributes</code>
             </td>
             <td>
                   <code><span title="air.tags.models.types.AttributeType">AttributeType</span></code>
@@ -5942,13 +5954,13 @@ the form. Only for type="submit".</p>
 <span class="normal">725</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="o">*</span><span class="n">children</span><span class="p">:</span> <span class="n">Renderable</span><span class="p">,</span>
-    <span class="nb">open</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">open_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">id_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">custom_attributes</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
 </code></pre></div></td></tr></table></div>
                   </details>
 

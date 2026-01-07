@@ -11,40 +11,35 @@ Air(
     routes=None,
     servers=None,
     dependencies=None,
-    default_response_class=AirResponse,
     redirect_slashes=True,
     middleware=None,
     exception_handlers=None,
-    on_startup=None,
-    on_shutdown=None,
     lifespan=None,
-    webhooks=None,
-    deprecated=None,
-    docs_url=None,
-    redoc_url=None,
-    openapi_url=None,
     path_separator="-",
+    fastapi_app=None,
     **extra,
 )
 ```
 
-Bases: `FastAPI`, `RouterMixin`
+Bases: `RouterMixin`
 
-FastAPI wrapper class with AirResponse as the default response class.
+Air web framework - HTML-first web apps powered by FastAPI.
+
+Air uses composition, wrapping a FastAPI instance internally. This provides a clean, focused API for HTML applications while leveraging FastAPI's toolkit.
 
 Parameters:
 
-| Name                     | Type                              | Description                                                                                 | Default                                                                                                         |
-| ------------------------ | --------------------------------- | ------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| `debug`                  | `bool`                            | Enables additional logging or diagnostic output.                                            | `False`                                                                                                         |
-| `dependencies`           | \`Sequence[Depends]               | None\`                                                                                      | A list of global dependencies, they will be applied to each path operation, including in sub-routers.           |
-| `middleware`             | \`Sequence[Middleware]            | None\`                                                                                      | List of middleware to be added when creating the application.                                                   |
-| `default_response_class` | `type[Response]`                  | The default response class to be used.                                                      | `AirResponse`                                                                                                   |
-| `redirect_slashes`       | `bool`                            | Whether to detect and redirect slashes in URLs when the client doesn't use the same format. | `True`                                                                                                          |
-| `on_startup`             | \`Sequence\[Callable\[[], Any\]\] | None\`                                                                                      | A list of startup event handler functions.                                                                      |
-| `on_shutdown`            | \`Sequence\[Callable\[[], Any\]\] | None\`                                                                                      | A list of shutdown event handler functions.                                                                     |
-| `lifespan`               | \`Lifespan[AppType]               | None\`                                                                                      | A Lifespan context manager handler. This replaces startup and shutdown functions with a single context manager. |
-| `path_separator`         | `Literal['/', '-']`               | An optional path separator, default to "-". valid option available ["/", "-"]               | `'-'`                                                                                                           |
+| Name                     | Type                   | Description                                                                                 | Default                                                                                                         |
+| ------------------------ | ---------------------- | ------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `debug`                  | `bool`                 | Enables additional logging or diagnostic output.                                            | `False`                                                                                                         |
+| `dependencies`           | \`Sequence[Depends]    | None\`                                                                                      | A list of global dependencies, they will be applied to each path operation, including in sub-routers.           |
+| `middleware`             | \`Sequence[Middleware] | None\`                                                                                      | List of middleware to be added when creating the application.                                                   |
+| `default_response_class` |                        | The default response class to be used.                                                      | *required*                                                                                                      |
+| `redirect_slashes`       | `bool`                 | Whether to detect and redirect slashes in URLs when the client doesn't use the same format. | `True`                                                                                                          |
+| `on_startup`             |                        | A list of startup event handler functions.                                                  | *required*                                                                                                      |
+| `on_shutdown`            |                        | A list of shutdown event handler functions.                                                 | *required*                                                                                                      |
+| `lifespan`               | \`Lifespan[Any]        | None\`                                                                                      | A Lifespan context manager handler. This replaces startup and shutdown functions with a single context manager. |
+| `path_separator`         | `Literal['/', '-']`    | An optional path separator, default to "-". valid option available ["/", "-"]               | `'-'`                                                                                                           |
 
 Example:
 
@@ -52,6 +47,10 @@ Example:
 import air
 
 app = air.Air()
+
+@app.get("/")
+def index() -> air.H1:
+    return air.H1("Hello, World!")
 ```
 
 This preserves most FastAPI initialization parameters while setting
@@ -63,7 +62,7 @@ Source code in `src/air/applications.py`
 
 ````
 def __init__(
-    self: AppType,
+    self,
     *,
     debug: Annotated[
         bool,
@@ -90,13 +89,8 @@ def __init__(
             """
         ),
         deprecated(
-            """
-            You normally wouldn't use this parameter with FastAPI, it is inherited
-            from Starlette and supported for compatibility.
-
-            In FastAPI, you normally would use the *path operation methods*,
-            like `app.get()`, `app.post()`, etc.
-            """
+            "You normally wouldn't use this parameter with Air. "
+            "Use the path operation methods like app.get(), app.post(), etc."
         ),
     ] = None,
     servers: Annotated[
@@ -135,8 +129,14 @@ def __init__(
 
             app = FastAPI(
                 servers=[
-                    {"url": "https://stag.example.com", "description": "Staging environment"},
-                    {"url": "https://prod.example.com", "description": "Production environment"},
+                    {
+                        "url": "https://stag.example.com",
+                        "description": "Staging environment",
+                    },
+                    {
+                        "url": "https://prod.example.com",
+                        "description": "Production environment",
+                    },
                 ]
             )
             ```
@@ -165,22 +165,6 @@ def __init__(
             """
         ),
     ] = None,
-    default_response_class: Annotated[
-        type[Response],
-        Doc(
-            """
-            The default response class to be used.
-            Read more in the
-            [FastAPI docs for Custom Response - HTML, Stream, File, others](https://fastapi.tiangolo.com/advanced/custom-response/#default-response-class).
-            **Analogy**
-            ```python
-            from fastapi import FastAPI
-            from air import AirResponse
-            app = FastAPI(default_response_class=AirResponse)
-            ```
-            """
-        ),
-    ] = AirResponse,
     redirect_slashes: Annotated[
         bool,
         Doc(
@@ -191,9 +175,10 @@ def __init__(
             **Example**
 
             ```python
-            from fastapi import FastAPI
+            import air
 
-            app = FastAPI(redirect_slashes=True)  # the default
+            app = Air(redirect_slashes=True)  # the default
+
 
             @app.get("/items/")
             async def read_items():
@@ -226,7 +211,7 @@ def __init__(
             """
             A dictionary with handlers for exceptions.
 
-            In FastAPI, you would normally use the decorator
+            In FastAPI and Air, you would normally use the decorator
             `@app.exception_handler()`.
 
             Read more in the
@@ -234,33 +219,8 @@ def __init__(
             """
         ),
     ] = None,
-    on_startup: Annotated[
-        Sequence[Callable[[], Any]] | None,
-        Doc(
-            """
-            A list of startup event handler functions.
-
-            You should instead use the `lifespan` handlers.
-
-            Read more in the [FastAPI docs for `lifespan`](https://fastapi.tiangolo.com/advanced/events/).
-            """
-        ),
-    ] = None,
-    on_shutdown: Annotated[
-        Sequence[Callable[[], Any]] | None,
-        Doc(
-            """
-            A list of shutdown event handler functions.
-
-            You should instead use the `lifespan` handlers.
-
-            Read more in the
-            [FastAPI docs for `lifespan`](https://fastapi.tiangolo.com/advanced/events/).
-            """
-        ),
-    ] = None,
     lifespan: Annotated[
-        Lifespan[AppType] | None,
+        Lifespan[Any] | None,
         Doc(
             """
             A `Lifespan` context manager handler. This replaces `startup` and
@@ -271,78 +231,50 @@ def __init__(
             """
         ),
     ] = None,
-    webhooks: Annotated[
-        routing.APIRouter | None,
-        Doc(
-            """
-            Add OpenAPI webhooks. This is similar to `callbacks` but it doesn't
-            depend on specific *path operations*.
+    path_separator: Annotated[
+        Literal["/", "-"],
+        Doc("An optional path separator."),
+    ] = "-",
+    fastapi_app: Annotated[
+        FastAPI | None,
+        Doc("""
+            For those occasions when the FastAPI app needs more customization
+            than Air parameters allow.
 
-            It will be added to the generated OpenAPI (e.g. visible at `/docs`).
+            Example:
 
-            **Note**: This is available since OpenAPI 3.1.0, FastAPI 0.99.0.
+                # This example turns on OpenAPI docs while continuing mostly normal Air behaviors.
+                # Go to 127.0.0.1:8000/docs or 127.0.0.1:8000/redoc
+                import air
+                from fastapi import FastAPI
 
-            Read more about it in the
-            [FastAPI docs for OpenAPI Webhooks](https://fastapi.tiangolo.com/advanced/openapi-webhooks/).
-            """
-        ),
+                fastapi_app = FastAPI(default_response_class=air.AirResponse)
+                app = air.Air(fastapi_app=fastapi_app)
+
+
+                @app.page
+                def index():
+                    "project home page"
+                    return air.H1('Hello world')
+
+
+                @app.page
+                def about():
+                    "This is the about page"
+                    return air.Div('About Air')
+            """),
     ] = None,
-    deprecated: Annotated[
-        bool | None,
-        Doc(
-            """
-            Mark all *path operations* as deprecated. You probably don't need it,
-            but it's available.
-
-            It will be added to the generated OpenAPI (e.g. visible at `/docs`).
-
-            Read more about it in the
-            [FastAPI docs for Path Operation Configuration](https://fastapi.tiangolo.com/tutorial/path-operation-configuration/).
-            """
-        ),
-    ] = None,
-    docs_url: Annotated[
-        str | None,
-        Doc(
-            """
-            The path at which to serve the Swagger UI documentation.
-
-            Set to `None` to disable it.
-            """
-        ),
-    ] = None,
-    redoc_url: Annotated[
-        str | None,
-        Doc(
-            """
-            The path at which to serve the ReDoc documentation.
-
-            Set to `None` to disable it.
-            """
-        ),
-    ] = None,
-    openapi_url: Annotated[
-        str | None,
-        Doc(
-            """
-            The URL where the OpenAPI schema will be served from.
-
-            Set to `None` to disable it.
-            """
-        ),
-    ] = None,
-    path_separator: Annotated[Literal["/", "-"], Doc("An optional path separator.")] = "-",
     **extra: Annotated[
         Any,
         Doc(
             """
-            Extra keyword arguments to be stored in the app, not used by FastAPI
+            Extra keyword arguments to be stored in the app, not used by Air
             anywhere.
             """
         ),
     ],
 ) -> None:
-    """Initialize Air app with AirResponse as default response class.
+    """Initialize Air app with composition over FastAPI.
 
     This preserves most FastAPI initialization parameters while setting:
         - AirResponse as the default response class.
@@ -352,27 +284,140 @@ def __init__(
     if exception_handlers is None:
         exception_handlers = {}
     exception_handlers |= DEFAULT_EXCEPTION_HANDLERS
-    super().__init__(
-        debug=debug,
-        routes=routes,
-        servers=servers,
-        dependencies=dependencies,
-        default_response_class=default_response_class,
-        middleware=middleware,
-        exception_handlers=exception_handlers,  # ty: ignore[invalid-argument-type]
-        on_startup=on_startup,
-        on_shutdown=on_shutdown,
-        lifespan=lifespan,  # ty: ignore[invalid-argument-type]
-        docs_url=docs_url,
-        redoc_url=redoc_url,
-        openapi_url=openapi_url,
-        webhooks=webhooks,
-        deprecated=deprecated,
-        **extra,
-    )
 
-    self.router.route_class = AirRoute
+    # Create internal FastAPI instance
+    if fastapi_app is None:
+        self._app = FastAPI(
+            debug=debug,
+            routes=routes,
+            servers=servers,
+            dependencies=dependencies,
+            default_response_class=AirResponse,
+            middleware=middleware,
+            exception_handlers=exception_handlers,  # type: ignore[arg-type]
+            on_startup=None,
+            on_shutdown=None,
+            lifespan=lifespan,
+            docs_url=None,
+            redoc_url=None,
+            openapi_url=None,
+            webhooks=None,
+            deprecated=None,
+            redirect_slashes=redirect_slashes,
+            **extra,
+        )
+    else:
+        self._app = fastapi_app
+
+    # Use Air's custom route class
+    self._app.router.route_class = AirRoute
 ````
+
+### debug
+
+```
+debug
+```
+
+Debug mode status.
+
+### dependency_overrides
+
+```
+dependency_overrides
+```
+
+Dependency overrides for testing.
+
+### exception_handlers
+
+```
+exception_handlers
+```
+
+Exception handlers for this application.
+
+### fastapi_app
+
+```
+fastapi_app
+```
+
+Access the underlying FastAPI app for advanced use cases.
+
+Use this if you need FastAPI-specific features like:
+
+- OpenAPI customization
+- response_model for JSON endpoints
+- WebSocket handling
+
+Example:
+
+```
+@app.fastapi_app.get("/api/users", response_model=list[User])
+async def api_get_users():
+    return users
+```
+
+### router
+
+```
+router
+```
+
+The application router.
+
+### routes
+
+```
+routes
+```
+
+The list of routes.
+
+### state
+
+```
+state
+```
+
+Application state, shared across requests.
+
+### __call__
+
+```
+__call__(scope, receive, send)
+```
+
+ASGI interface - delegates to internal FastAPI app.
+
+Source code in `src/air/applications.py`
+
+```
+async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:
+    """ASGI interface - delegates to internal FastAPI app."""
+    await self._app(scope, receive, send)
+```
+
+### add_middleware
+
+```
+add_middleware(middleware_class, **options)
+```
+
+Add middleware to the application.
+
+Source code in `src/air/applications.py`
+
+```
+def add_middleware(
+    self,
+    middleware_class: type,
+    **options: Any,
+) -> None:
+    """Add middleware to the application."""
+    self._app.add_middleware(middleware_class, **options)
+```
 
 ### delete
 
@@ -380,7 +425,6 @@ def __init__(
 delete(
     path,
     *,
-    response_model=None,
     status_code=None,
     tags=None,
     dependencies=None,
@@ -390,12 +434,6 @@ delete(
     responses=None,
     deprecated=None,
     operation_id=None,
-    response_model_include=None,
-    response_model_exclude=None,
-    response_model_by_alias=True,
-    response_model_exclude_unset=False,
-    response_model_exclude_defaults=False,
-    response_model_exclude_none=False,
     include_in_schema=True,
     response_class=AirResponse,
     name=None,
@@ -429,40 +467,6 @@ def delete(
         ),
     ],
     *,
-    response_model: Annotated[
-        Any,
-        Doc(
-            """
-            The type to use for the response.
-
-            It could be any valid Pydantic *field* type. So, it doesn't have to
-            be a Pydantic model, it could be other things, like a `list`, `dict`,
-            etc.
-
-            It will be used for:
-
-            * Documentation: the generated OpenAPI (and the UI at `/docs`) will
-                show it as the response (JSON Schema).
-            * Serialization: you could return an arbitrary object and the
-                `response_model` would be used to serialize that object into the
-                corresponding JSON.
-            * Filtering: the JSON sent to the client will only contain the data
-                (fields) defined in the `response_model`. If you returned an object
-                that contains an attribute `password` but the `response_model` does
-                not include that field, the JSON sent to the client would not have
-                that `password`.
-            * Validation: whatever you return will be serialized with the
-                `response_model`, converting any data as necessary to generate the
-                corresponding JSON. But if the data in the object returned is not
-                valid, that would mean a violation of the contract with the client,
-                so it's an error from the API developer. So, FastAPI will raise an
-                error and return a 500 error code (Internal Server Error).
-
-            Read more about it in the
-            [FastAPI docs for Response Model](https://fastapi.tiangolo.com/tutorial/response-model/).
-            """
-        ),
-    ] = None,
     status_code: Annotated[
         int | None,
         Doc(
@@ -582,94 +586,6 @@ def delete(
             """
         ),
     ] = None,
-    response_model_include: Annotated[
-        IncEx | None,
-        Doc(
-            """
-            Configuration passed to Pydantic to include only certain fields in the
-            response data.
-
-            Read more about it in the
-            [FastAPI docs for Response Model - Return Type](https://fastapi.tiangolo.com/tutorial/response-model/#response_model_include-and-response_model_exclude).
-            """
-        ),
-    ] = None,
-    response_model_exclude: Annotated[
-        IncEx | None,
-        Doc(
-            """
-            Configuration passed to Pydantic to exclude certain fields in the
-            response data.
-
-            Read more about it in the
-            [FastAPI docs for Response Model - Return Type](https://fastapi.tiangolo.com/tutorial/response-model/#response_model_include-and-response_model_exclude).
-            """
-        ),
-    ] = None,
-    response_model_by_alias: Annotated[
-        bool,
-        Doc(
-            """
-            Configuration passed to Pydantic to define if the response model
-            should be serialized by alias when an alias is used.
-
-            Read more about it in the
-            [FastAPI docs for Response Model - Return Type](https://fastapi.tiangolo.com/tutorial/response-model/#response_model_include-and-response_model_exclude).
-            """
-        ),
-    ] = True,
-    response_model_exclude_unset: Annotated[
-        bool,
-        Doc(
-            """
-            Configuration passed to Pydantic to define if the response data
-            should have all the fields, including the ones that were not set and
-            have their default values. This is different from
-            `response_model_exclude_defaults` in that if the fields are set,
-            they will be included in the response, even if the value is the same
-            as the default.
-
-            When `True`, default values are omitted from the response.
-
-            Read more about it in the
-            [FastAPI docs for Response Model - Return Type](https://fastapi.tiangolo.com/tutorial/response-model/#use-the-response_model_exclude_unset-parameter).
-            """
-        ),
-    ] = False,
-    response_model_exclude_defaults: Annotated[
-        bool,
-        Doc(
-            """
-            Configuration passed to Pydantic to define if the response data
-            should have all the fields, including the ones that have the same value
-            as the default. This is different from `response_model_exclude_unset`
-            in that if the fields are set but contain the same default values,
-            they will be excluded from the response.
-
-            When `True`, default values are omitted from the response.
-
-            Read more about it in the
-            [FastAPI docs for Response Model - Return Type](https://fastapi.tiangolo.com/tutorial/response-model/#use-the-response_model_exclude_unset-parameter).
-            """
-        ),
-    ] = False,
-    response_model_exclude_none: Annotated[
-        bool,
-        Doc(
-            """
-            Configuration passed to Pydantic to define if the response data should
-            exclude fields set to `None`.
-
-            This is much simpler (less smart) than `response_model_exclude_unset`
-            and `response_model_exclude_defaults`. You probably want to use one of
-            those two instead of this one, as those allow returning `None` values
-            when it makes sense.
-
-            Read more about it in the
-            [FastAPI docs for Response Model - Return Type](https://fastapi.tiangolo.com/tutorial/response-model/#response_model_exclude_none).
-            """
-        ),
-    ] = False,
     include_in_schema: Annotated[
         bool,
         Doc(
@@ -763,11 +679,12 @@ def delete(
                 result = await result
             if isinstance(result, Response):
                 return result
+            # Force HTML for non-Response results
             return response_class(result)
 
-        decorated = super(Air, self).delete(
+        decorated = self._app.delete(
             path,
-            response_model=response_model,
+            response_model=None,
             status_code=status_code,
             tags=tags,
             dependencies=dependencies,
@@ -777,12 +694,12 @@ def delete(
             responses=responses,
             deprecated=deprecated,
             operation_id=operation_id,
-            response_model_include=response_model_include,
-            response_model_exclude=response_model_exclude,
-            response_model_by_alias=response_model_by_alias,
-            response_model_exclude_unset=response_model_exclude_unset,
-            response_model_exclude_defaults=response_model_exclude_defaults,
-            response_model_exclude_none=response_model_exclude_none,
+            response_model_include=None,
+            response_model_exclude=None,
+            response_model_by_alias=True,
+            response_model_exclude_unset=False,
+            response_model_exclude_defaults=False,
+            response_model_exclude_none=False,
             include_in_schema=include_in_schema,
             response_class=response_class,
             name=name,
@@ -797,13 +714,41 @@ def delete(
     return decorator
 ```
 
+### exception_handler
+
+```
+exception_handler(exc_class_or_status_code)
+```
+
+Add an exception handler to the application.
+
+Returns:
+
+| Type                                                 | Description                                       |
+| ---------------------------------------------------- | ------------------------------------------------- |
+| `Callable[[Callable[..., Any]], Callable[..., Any]]` | A decorator that registers the exception handler. |
+
+Source code in `src/air/applications.py`
+
+```
+def exception_handler(
+    self,
+    exc_class_or_status_code: int | type[Exception],
+) -> Callable[[Callable[..., Any]], Callable[..., Any]]:
+    """Add an exception handler to the application.
+
+    Returns:
+        A decorator that registers the exception handler.
+    """
+    return self._app.exception_handler(exc_class_or_status_code)
+```
+
 ### get
 
 ```
 get(
     path,
     *,
-    response_model=None,
     status_code=None,
     tags=None,
     dependencies=None,
@@ -813,12 +758,6 @@ get(
     responses=None,
     deprecated=None,
     operation_id=None,
-    response_model_include=None,
-    response_model_exclude=None,
-    response_model_by_alias=True,
-    response_model_exclude_unset=False,
-    response_model_exclude_defaults=False,
-    response_model_exclude_none=False,
     include_in_schema=True,
     response_class=AirResponse,
     name=None,
@@ -881,40 +820,6 @@ def get(
         ),
     ],
     *,
-    response_model: Annotated[
-        Any,
-        Doc(
-            """
-            The type to use for the response.
-
-            It could be any valid Pydantic *field* type. So, it doesn't have to
-            be a Pydantic model, it could be other things, like a `list`, `dict`,
-            etc.
-
-            It will be used for:
-
-            * Documentation: the generated OpenAPI (and the UI at `/docs`) will
-                show it as the response (JSON Schema).
-            * Serialization: you could return an arbitrary object and the
-                `response_model` would be used to serialize that object into the
-                corresponding JSON.
-            * Filtering: the JSON sent to the client will only contain the data
-                (fields) defined in the `response_model`. If you returned an object
-                that contains an attribute `password` but the `response_model` does
-                not include that field, the JSON sent to the client would not have
-                that `password`.
-            * Validation: whatever you return will be serialized with the
-                `response_model`, converting any data as necessary to generate the
-                corresponding JSON. But if the data in the object returned is not
-                valid, that would mean a violation of the contract with the client,
-                so it's an error from the API developer. So, FastAPI will raise an
-                error and return a 500 error code (Internal Server Error).
-
-            Read more about it in the
-            [FastAPI docs for Response Model](https://fastapi.tiangolo.com/tutorial/response-model/).
-            """
-        ),
-    ] = None,
     status_code: Annotated[
         int | None,
         Doc(
@@ -1034,94 +939,6 @@ def get(
             """
         ),
     ] = None,
-    response_model_include: Annotated[
-        IncEx | None,
-        Doc(
-            """
-            Configuration passed to Pydantic to include only certain fields in the
-            response data.
-
-            Read more about it in the
-            [FastAPI docs for Response Model - Return Type](https://fastapi.tiangolo.com/tutorial/response-model/#response_model_include-and-response_model_exclude).
-            """
-        ),
-    ] = None,
-    response_model_exclude: Annotated[
-        IncEx | None,
-        Doc(
-            """
-            Configuration passed to Pydantic to exclude certain fields in the
-            response data.
-
-            Read more about it in the
-            [FastAPI docs for Response Model - Return Type](https://fastapi.tiangolo.com/tutorial/response-model/#response_model_include-and-response_model_exclude).
-            """
-        ),
-    ] = None,
-    response_model_by_alias: Annotated[
-        bool,
-        Doc(
-            """
-            Configuration passed to Pydantic to define if the response model
-            should be serialized by alias when an alias is used.
-
-            Read more about it in the
-            [FastAPI docs for Response Model - Return Type](https://fastapi.tiangolo.com/tutorial/response-model/#response_model_include-and-response_model_exclude).
-            """
-        ),
-    ] = True,
-    response_model_exclude_unset: Annotated[
-        bool,
-        Doc(
-            """
-            Configuration passed to Pydantic to define if the response data
-            should have all the fields, including the ones that were not set and
-            have their default values. This is different from
-            `response_model_exclude_defaults` in that if the fields are set,
-            they will be included in the response, even if the value is the same
-            as the default.
-
-            When `True`, default values are omitted from the response.
-
-            Read more about it in the
-            [FastAPI docs for Response Model - Return Type](https://fastapi.tiangolo.com/tutorial/response-model/#use-the-response_model_exclude_unset-parameter).
-            """
-        ),
-    ] = False,
-    response_model_exclude_defaults: Annotated[
-        bool,
-        Doc(
-            """
-            Configuration passed to Pydantic to define if the response data
-            should have all the fields, including the ones that have the same value
-            as the default. This is different from `response_model_exclude_unset`
-            in that if the fields are set but contain the same default values,
-            they will be excluded from the response.
-
-            When `True`, default values are omitted from the response.
-
-            Read more about it in the
-            [FastAPI docs for Response Model - Return Type](https://fastapi.tiangolo.com/tutorial/response-model/#use-the-response_model_exclude_unset-parameter).
-            """
-        ),
-    ] = False,
-    response_model_exclude_none: Annotated[
-        bool,
-        Doc(
-            """
-            Configuration passed to Pydantic to define if the response data should
-            exclude fields set to `None`.
-
-            This is much simpler (less smart) than `response_model_exclude_unset`
-            and `response_model_exclude_defaults`. You probably want to use one of
-            those two instead of this one, as those allow returning `None` values
-            when it makes sense.
-
-            Read more about it in the
-            [FastAPI docs for Response Model - Return Type](https://fastapi.tiangolo.com/tutorial/response-model/#response_model_exclude_none).
-            """
-        ),
-    ] = False,
     include_in_schema: Annotated[
         bool,
         Doc(
@@ -1244,9 +1061,9 @@ def get(
             # Force HTML for non-Response results
             return response_class(result)
 
-        decorated = super(Air, self).get(
+        decorated = self._app.get(
             path,
-            response_model=response_model,
+            response_model=None,
             status_code=status_code,
             tags=tags,
             dependencies=dependencies,
@@ -1256,12 +1073,12 @@ def get(
             responses=responses,
             deprecated=deprecated,
             operation_id=operation_id,
-            response_model_include=response_model_include,
-            response_model_exclude=response_model_exclude,
-            response_model_by_alias=response_model_by_alias,
-            response_model_exclude_unset=response_model_exclude_unset,
-            response_model_exclude_defaults=response_model_exclude_defaults,
-            response_model_exclude_none=response_model_exclude_none,
+            response_model_include=None,
+            response_model_exclude=None,
+            response_model_by_alias=True,
+            response_model_exclude_unset=False,
+            response_model_exclude_defaults=False,
+            response_model_exclude_none=False,
             include_in_schema=include_in_schema,
             response_class=response_class,
             name=name,
@@ -1276,13 +1093,111 @@ def get(
     return decorator
 ```
 
+### include_router
+
+```
+include_router(
+    router,
+    *,
+    prefix="",
+    tags=None,
+    dependencies=None,
+    responses=None,
+    deprecated=None,
+    include_in_schema=True,
+    default_response_class=AirResponse,
+    callbacks=None,
+    generate_unique_id_function=generate_unique_id,
+)
+```
+
+Include a router in this application.
+
+Source code in `src/air/applications.py`
+
+```
+def include_router(
+    self,
+    router: AirRouter | routing.APIRouter,
+    *,
+    prefix: str = "",
+    tags: list[str | Enum] | None = None,
+    dependencies: Sequence[Depends] | None = None,
+    responses: dict[int | str, dict[str, Any]] | None = None,
+    deprecated: bool | None = None,
+    include_in_schema: bool = True,
+    default_response_class: type[Response] = AirResponse,
+    callbacks: list[BaseRoute] | None = None,
+    generate_unique_id_function: Callable[[routing.APIRoute], str] = generate_unique_id,
+) -> None:
+    """Include a router in this application."""
+    self._app.include_router(
+        router,
+        prefix=prefix,
+        tags=tags,
+        dependencies=dependencies,
+        responses=responses,
+        deprecated=deprecated,
+        include_in_schema=include_in_schema,
+        default_response_class=default_response_class,
+        callbacks=callbacks,
+        generate_unique_id_function=generate_unique_id_function,
+    )
+```
+
+### middleware
+
+```
+middleware(middleware_type)
+```
+
+Add a middleware function using a decorator.
+
+Returns:
+
+| Type                                                 | Description                                         |
+| ---------------------------------------------------- | --------------------------------------------------- |
+| `Callable[[Callable[..., Any]], Callable[..., Any]]` | A decorator that registers the middleware function. |
+
+Source code in `src/air/applications.py`
+
+```
+def middleware(self, middleware_type: str) -> Callable[[Callable[..., Any]], Callable[..., Any]]:
+    """Add a middleware function using a decorator.
+
+    Returns:
+        A decorator that registers the middleware function.
+    """
+    return self._app.middleware(middleware_type)
+```
+
+### mount
+
+```
+mount(path, app, name=None)
+```
+
+Mount a sub-application.
+
+Source code in `src/air/applications.py`
+
+```
+def mount(
+    self,
+    path: str,
+    app: Any,
+    name: str | None = None,
+) -> None:
+    """Mount a sub-application."""
+    self._app.mount(path, app, name=name)
+```
+
 ### patch
 
 ```
 patch(
     path,
     *,
-    response_model=None,
     status_code=None,
     tags=None,
     dependencies=None,
@@ -1292,12 +1207,6 @@ patch(
     responses=None,
     deprecated=None,
     operation_id=None,
-    response_model_include=None,
-    response_model_exclude=None,
-    response_model_by_alias=True,
-    response_model_exclude_unset=False,
-    response_model_exclude_defaults=False,
-    response_model_exclude_none=False,
     include_in_schema=True,
     response_class=AirResponse,
     name=None,
@@ -1331,40 +1240,6 @@ def patch(
         ),
     ],
     *,
-    response_model: Annotated[
-        Any,
-        Doc(
-            """
-            The type to use for the response.
-
-            It could be any valid Pydantic *field* type. So, it doesn't have to
-            be a Pydantic model, it could be other things, like a `list`, `dict`,
-            etc.
-
-            It will be used for:
-
-            * Documentation: the generated OpenAPI (and the UI at `/docs`) will
-                show it as the response (JSON Schema).
-            * Serialization: you could return an arbitrary object and the
-                `response_model` would be used to serialize that object into the
-                corresponding JSON.
-            * Filtering: the JSON sent to the client will only contain the data
-                (fields) defined in the `response_model`. If you returned an object
-                that contains an attribute `password` but the `response_model` does
-                not include that field, the JSON sent to the client would not have
-                that `password`.
-            * Validation: whatever you return will be serialized with the
-                `response_model`, converting any data as necessary to generate the
-                corresponding JSON. But if the data in the object returned is not
-                valid, that would mean a violation of the contract with the client,
-                so it's an error from the API developer. So, FastAPI will raise an
-                error and return a 500 error code (Internal Server Error).
-
-            Read more about it in the
-            [FastAPI docs for Response Model](https://fastapi.tiangolo.com/tutorial/response-model/).
-            """
-        ),
-    ] = None,
     status_code: Annotated[
         int | None,
         Doc(
@@ -1484,94 +1359,6 @@ def patch(
             """
         ),
     ] = None,
-    response_model_include: Annotated[
-        IncEx | None,
-        Doc(
-            """
-            Configuration passed to Pydantic to include only certain fields in the
-            response data.
-
-            Read more about it in the
-            [FastAPI docs for Response Model - Return Type](https://fastapi.tiangolo.com/tutorial/response-model/#response_model_include-and-response_model_exclude).
-            """
-        ),
-    ] = None,
-    response_model_exclude: Annotated[
-        IncEx | None,
-        Doc(
-            """
-            Configuration passed to Pydantic to exclude certain fields in the
-            response data.
-
-            Read more about it in the
-            [FastAPI docs for Response Model - Return Type](https://fastapi.tiangolo.com/tutorial/response-model/#response_model_include-and-response_model_exclude).
-            """
-        ),
-    ] = None,
-    response_model_by_alias: Annotated[
-        bool,
-        Doc(
-            """
-            Configuration passed to Pydantic to define if the response model
-            should be serialized by alias when an alias is used.
-
-            Read more about it in the
-            [FastAPI docs for Response Model - Return Type](https://fastapi.tiangolo.com/tutorial/response-model/#response_model_include-and-response_model_exclude).
-            """
-        ),
-    ] = True,
-    response_model_exclude_unset: Annotated[
-        bool,
-        Doc(
-            """
-            Configuration passed to Pydantic to define if the response data
-            should have all the fields, including the ones that were not set and
-            have their default values. This is different from
-            `response_model_exclude_defaults` in that if the fields are set,
-            they will be included in the response, even if the value is the same
-            as the default.
-
-            When `True`, default values are omitted from the response.
-
-            Read more about it in the
-            [FastAPI docs for Response Model - Return Type](https://fastapi.tiangolo.com/tutorial/response-model/#use-the-response_model_exclude_unset-parameter).
-            """
-        ),
-    ] = False,
-    response_model_exclude_defaults: Annotated[
-        bool,
-        Doc(
-            """
-            Configuration passed to Pydantic to define if the response data
-            should have all the fields, including the ones that have the same value
-            as the default. This is different from `response_model_exclude_unset`
-            in that if the fields are set but contain the same default values,
-            they will be excluded from the response.
-
-            When `True`, default values are omitted from the response.
-
-            Read more about it in the
-            [FastAPI docs for Response Model - Return Type](https://fastapi.tiangolo.com/tutorial/response-model/#use-the-response_model_exclude_unset-parameter).
-            """
-        ),
-    ] = False,
-    response_model_exclude_none: Annotated[
-        bool,
-        Doc(
-            """
-            Configuration passed to Pydantic to define if the response data should
-            exclude fields set to `None`.
-
-            This is much simpler (less smart) than `response_model_exclude_unset`
-            and `response_model_exclude_defaults`. You probably want to use one of
-            those two instead of this one, as those allow returning `None` values
-            when it makes sense.
-
-            Read more about it in the
-            [FastAPI docs for Response Model - Return Type](https://fastapi.tiangolo.com/tutorial/response-model/#response_model_exclude_none).
-            """
-        ),
-    ] = False,
     include_in_schema: Annotated[
         bool,
         Doc(
@@ -1665,11 +1452,12 @@ def patch(
                 result = await result
             if isinstance(result, Response):
                 return result
+            # Force HTML for non-Response results
             return response_class(result)
 
-        decorated = super(Air, self).patch(
+        decorated = self._app.patch(
             path,
-            response_model=response_model,
+            response_model=None,
             status_code=status_code,
             tags=tags,
             dependencies=dependencies,
@@ -1679,12 +1467,12 @@ def patch(
             responses=responses,
             deprecated=deprecated,
             operation_id=operation_id,
-            response_model_include=response_model_include,
-            response_model_exclude=response_model_exclude,
-            response_model_by_alias=response_model_by_alias,
-            response_model_exclude_unset=response_model_exclude_unset,
-            response_model_exclude_defaults=response_model_exclude_defaults,
-            response_model_exclude_none=response_model_exclude_none,
+            response_model_include=None,
+            response_model_exclude=None,
+            response_model_by_alias=True,
+            response_model_exclude_unset=False,
+            response_model_exclude_defaults=False,
+            response_model_exclude_none=False,
             include_in_schema=include_in_schema,
             response_class=response_class,
             name=name,
@@ -1705,7 +1493,6 @@ def patch(
 post(
     path,
     *,
-    response_model=None,
     status_code=None,
     tags=None,
     dependencies=None,
@@ -1715,12 +1502,6 @@ post(
     responses=None,
     deprecated=None,
     operation_id=None,
-    response_model_include=None,
-    response_model_exclude=None,
-    response_model_by_alias=True,
-    response_model_exclude_unset=False,
-    response_model_exclude_defaults=False,
-    response_model_exclude_none=False,
     include_in_schema=True,
     response_class=AirResponse,
     name=None,
@@ -1797,40 +1578,6 @@ def post(
         ),
     ],
     *,
-    response_model: Annotated[
-        Any,
-        Doc(
-            """
-            The type to use for the response.
-
-            It could be any valid Pydantic *field* type. So, it doesn't have to
-            be a Pydantic model, it could be other things, like a `list`, `dict`,
-            etc.
-
-            It will be used for:
-
-            * Documentation: the generated OpenAPI (and the UI at `/docs`) will
-                show it as the response (JSON Schema).
-            * Serialization: you could return an arbitrary object and the
-                `response_model` would be used to serialize that object into the
-                corresponding JSON.
-            * Filtering: the JSON sent to the client will only contain the data
-                (fields) defined in the `response_model`. If you returned an object
-                that contains an attribute `password` but the `response_model` does
-                not include that field, the JSON sent to the client would not have
-                that `password`.
-            * Validation: whatever you return will be serialized with the
-                `response_model`, converting any data as necessary to generate the
-                corresponding JSON. But if the data in the object returned is not
-                valid, that would mean a violation of the contract with the client,
-                so it's an error from the API developer. So, FastAPI will raise an
-                error and return a 500 error code (Internal Server Error).
-
-            Read more about it in the
-            [FastAPI docs for Response Model](https://fastapi.tiangolo.com/tutorial/response-model/).
-            """
-        ),
-    ] = None,
     status_code: Annotated[
         int | None,
         Doc(
@@ -1950,94 +1697,6 @@ def post(
             """
         ),
     ] = None,
-    response_model_include: Annotated[
-        IncEx | None,
-        Doc(
-            """
-            Configuration passed to Pydantic to include only certain fields in the
-            response data.
-
-            Read more about it in the
-            [FastAPI docs for Response Model - Return Type](https://fastapi.tiangolo.com/tutorial/response-model/#response_model_include-and-response_model_exclude).
-            """
-        ),
-    ] = None,
-    response_model_exclude: Annotated[
-        IncEx | None,
-        Doc(
-            """
-            Configuration passed to Pydantic to exclude certain fields in the
-            response data.
-
-            Read more about it in the
-            [FastAPI docs for Response Model - Return Type](https://fastapi.tiangolo.com/tutorial/response-model/#response_model_include-and-response_model_exclude).
-            """
-        ),
-    ] = None,
-    response_model_by_alias: Annotated[
-        bool,
-        Doc(
-            """
-            Configuration passed to Pydantic to define if the response model
-            should be serialized by alias when an alias is used.
-
-            Read more about it in the
-            [FastAPI docs for Response Model - Return Type](https://fastapi.tiangolo.com/tutorial/response-model/#response_model_include-and-response_model_exclude).
-            """
-        ),
-    ] = True,
-    response_model_exclude_unset: Annotated[
-        bool,
-        Doc(
-            """
-            Configuration passed to Pydantic to define if the response data
-            should have all the fields, including the ones that were not set and
-            have their default values. This is different from
-            `response_model_exclude_defaults` in that if the fields are set,
-            they will be included in the response, even if the value is the same
-            as the default.
-
-            When `True`, default values are omitted from the response.
-
-            Read more about it in the
-            [FastAPI docs for Response Model - Return Type](https://fastapi.tiangolo.com/tutorial/response-model/#use-the-response_model_exclude_unset-parameter).
-            """
-        ),
-    ] = False,
-    response_model_exclude_defaults: Annotated[
-        bool,
-        Doc(
-            """
-            Configuration passed to Pydantic to define if the response data
-            should have all the fields, including the ones that have the same value
-            as the default. This is different from `response_model_exclude_unset`
-            in that if the fields are set but contain the same default values,
-            they will be excluded from the response.
-
-            When `True`, default values are omitted from the response.
-
-            Read more about it in the
-            [FastAPI docs for Response Model - Return Type](https://fastapi.tiangolo.com/tutorial/response-model/#use-the-response_model_exclude_unset-parameter).
-            """
-        ),
-    ] = False,
-    response_model_exclude_none: Annotated[
-        bool,
-        Doc(
-            """
-            Configuration passed to Pydantic to define if the response data should
-            exclude fields set to `None`.
-
-            This is much simpler (less smart) than `response_model_exclude_unset`
-            and `response_model_exclude_defaults`. You probably want to use one of
-            those two instead of this one, as those allow returning `None` values
-            when it makes sense.
-
-            Read more about it in the
-            [FastAPI docs for Response Model - Return Type](https://fastapi.tiangolo.com/tutorial/response-model/#response_model_exclude_none).
-            """
-        ),
-    ] = False,
     include_in_schema: Annotated[
         bool,
         Doc(
@@ -2174,9 +1833,9 @@ def post(
             # Force HTML for non-Response results
             return response_class(result)
 
-        decorated = super(Air, self).post(
+        decorated = self._app.post(
             path,
-            response_model=response_model,
+            response_model=None,
             status_code=status_code,
             tags=tags,
             dependencies=dependencies,
@@ -2186,12 +1845,12 @@ def post(
             responses=responses,
             deprecated=deprecated,
             operation_id=operation_id,
-            response_model_include=response_model_include,
-            response_model_exclude=response_model_exclude,
-            response_model_by_alias=response_model_by_alias,
-            response_model_exclude_unset=response_model_exclude_unset,
-            response_model_exclude_defaults=response_model_exclude_defaults,
-            response_model_exclude_none=response_model_exclude_none,
+            response_model_include=None,
+            response_model_exclude=None,
+            response_model_by_alias=True,
+            response_model_exclude_unset=False,
+            response_model_exclude_defaults=False,
+            response_model_exclude_none=False,
             include_in_schema=include_in_schema,
             response_class=response_class,
             name=name,
@@ -2212,7 +1871,6 @@ def post(
 put(
     path,
     *,
-    response_model=None,
     status_code=None,
     tags=None,
     dependencies=None,
@@ -2222,12 +1880,6 @@ put(
     responses=None,
     deprecated=None,
     operation_id=None,
-    response_model_include=None,
-    response_model_exclude=None,
-    response_model_by_alias=True,
-    response_model_exclude_unset=False,
-    response_model_exclude_defaults=False,
-    response_model_exclude_none=False,
     include_in_schema=True,
     response_class=AirResponse,
     name=None,
@@ -2261,40 +1913,6 @@ def put(
         ),
     ],
     *,
-    response_model: Annotated[
-        Any,
-        Doc(
-            """
-            The type to use for the response.
-
-            It could be any valid Pydantic *field* type. So, it doesn't have to
-            be a Pydantic model, it could be other things, like a `list`, `dict`,
-            etc.
-
-            It will be used for:
-
-            * Documentation: the generated OpenAPI (and the UI at `/docs`) will
-                show it as the response (JSON Schema).
-            * Serialization: you could return an arbitrary object and the
-                `response_model` would be used to serialize that object into the
-                corresponding JSON.
-            * Filtering: the JSON sent to the client will only contain the data
-                (fields) defined in the `response_model`. If you returned an object
-                that contains an attribute `password` but the `response_model` does
-                not include that field, the JSON sent to the client would not have
-                that `password`.
-            * Validation: whatever you return will be serialized with the
-                `response_model`, converting any data as necessary to generate the
-                corresponding JSON. But if the data in the object returned is not
-                valid, that would mean a violation of the contract with the client,
-                so it's an error from the API developer. So, FastAPI will raise an
-                error and return a 500 error code (Internal Server Error).
-
-            Read more about it in the
-            [FastAPI docs for Response Model](https://fastapi.tiangolo.com/tutorial/response-model/).
-            """
-        ),
-    ] = None,
     status_code: Annotated[
         int | None,
         Doc(
@@ -2378,7 +1996,7 @@ def put(
         dict[int | str, dict[str, Any]] | None,
         Doc(
             """
-            Additional responses that could be returned by this *path operation*.
+            The description for the default response.
 
             It will be added to the generated OpenAPI (e.g. visible at `/docs`).
             """
@@ -2414,94 +2032,6 @@ def put(
             """
         ),
     ] = None,
-    response_model_include: Annotated[
-        IncEx | None,
-        Doc(
-            """
-            Configuration passed to Pydantic to include only certain fields in the
-            response data.
-
-            Read more about it in the
-            [FastAPI docs for Response Model - Return Type](https://fastapi.tiangolo.com/tutorial/response-model/#response_model_include-and-response_model_exclude).
-            """
-        ),
-    ] = None,
-    response_model_exclude: Annotated[
-        IncEx | None,
-        Doc(
-            """
-            Configuration passed to Pydantic to exclude certain fields in the
-            response data.
-
-            Read more about it in the
-            [FastAPI docs for Response Model - Return Type](https://fastapi.tiangolo.com/tutorial/response-model/#response_model_include-and-response_model_exclude).
-            """
-        ),
-    ] = None,
-    response_model_by_alias: Annotated[
-        bool,
-        Doc(
-            """
-            Configuration passed to Pydantic to define if the response model
-            should be serialized by alias when an alias is used.
-
-            Read more about it in the
-            [FastAPI docs for Response Model - Return Type](https://fastapi.tiangolo.com/tutorial/response-model/#response_model_include-and-response_model_exclude).
-            """
-        ),
-    ] = True,
-    response_model_exclude_unset: Annotated[
-        bool,
-        Doc(
-            """
-            Configuration passed to Pydantic to define if the response data
-            should have all the fields, including the ones that were not set and
-            have their default values. This is different from
-            `response_model_exclude_defaults` in that if the fields are set,
-            they will be included in the response, even if the value is the same
-            as the default.
-
-            When `True`, default values are omitted from the response.
-
-            Read more about it in the
-            [FastAPI docs for Response Model - Return Type](https://fastapi.tiangolo.com/tutorial/response-model/#use-the-response_model_exclude_unset-parameter).
-            """
-        ),
-    ] = False,
-    response_model_exclude_defaults: Annotated[
-        bool,
-        Doc(
-            """
-            Configuration passed to Pydantic to define if the response data
-            should have all the fields, including the ones that have the same value
-            as the default. This is different from `response_model_exclude_unset`
-            in that if the fields are set but contain the same default values,
-            they will be excluded from the response.
-
-            When `True`, default values are omitted from the response.
-
-            Read more about it in the
-            [FastAPI docs for Response Model - Return Type](https://fastapi.tiangolo.com/tutorial/response-model/#use-the-response_model_exclude_unset-parameter).
-            """
-        ),
-    ] = False,
-    response_model_exclude_none: Annotated[
-        bool,
-        Doc(
-            """
-            Configuration passed to Pydantic to define if the response data should
-            exclude fields set to `None`.
-
-            This is much simpler (less smart) than `response_model_exclude_unset`
-            and `response_model_exclude_defaults`. You probably want to use one of
-            those two instead of this one, as those allow returning `None` values
-            when it makes sense.
-
-            Read more about it in the
-            [FastAPI docs for Response Model - Return Type](https://fastapi.tiangolo.com/tutorial/response-model/#response_model_exclude_none).
-            """
-        ),
-    ] = False,
     include_in_schema: Annotated[
         bool,
         Doc(
@@ -2580,8 +2110,7 @@ def put(
         ),
     ] = generate_unique_id,
 ) -> Callable[[Callable[..., Any]], Callable[..., Any]]:
-    """
-    Add a *path operation* using an HTTP PUT operation.
+    """Add a *path operation* using an HTTP PUT operation.
 
     Returns:
         A decorator function that registers the decorated function as a PUT endpoint.
@@ -2595,11 +2124,12 @@ def put(
                 result = await result
             if isinstance(result, Response):
                 return result
+            # Force HTML for non-Response results
             return response_class(result)
 
-        decorated = super(Air, self).put(
+        decorated = self._app.put(
             path,
-            response_model=response_model,
+            response_model=None,
             status_code=status_code,
             tags=tags,
             dependencies=dependencies,
@@ -2609,12 +2139,12 @@ def put(
             responses=responses,
             deprecated=deprecated,
             operation_id=operation_id,
-            response_model_include=response_model_include,
-            response_model_exclude=response_model_exclude,
-            response_model_by_alias=response_model_by_alias,
-            response_model_exclude_unset=response_model_exclude_unset,
-            response_model_exclude_defaults=response_model_exclude_defaults,
-            response_model_exclude_none=response_model_exclude_none,
+            response_model_include=None,
+            response_model_exclude=None,
+            response_model_by_alias=True,
+            response_model_exclude_unset=False,
+            response_model_exclude_defaults=False,
+            response_model_exclude_none=False,
             include_in_schema=include_in_schema,
             response_class=response_class,
             name=name,
@@ -2627,4 +2157,30 @@ def put(
         return decorated
 
     return decorator
+```
+
+### url_path_for
+
+```
+url_path_for(name, /, **path_params)
+```
+
+Generate a URL path for a named route.
+
+Returns:
+
+| Type  | Description                    |
+| ----- | ------------------------------ |
+| `str` | The generated URL path string. |
+
+Source code in `src/air/applications.py`
+
+```
+def url_path_for(self, name: str, /, **path_params: Any) -> str:
+    """Generate a URL path for a named route.
+
+    Returns:
+        The generated URL path string.
+    """
+    return str(self._app.url_path_for(name, **path_params))
 ```

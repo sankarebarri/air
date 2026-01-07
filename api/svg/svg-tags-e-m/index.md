@@ -13,9 +13,9 @@ Ellipse(
     ry=None,
     pathLength=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -25,18 +25,18 @@ Defines an ellipse
 
 Parameters:
 
-| Name         | Type            | Description                               | Default                                 |
-| ------------ | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children`   | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `cx`         | \`str           | float                                     | None\`                                  |
-| `cy`         | \`str           | float                                     | None\`                                  |
-| `rx`         | \`str           | float                                     | None\`                                  |
-| `ry`         | \`str           | float                                     | None\`                                  |
-| `pathLength` | \`float         | None\`                                    | Total path length in user units.        |
-| `class_`     | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`         | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`      | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs`   | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `cx`                  | \`str           | float                                     | None\`                                  |
+| `cy`                  | \`str           | float                                     | None\`                                  |
+| `rx`                  | \`str           | float                                     | None\`                                  |
+| `ry`                  | \`str           | float                                     | None\`                                  |
+| `pathLength`          | \`float         | None\`                                    | Total path length in user units.        |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -50,11 +50,11 @@ def __init__(
     ry: str | float | None = None,
     pathLength: float | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## FeBlend
@@ -67,9 +67,9 @@ FeBlend(
     mode=None,
     result=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -79,17 +79,17 @@ Defines image blending
 
 Parameters:
 
-| Name       | Type            | Description                               | Default                                 |
-| ---------- | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children` | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `in_`      | \`str           | None\`                                    | Input image reference.                  |
-| `in2`      | \`str           | None\`                                    | Second input image reference.           |
-| `mode`     | \`str           | None\`                                    | Blending mode.                          |
-| `result`   | \`str           | None\`                                    | Result identifier.                      |
-| `class_`   | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`       | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`    | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs` | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `in_`                 | \`str           | None\`                                    | Input image reference.                  |
+| `in2`                 | \`str           | None\`                                    | Second input image reference.           |
+| `mode`                | \`str           | None\`                                    | Blending mode.                          |
+| `result`              | \`str           | None\`                                    | Result identifier.                      |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -102,11 +102,11 @@ def __init__(
     mode: str | None = None,
     result: str | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## FeColorMatrix
@@ -115,13 +115,13 @@ def __init__(
 FeColorMatrix(
     *children,
     in_=None,
-    type=None,
+    type_=None,
     values=None,
     result=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -131,17 +131,17 @@ Applies a matrix transformation on color values
 
 Parameters:
 
-| Name       | Type            | Description                               | Default                                 |
-| ---------- | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children` | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `in_`      | \`str           | None\`                                    | Input image reference.                  |
-| `type`     | \`str           | None\`                                    | Matrix type (matrix                     |
-| `values`   | \`str           | None\`                                    | Matrix values.                          |
-| `result`   | \`str           | None\`                                    | Result identifier.                      |
-| `class_`   | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`       | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`    | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs` | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `in_`                 | \`str           | None\`                                    | Input image reference.                  |
+| `type_`               | \`str           | None\`                                    | Matrix type (matrix                     |
+| `values`              | \`str           | None\`                                    | Matrix values.                          |
+| `result`              | \`str           | None\`                                    | Result identifier.                      |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -150,15 +150,15 @@ def __init__(
     self,
     *children: Renderable,
     in_: str | None = None,
-    type: str | None = None,
+    type_: str | None = None,
     values: str | None = None,
     result: str | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## FeComponentTransfer
@@ -169,9 +169,9 @@ FeComponentTransfer(
     in_=None,
     result=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -181,15 +181,15 @@ Performs component-wise remapping of data
 
 Parameters:
 
-| Name       | Type            | Description                               | Default                                 |
-| ---------- | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children` | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `in_`      | \`str           | None\`                                    | Input image reference.                  |
-| `result`   | \`str           | None\`                                    | Result identifier.                      |
-| `class_`   | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`       | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`    | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs` | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `in_`                 | \`str           | None\`                                    | Input image reference.                  |
+| `result`              | \`str           | None\`                                    | Result identifier.                      |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -200,11 +200,11 @@ def __init__(
     in_: str | None = None,
     result: str | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## FeComposite
@@ -221,9 +221,9 @@ FeComposite(
     k4=None,
     result=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -233,21 +233,21 @@ Performs image compositing
 
 Parameters:
 
-| Name       | Type            | Description                               | Default                                 |
-| ---------- | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children` | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `in_`      | \`str           | None\`                                    | Input image reference.                  |
-| `in2`      | \`str           | None\`                                    | Second input image reference.           |
-| `operator` | \`str           | None\`                                    | Compositing operation.                  |
-| `k1`       | \`float         | None\`                                    | Coefficient for arithmetic operation.   |
-| `k2`       | \`float         | None\`                                    | Coefficient for arithmetic operation.   |
-| `k3`       | \`float         | None\`                                    | Coefficient for arithmetic operation.   |
-| `k4`       | \`float         | None\`                                    | Coefficient for arithmetic operation.   |
-| `result`   | \`str           | None\`                                    | Result identifier.                      |
-| `class_`   | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`       | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`    | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs` | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `in_`                 | \`str           | None\`                                    | Input image reference.                  |
+| `in2`                 | \`str           | None\`                                    | Second input image reference.           |
+| `operator`            | \`str           | None\`                                    | Compositing operation.                  |
+| `k1`                  | \`float         | None\`                                    | Coefficient for arithmetic operation.   |
+| `k2`                  | \`float         | None\`                                    | Coefficient for arithmetic operation.   |
+| `k3`                  | \`float         | None\`                                    | Coefficient for arithmetic operation.   |
+| `k4`                  | \`float         | None\`                                    | Coefficient for arithmetic operation.   |
+| `result`              | \`str           | None\`                                    | Result identifier.                      |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -264,11 +264,11 @@ def __init__(
     k4: float | None = None,
     result: str | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## FeConvolveMatrix
@@ -287,9 +287,9 @@ FeConvolveMatrix(
     preserveAlpha=None,
     result=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -299,23 +299,23 @@ Applies a matrix convolution filter
 
 Parameters:
 
-| Name            | Type            | Description                               | Default                                 |
-| --------------- | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children`      | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `in_`           | \`str           | None\`                                    | Input image reference.                  |
-| `order`         | \`str           | None\`                                    | Matrix dimensions.                      |
-| `kernelMatrix`  | \`str           | None\`                                    | Matrix values.                          |
-| `divisor`       | \`float         | None\`                                    | Divisor for matrix sum.                 |
-| `bias`          | \`float         | None\`                                    | Bias value.                             |
-| `targetX`       | \`int           | None\`                                    | Target X position.                      |
-| `targetY`       | \`int           | None\`                                    | Target Y position.                      |
-| `edgeMode`      | \`str           | None\`                                    | Edge handling mode.                     |
-| `preserveAlpha` | \`str           | None\`                                    | Preserve alpha channel.                 |
-| `result`        | \`str           | None\`                                    | Result identifier.                      |
-| `class_`        | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`            | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`         | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs`      | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `in_`                 | \`str           | None\`                                    | Input image reference.                  |
+| `order`               | \`str           | None\`                                    | Matrix dimensions.                      |
+| `kernelMatrix`        | \`str           | None\`                                    | Matrix values.                          |
+| `divisor`             | \`float         | None\`                                    | Divisor for matrix sum.                 |
+| `bias`                | \`float         | None\`                                    | Bias value.                             |
+| `targetX`             | \`int           | None\`                                    | Target X position.                      |
+| `targetY`             | \`int           | None\`                                    | Target Y position.                      |
+| `edgeMode`            | \`str           | None\`                                    | Edge handling mode.                     |
+| `preserveAlpha`       | \`str           | None\`                                    | Preserve alpha channel.                 |
+| `result`              | \`str           | None\`                                    | Result identifier.                      |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -334,11 +334,11 @@ def __init__(
     preserveAlpha: str | None = None,
     result: str | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## FeDiffuseLighting
@@ -352,9 +352,9 @@ FeDiffuseLighting(
     kernelUnitLength=None,
     result=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -364,18 +364,18 @@ Lights an image using diffuse lighting
 
 Parameters:
 
-| Name               | Type            | Description                               | Default                                 |
-| ------------------ | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children`         | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `in_`              | \`str           | None\`                                    | Input image reference.                  |
-| `surfaceScale`     | \`float         | None\`                                    | Surface height scale.                   |
-| `diffuseConstant`  | \`float         | None\`                                    | Diffuse lighting constant.              |
-| `kernelUnitLength` | \`str           | None\`                                    | Kernel unit length.                     |
-| `result`           | \`str           | None\`                                    | Result identifier.                      |
-| `class_`           | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`               | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`            | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs`         | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `in_`                 | \`str           | None\`                                    | Input image reference.                  |
+| `surfaceScale`        | \`float         | None\`                                    | Surface height scale.                   |
+| `diffuseConstant`     | \`float         | None\`                                    | Diffuse lighting constant.              |
+| `kernelUnitLength`    | \`str           | None\`                                    | Kernel unit length.                     |
+| `result`              | \`str           | None\`                                    | Result identifier.                      |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -389,11 +389,11 @@ def __init__(
     kernelUnitLength: str | None = None,
     result: str | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## FeDisplacementMap
@@ -408,9 +408,9 @@ FeDisplacementMap(
     yChannelSelector=None,
     result=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -420,19 +420,19 @@ Displaces an image using another image
 
 Parameters:
 
-| Name               | Type            | Description                               | Default                                 |
-| ------------------ | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children`         | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `in_`              | \`str           | None\`                                    | Input image reference.                  |
-| `in2`              | \`str           | None\`                                    | Displacement map reference.             |
-| `scale`            | \`float         | None\`                                    | Displacement scale factor.              |
-| `xChannelSelector` | \`str           | None\`                                    | X displacement channel (R               |
-| `yChannelSelector` | \`str           | None\`                                    | Y displacement channel (R               |
-| `result`           | \`str           | None\`                                    | Result identifier.                      |
-| `class_`           | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`               | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`            | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs`         | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `in_`                 | \`str           | None\`                                    | Input image reference.                  |
+| `in2`                 | \`str           | None\`                                    | Displacement map reference.             |
+| `scale`               | \`float         | None\`                                    | Displacement scale factor.              |
+| `xChannelSelector`    | \`str           | None\`                                    | X displacement channel (R               |
+| `yChannelSelector`    | \`str           | None\`                                    | Y displacement channel (R               |
+| `result`              | \`str           | None\`                                    | Result identifier.                      |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -447,11 +447,11 @@ def __init__(
     yChannelSelector: str | None = None,
     result: str | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## FeDistantLight
@@ -462,9 +462,9 @@ FeDistantLight(
     azimuth=None,
     elevation=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -474,15 +474,15 @@ Defines a distant light source
 
 Parameters:
 
-| Name        | Type            | Description                               | Default                                 |
-| ----------- | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children`  | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `azimuth`   | \`str           | float                                     | None\`                                  |
-| `elevation` | \`str           | float                                     | None\`                                  |
-| `class_`    | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`        | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`     | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs`  | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `azimuth`             | \`str           | float                                     | None\`                                  |
+| `elevation`           | \`str           | float                                     | None\`                                  |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -493,11 +493,11 @@ def __init__(
     azimuth: str | float | None = None,
     elevation: str | float | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## FeDropShadow
@@ -511,9 +511,9 @@ FeDropShadow(
     flood_color=None,
     flood_opacity=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -523,18 +523,18 @@ Creates a drop shadow effect
 
 Parameters:
 
-| Name            | Type            | Description                               | Default                                 |
-| --------------- | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children`      | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `dx`            | \`str           | float                                     | None\`                                  |
-| `dy`            | \`str           | float                                     | None\`                                  |
-| `stdDeviation`  | \`str           | float                                     | None\`                                  |
-| `flood_color`   | \`str           | None\`                                    | Shadow color.                           |
-| `flood_opacity` | \`str           | float                                     | None\`                                  |
-| `class_`        | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`            | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`         | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs`      | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `dx`                  | \`str           | float                                     | None\`                                  |
+| `dy`                  | \`str           | float                                     | None\`                                  |
+| `stdDeviation`        | \`str           | float                                     | None\`                                  |
+| `flood_color`         | \`str           | None\`                                    | Shadow color.                           |
+| `flood_opacity`       | \`str           | float                                     | None\`                                  |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -548,11 +548,11 @@ def __init__(
     flood_color: str | None = None,
     flood_opacity: str | float | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## FeFlood
@@ -564,9 +564,9 @@ FeFlood(
     flood_opacity=None,
     result=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -576,16 +576,16 @@ Fills the filter region with a color
 
 Parameters:
 
-| Name            | Type            | Description                               | Default                                 |
-| --------------- | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children`      | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `flood_color`   | \`str           | None\`                                    | Fill color.                             |
-| `flood_opacity` | \`str           | float                                     | None\`                                  |
-| `result`        | \`str           | None\`                                    | Result identifier.                      |
-| `class_`        | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`            | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`         | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs`      | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `flood_color`         | \`str           | None\`                                    | Fill color.                             |
+| `flood_opacity`       | \`str           | float                                     | None\`                                  |
+| `result`              | \`str           | None\`                                    | Result identifier.                      |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -597,11 +597,11 @@ def __init__(
     flood_opacity: str | float | None = None,
     result: str | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## FeFuncA
@@ -609,7 +609,7 @@ def __init__(
 ```
 FeFuncA(
     *children,
-    type=None,
+    type_=None,
     tableValues=None,
     slope=None,
     intercept=None,
@@ -617,9 +617,9 @@ FeFuncA(
     exponent=None,
     offset=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -629,20 +629,20 @@ Defines the alpha transfer function
 
 Parameters:
 
-| Name          | Type            | Description                               | Default                                 |
-| ------------- | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children`    | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `type`        | \`str           | None\`                                    | Transfer function type.                 |
-| `tableValues` | \`str           | None\`                                    | Lookup table values.                    |
-| `slope`       | \`float         | None\`                                    | Linear function slope.                  |
-| `intercept`   | \`float         | None\`                                    | Linear function intercept.              |
-| `amplitude`   | \`float         | None\`                                    | Gamma function amplitude.               |
-| `exponent`    | \`float         | None\`                                    | Gamma function exponent.                |
-| `offset`      | \`float         | None\`                                    | Gamma function offset.                  |
-| `class_`      | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`          | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`       | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs`    | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `type_`               | \`str           | None\`                                    | Transfer function type.                 |
+| `tableValues`         | \`str           | None\`                                    | Lookup table values.                    |
+| `slope`               | \`float         | None\`                                    | Linear function slope.                  |
+| `intercept`           | \`float         | None\`                                    | Linear function intercept.              |
+| `amplitude`           | \`float         | None\`                                    | Gamma function amplitude.               |
+| `exponent`            | \`float         | None\`                                    | Gamma function exponent.                |
+| `offset`              | \`float         | None\`                                    | Gamma function offset.                  |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -650,7 +650,7 @@ Source code in `src/air/tags/models/svg.py`
 def __init__(
     self,
     *children: Renderable,
-    type: str | None = None,
+    type_: str | None = None,
     tableValues: str | None = None,
     slope: float | None = None,
     intercept: float | None = None,
@@ -658,11 +658,11 @@ def __init__(
     exponent: float | None = None,
     offset: float | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## FeFuncB
@@ -670,7 +670,7 @@ def __init__(
 ```
 FeFuncB(
     *children,
-    type=None,
+    type_=None,
     tableValues=None,
     slope=None,
     intercept=None,
@@ -678,9 +678,9 @@ FeFuncB(
     exponent=None,
     offset=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -690,20 +690,20 @@ Defines the blue transfer function
 
 Parameters:
 
-| Name          | Type            | Description                               | Default                                 |
-| ------------- | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children`    | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `type`        | \`str           | None\`                                    | Transfer function type.                 |
-| `tableValues` | \`str           | None\`                                    | Lookup table values.                    |
-| `slope`       | \`float         | None\`                                    | Linear function slope.                  |
-| `intercept`   | \`float         | None\`                                    | Linear function intercept.              |
-| `amplitude`   | \`float         | None\`                                    | Gamma function amplitude.               |
-| `exponent`    | \`float         | None\`                                    | Gamma function exponent.                |
-| `offset`      | \`float         | None\`                                    | Gamma function offset.                  |
-| `class_`      | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`          | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`       | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs`    | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `type_`               | \`str           | None\`                                    | Transfer function type.                 |
+| `tableValues`         | \`str           | None\`                                    | Lookup table values.                    |
+| `slope`               | \`float         | None\`                                    | Linear function slope.                  |
+| `intercept`           | \`float         | None\`                                    | Linear function intercept.              |
+| `amplitude`           | \`float         | None\`                                    | Gamma function amplitude.               |
+| `exponent`            | \`float         | None\`                                    | Gamma function exponent.                |
+| `offset`              | \`float         | None\`                                    | Gamma function offset.                  |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -711,7 +711,7 @@ Source code in `src/air/tags/models/svg.py`
 def __init__(
     self,
     *children: Renderable,
-    type: str | None = None,
+    type_: str | None = None,
     tableValues: str | None = None,
     slope: float | None = None,
     intercept: float | None = None,
@@ -719,11 +719,11 @@ def __init__(
     exponent: float | None = None,
     offset: float | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## FeFuncG
@@ -731,7 +731,7 @@ def __init__(
 ```
 FeFuncG(
     *children,
-    type=None,
+    type_=None,
     tableValues=None,
     slope=None,
     intercept=None,
@@ -739,9 +739,9 @@ FeFuncG(
     exponent=None,
     offset=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -751,20 +751,20 @@ Defines the green transfer function
 
 Parameters:
 
-| Name          | Type            | Description                               | Default                                 |
-| ------------- | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children`    | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `type`        | \`str           | None\`                                    | Transfer function type.                 |
-| `tableValues` | \`str           | None\`                                    | Lookup table values.                    |
-| `slope`       | \`float         | None\`                                    | Linear function slope.                  |
-| `intercept`   | \`float         | None\`                                    | Linear function intercept.              |
-| `amplitude`   | \`float         | None\`                                    | Gamma function amplitude.               |
-| `exponent`    | \`float         | None\`                                    | Gamma function exponent.                |
-| `offset`      | \`float         | None\`                                    | Gamma function offset.                  |
-| `class_`      | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`          | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`       | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs`    | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `type_`               | \`str           | None\`                                    | Transfer function type.                 |
+| `tableValues`         | \`str           | None\`                                    | Lookup table values.                    |
+| `slope`               | \`float         | None\`                                    | Linear function slope.                  |
+| `intercept`           | \`float         | None\`                                    | Linear function intercept.              |
+| `amplitude`           | \`float         | None\`                                    | Gamma function amplitude.               |
+| `exponent`            | \`float         | None\`                                    | Gamma function exponent.                |
+| `offset`              | \`float         | None\`                                    | Gamma function offset.                  |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -772,7 +772,7 @@ Source code in `src/air/tags/models/svg.py`
 def __init__(
     self,
     *children: Renderable,
-    type: str | None = None,
+    type_: str | None = None,
     tableValues: str | None = None,
     slope: float | None = None,
     intercept: float | None = None,
@@ -780,11 +780,11 @@ def __init__(
     exponent: float | None = None,
     offset: float | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## FeFuncR
@@ -792,7 +792,7 @@ def __init__(
 ```
 FeFuncR(
     *children,
-    type=None,
+    type_=None,
     tableValues=None,
     slope=None,
     intercept=None,
@@ -800,9 +800,9 @@ FeFuncR(
     exponent=None,
     offset=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -812,20 +812,20 @@ Defines the red transfer function
 
 Parameters:
 
-| Name          | Type            | Description                               | Default                                 |
-| ------------- | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children`    | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `type`        | \`str           | None\`                                    | Transfer function type.                 |
-| `tableValues` | \`str           | None\`                                    | Lookup table values.                    |
-| `slope`       | \`float         | None\`                                    | Linear function slope.                  |
-| `intercept`   | \`float         | None\`                                    | Linear function intercept.              |
-| `amplitude`   | \`float         | None\`                                    | Gamma function amplitude.               |
-| `exponent`    | \`float         | None\`                                    | Gamma function exponent.                |
-| `offset`      | \`float         | None\`                                    | Gamma function offset.                  |
-| `class_`      | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`          | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`       | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs`    | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `type_`               | \`str           | None\`                                    | Transfer function type.                 |
+| `tableValues`         | \`str           | None\`                                    | Lookup table values.                    |
+| `slope`               | \`float         | None\`                                    | Linear function slope.                  |
+| `intercept`           | \`float         | None\`                                    | Linear function intercept.              |
+| `amplitude`           | \`float         | None\`                                    | Gamma function amplitude.               |
+| `exponent`            | \`float         | None\`                                    | Gamma function exponent.                |
+| `offset`              | \`float         | None\`                                    | Gamma function offset.                  |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -833,7 +833,7 @@ Source code in `src/air/tags/models/svg.py`
 def __init__(
     self,
     *children: Renderable,
-    type: str | None = None,
+    type_: str | None = None,
     tableValues: str | None = None,
     slope: float | None = None,
     intercept: float | None = None,
@@ -841,11 +841,11 @@ def __init__(
     exponent: float | None = None,
     offset: float | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## FeGaussianBlur
@@ -858,9 +858,9 @@ FeGaussianBlur(
     edgeMode=None,
     result=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -870,17 +870,17 @@ Applies Gaussian blur to an image
 
 Parameters:
 
-| Name           | Type            | Description                               | Default                                 |
-| -------------- | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children`     | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `in_`          | \`str           | None\`                                    | Input image reference.                  |
-| `stdDeviation` | \`str           | float                                     | None\`                                  |
-| `edgeMode`     | \`str           | None\`                                    | Edge handling during blur.              |
-| `result`       | \`str           | None\`                                    | Result identifier.                      |
-| `class_`       | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`           | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`        | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs`     | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `in_`                 | \`str           | None\`                                    | Input image reference.                  |
+| `stdDeviation`        | \`str           | float                                     | None\`                                  |
+| `edgeMode`            | \`str           | None\`                                    | Edge handling during blur.              |
+| `result`              | \`str           | None\`                                    | Result identifier.                      |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -893,11 +893,11 @@ def __init__(
     edgeMode: str | None = None,
     result: str | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## FeImage
@@ -910,9 +910,9 @@ FeImage(
     crossorigin=None,
     result=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -930,9 +930,9 @@ Parameters:
 | `crossorigin`         | \`str           | None\`                                    | CORS credentials flag.                  |
 | `result`              | \`str           | None\`                                    | Result identifier.                      |
 | `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`                  | \`str           | None\`                                    | DOM ID attribute.                       |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
 | `style`               | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs`            | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -945,11 +945,11 @@ def __init__(
     crossorigin: str | None = None,
     result: str | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## FeMerge
@@ -959,9 +959,9 @@ FeMerge(
     *children,
     result=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -971,14 +971,14 @@ Merges multiple filter nodes
 
 Parameters:
 
-| Name       | Type            | Description                               | Default                                 |
-| ---------- | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children` | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `result`   | \`str           | None\`                                    | Result identifier.                      |
-| `class_`   | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`       | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`    | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs` | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `result`              | \`str           | None\`                                    | Result identifier.                      |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -988,11 +988,11 @@ def __init__(
     *children: Renderable,
     result: str | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## FeMergeNode
@@ -1002,9 +1002,9 @@ FeMergeNode(
     *children,
     in_=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -1014,14 +1014,14 @@ Defines a node for feMerge
 
 Parameters:
 
-| Name       | Type            | Description                               | Default                                 |
-| ---------- | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children` | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `in_`      | \`str           | None\`                                    | Input image reference.                  |
-| `class_`   | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`       | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`    | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs` | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `in_`                 | \`str           | None\`                                    | Input image reference.                  |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -1031,11 +1031,11 @@ def __init__(
     *children: Renderable,
     in_: str | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## FeMorphology
@@ -1048,9 +1048,9 @@ FeMorphology(
     radius=None,
     result=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -1060,17 +1060,17 @@ Applies morphological operations
 
 Parameters:
 
-| Name       | Type            | Description                               | Default                                 |
-| ---------- | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children` | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `in_`      | \`str           | None\`                                    | Input image reference.                  |
-| `operator` | \`str           | None\`                                    | Morphology operator (erode              |
-| `radius`   | \`str           | float                                     | None\`                                  |
-| `result`   | \`str           | None\`                                    | Result identifier.                      |
-| `class_`   | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`       | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`    | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs` | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `in_`                 | \`str           | None\`                                    | Input image reference.                  |
+| `operator`            | \`str           | None\`                                    | Morphology operator (erode              |
+| `radius`              | \`str           | float                                     | None\`                                  |
+| `result`              | \`str           | None\`                                    | Result identifier.                      |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -1083,11 +1083,11 @@ def __init__(
     radius: str | float | None = None,
     result: str | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## FeOffset
@@ -1100,9 +1100,9 @@ FeOffset(
     dy=None,
     result=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -1112,17 +1112,17 @@ Offsets an image
 
 Parameters:
 
-| Name       | Type            | Description                               | Default                                 |
-| ---------- | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children` | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `in_`      | \`str           | None\`                                    | Input graphic reference.                |
-| `dx`       | \`str           | float                                     | None\`                                  |
-| `dy`       | \`str           | float                                     | None\`                                  |
-| `result`   | \`str           | None\`                                    | Result identifier.                      |
-| `class_`   | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`       | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`    | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs` | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `in_`                 | \`str           | None\`                                    | Input graphic reference.                |
+| `dx`                  | \`str           | float                                     | None\`                                  |
+| `dy`                  | \`str           | float                                     | None\`                                  |
+| `result`              | \`str           | None\`                                    | Result identifier.                      |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -1135,11 +1135,11 @@ def __init__(
     dy: str | float | None = None,
     result: str | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## FePointLight
@@ -1151,9 +1151,9 @@ FePointLight(
     y=None,
     z=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -1163,16 +1163,16 @@ Defines a point light source
 
 Parameters:
 
-| Name       | Type            | Description                               | Default                                 |
-| ---------- | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children` | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `x`        | \`str           | float                                     | None\`                                  |
-| `y`        | \`str           | float                                     | None\`                                  |
-| `z`        | \`str           | float                                     | None\`                                  |
-| `class_`   | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`       | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`    | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs` | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `x`                   | \`str           | float                                     | None\`                                  |
+| `y`                   | \`str           | float                                     | None\`                                  |
+| `z`                   | \`str           | float                                     | None\`                                  |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -1184,11 +1184,11 @@ def __init__(
     y: str | float | None = None,
     z: str | float | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## FeSpecularLighting
@@ -1203,9 +1203,9 @@ FeSpecularLighting(
     kernelUnitLength=None,
     result=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -1215,19 +1215,19 @@ Lights an image using specular lighting
 
 Parameters:
 
-| Name               | Type            | Description                               | Default                                 |
-| ------------------ | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children`         | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `in_`              | \`str           | None\`                                    | Input image reference.                  |
-| `surfaceScale`     | \`float         | None\`                                    | Surface height scale.                   |
-| `specularConstant` | \`float         | None\`                                    | Specular lighting constant.             |
-| `specularExponent` | \`float         | None\`                                    | Specular lighting exponent.             |
-| `kernelUnitLength` | \`str           | None\`                                    | Kernel unit length.                     |
-| `result`           | \`str           | None\`                                    | Result identifier.                      |
-| `class_`           | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`               | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`            | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs`         | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `in_`                 | \`str           | None\`                                    | Input image reference.                  |
+| `surfaceScale`        | \`float         | None\`                                    | Surface height scale.                   |
+| `specularConstant`    | \`float         | None\`                                    | Specular lighting constant.             |
+| `specularExponent`    | \`float         | None\`                                    | Specular lighting exponent.             |
+| `kernelUnitLength`    | \`str           | None\`                                    | Kernel unit length.                     |
+| `result`              | \`str           | None\`                                    | Result identifier.                      |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -1242,11 +1242,11 @@ def __init__(
     kernelUnitLength: str | None = None,
     result: str | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## FeSpotLight
@@ -1263,9 +1263,9 @@ FeSpotLight(
     specularExponent=None,
     limitingConeAngle=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -1275,21 +1275,21 @@ Defines a spot light source
 
 Parameters:
 
-| Name                | Type            | Description                               | Default                                 |
-| ------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children`          | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `x`                 | \`str           | float                                     | None\`                                  |
-| `y`                 | \`str           | float                                     | None\`                                  |
-| `z`                 | \`str           | float                                     | None\`                                  |
-| `pointsAtX`         | \`str           | float                                     | None\`                                  |
-| `pointsAtY`         | \`str           | float                                     | None\`                                  |
-| `pointsAtZ`         | \`str           | float                                     | None\`                                  |
-| `specularExponent`  | \`float         | None\`                                    | Focus control for light source.         |
-| `limitingConeAngle` | \`float         | None\`                                    | Angle of spot light cone.               |
-| `class_`            | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`                | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`             | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs`          | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `x`                   | \`str           | float                                     | None\`                                  |
+| `y`                   | \`str           | float                                     | None\`                                  |
+| `z`                   | \`str           | float                                     | None\`                                  |
+| `pointsAtX`           | \`str           | float                                     | None\`                                  |
+| `pointsAtY`           | \`str           | float                                     | None\`                                  |
+| `pointsAtZ`           | \`str           | float                                     | None\`                                  |
+| `specularExponent`    | \`float         | None\`                                    | Focus control for light source.         |
+| `limitingConeAngle`   | \`float         | None\`                                    | Angle of spot light cone.               |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -1306,11 +1306,11 @@ def __init__(
     specularExponent: float | None = None,
     limitingConeAngle: float | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## FeTile
@@ -1321,9 +1321,9 @@ FeTile(
     in_=None,
     result=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -1333,15 +1333,15 @@ Tiles an image to fill a rectangle
 
 Parameters:
 
-| Name       | Type            | Description                               | Default                                 |
-| ---------- | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children` | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `in_`      | \`str           | None\`                                    | Input image reference.                  |
-| `result`   | \`str           | None\`                                    | Result identifier.                      |
-| `class_`   | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`       | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`    | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs` | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `in_`                 | \`str           | None\`                                    | Input image reference.                  |
+| `result`              | \`str           | None\`                                    | Result identifier.                      |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -1352,11 +1352,11 @@ def __init__(
     in_: str | None = None,
     result: str | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## FeTurbulence
@@ -1368,12 +1368,12 @@ FeTurbulence(
     numOctaves=None,
     seed=None,
     stitchTiles=None,
-    type=None,
+    type_=None,
     result=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -1383,19 +1383,19 @@ Creates turbulence noise
 
 Parameters:
 
-| Name            | Type            | Description                               | Default                                 |
-| --------------- | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children`      | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `baseFrequency` | \`str           | float                                     | None\`                                  |
-| `numOctaves`    | \`int           | None\`                                    | Number of noise octaves.                |
-| `seed`          | \`float         | None\`                                    | Random seed for turbulence.             |
-| `stitchTiles`   | \`str           | None\`                                    | Tile stitching mode (stitch             |
-| `type`          | \`str           | None\`                                    | Turbulence type (fractalNoise           |
-| `result`        | \`str           | None\`                                    | Result identifier.                      |
-| `class_`        | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`            | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`         | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs`      | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `baseFrequency`       | \`str           | float                                     | None\`                                  |
+| `numOctaves`          | \`int           | None\`                                    | Number of noise octaves.                |
+| `seed`                | \`float         | None\`                                    | Random seed for turbulence.             |
+| `stitchTiles`         | \`str           | None\`                                    | Tile stitching mode (stitch             |
+| `type_`               | \`str           | None\`                                    | Turbulence type (fractalNoise           |
+| `result`              | \`str           | None\`                                    | Result identifier.                      |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -1407,14 +1407,14 @@ def __init__(
     numOctaves: int | None = None,
     seed: float | None = None,
     stitchTiles: str | None = None,
-    type: str | None = None,
+    type_: str | None = None,
     result: str | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## Filter
@@ -1429,9 +1429,9 @@ Filter(
     filterUnits=None,
     primitiveUnits=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -1441,19 +1441,19 @@ Defines a filter effect
 
 Parameters:
 
-| Name             | Type            | Description                               | Default                                 |
-| ---------------- | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children`       | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `x`              | \`str           | float                                     | None\`                                  |
-| `y`              | \`str           | float                                     | None\`                                  |
-| `width`          | \`str           | float                                     | None\`                                  |
-| `height`         | \`str           | float                                     | None\`                                  |
-| `filterUnits`    | \`str           | None\`                                    | Coordinate system for position/size.    |
-| `primitiveUnits` | \`str           | None\`                                    | Coordinate system for primitives.       |
-| `class_`         | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`             | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`          | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs`       | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `x`                   | \`str           | float                                     | None\`                                  |
+| `y`                   | \`str           | float                                     | None\`                                  |
+| `width`               | \`str           | float                                     | None\`                                  |
+| `height`              | \`str           | float                                     | None\`                                  |
+| `filterUnits`         | \`str           | None\`                                    | Coordinate system for position/size.    |
+| `primitiveUnits`      | \`str           | None\`                                    | Coordinate system for primitives.       |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -1468,11 +1468,11 @@ def __init__(
     filterUnits: str | None = None,
     primitiveUnits: str | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## ForeignObject
@@ -1485,9 +1485,9 @@ ForeignObject(
     width=None,
     height=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -1497,17 +1497,17 @@ Allows inclusion of foreign XML
 
 Parameters:
 
-| Name       | Type            | Description                               | Default                                 |
-| ---------- | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children` | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `x`        | \`str           | float                                     | None\`                                  |
-| `y`        | \`str           | float                                     | None\`                                  |
-| `width`    | \`str           | float                                     | None\`                                  |
-| `height`   | \`str           | float                                     | None\`                                  |
-| `class_`   | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`       | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`    | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs` | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `x`                   | \`str           | float                                     | None\`                                  |
+| `y`                   | \`str           | float                                     | None\`                                  |
+| `width`               | \`str           | float                                     | None\`                                  |
+| `height`              | \`str           | float                                     | None\`                                  |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -1520,17 +1520,23 @@ def __init__(
     width: str | float | None = None,
     height: str | float | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## G
 
 ```
-G(*children, class_=None, id=None, style=None, **kwargs)
+G(
+    *children,
+    class_=None,
+    id_=None,
+    style=None,
+    **custom_attributes,
+)
 ```
 
 Bases: `CaseTag`
@@ -1539,13 +1545,13 @@ Groups SVG elements
 
 Parameters:
 
-| Name       | Type            | Description                               | Default                                 |
-| ---------- | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children` | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `class_`   | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`       | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`    | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs` | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -1554,11 +1560,11 @@ def __init__(
     self,
     *children: Renderable,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## Image
@@ -1576,9 +1582,9 @@ Image(
     decoding=None,
     fetchpriority=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -1601,9 +1607,9 @@ Parameters:
 | `decoding`            | \`str           | None\`                                    | Image decoding hint.                    |
 | `fetchpriority`       | \`str           | None\`                                    | Fetch priority hint (experimental).     |
 | `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`                  | \`str           | None\`                                    | DOM ID attribute.                       |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
 | `style`               | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs`            | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -1621,11 +1627,11 @@ def __init__(
     decoding: str | None = None,
     fetchpriority: str | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## Line
@@ -1639,9 +1645,9 @@ Line(
     y2=None,
     pathLength=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -1651,18 +1657,18 @@ Defines a line
 
 Parameters:
 
-| Name         | Type            | Description                               | Default                                 |
-| ------------ | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children`   | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `x1`         | \`str           | float                                     | None\`                                  |
-| `y1`         | \`str           | float                                     | None\`                                  |
-| `x2`         | \`str           | float                                     | None\`                                  |
-| `y2`         | \`str           | float                                     | None\`                                  |
-| `pathLength` | \`float         | None\`                                    | Total path length in user units.        |
-| `class_`     | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`         | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`      | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs`   | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `x1`                  | \`str           | float                                     | None\`                                  |
+| `y1`                  | \`str           | float                                     | None\`                                  |
+| `x2`                  | \`str           | float                                     | None\`                                  |
+| `y2`                  | \`str           | float                                     | None\`                                  |
+| `pathLength`          | \`float         | None\`                                    | Total path length in user units.        |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -1676,11 +1682,11 @@ def __init__(
     y2: str | float | None = None,
     pathLength: float | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## LinearGradient
@@ -1697,9 +1703,9 @@ LinearGradient(
     href=None,
     spreadMethod=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -1709,21 +1715,21 @@ Defines a linear gradient
 
 Parameters:
 
-| Name                | Type            | Description                               | Default                                 |
-| ------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children`          | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `x1`                | \`str           | float                                     | None\`                                  |
-| `y1`                | \`str           | float                                     | None\`                                  |
-| `x2`                | \`str           | float                                     | None\`                                  |
-| `y2`                | \`str           | float                                     | None\`                                  |
-| `gradientUnits`     | \`str           | None\`                                    | Coordinate system.                      |
-| `gradientTransform` | \`str           | None\`                                    | Additional transformation.              |
-| `href`              | \`str           | None\`                                    | Reference to template gradient.         |
-| `spreadMethod`      | \`str           | None\`                                    | Gradient behavior outside bounds.       |
-| `class_`            | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`                | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`             | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs`          | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `x1`                  | \`str           | float                                     | None\`                                  |
+| `y1`                  | \`str           | float                                     | None\`                                  |
+| `x2`                  | \`str           | float                                     | None\`                                  |
+| `y2`                  | \`str           | float                                     | None\`                                  |
+| `gradientUnits`       | \`str           | None\`                                    | Coordinate system.                      |
+| `gradientTransform`   | \`str           | None\`                                    | Additional transformation.              |
+| `href`                | \`str           | None\`                                    | Reference to template gradient.         |
+| `spreadMethod`        | \`str           | None\`                                    | Gradient behavior outside bounds.       |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -1740,11 +1746,11 @@ def __init__(
     href: str | None = None,
     spreadMethod: str | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## Marker
@@ -1761,9 +1767,9 @@ Marker(
     viewBox=None,
     preserveAspectRatio=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -1785,9 +1791,9 @@ Parameters:
 | `viewBox`             | \`str           | None\`                                    | Viewport bounds.                        |
 | `preserveAspectRatio` | \`str           | None\`                                    | Aspect ratio handling.                  |
 | `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`                  | \`str           | None\`                                    | DOM ID attribute.                       |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
 | `style`               | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs`            | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -1804,11 +1810,11 @@ def __init__(
     viewBox: str | None = None,
     preserveAspectRatio: str | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## Mask
@@ -1824,9 +1830,9 @@ Mask(
     maskContentUnits=None,
     mask_type=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -1836,20 +1842,20 @@ Defines a mask
 
 Parameters:
 
-| Name               | Type            | Description                               | Default                                 |
-| ------------------ | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children`         | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `x`                | \`str           | float                                     | None\`                                  |
-| `y`                | \`str           | float                                     | None\`                                  |
-| `width`            | \`str           | float                                     | None\`                                  |
-| `height`           | \`str           | float                                     | None\`                                  |
-| `maskUnits`        | \`str           | None\`                                    | Coordinate system for position/size.    |
-| `maskContentUnits` | \`str           | None\`                                    | Coordinate system for contents.         |
-| `mask_type`        | \`str           | None\`                                    | Mask mode (alpha                        |
-| `class_`           | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`               | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`            | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs`         | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `x`                   | \`str           | float                                     | None\`                                  |
+| `y`                   | \`str           | float                                     | None\`                                  |
+| `width`               | \`str           | float                                     | None\`                                  |
+| `height`              | \`str           | float                                     | None\`                                  |
+| `maskUnits`           | \`str           | None\`                                    | Coordinate system for position/size.    |
+| `maskContentUnits`    | \`str           | None\`                                    | Coordinate system for contents.         |
+| `mask_type`           | \`str           | None\`                                    | Mask mode (alpha                        |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -1865,18 +1871,22 @@ def __init__(
     maskContentUnits: str | None = None,
     mask_type: str | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## Metadata
 
 ```
 Metadata(
-    *children, class_=None, id=None, style=None, **kwargs
+    *children,
+    class_=None,
+    id_=None,
+    style=None,
+    **custom_attributes,
 )
 ```
 
@@ -1886,13 +1896,13 @@ Defines metadata
 
 Parameters:
 
-| Name       | Type            | Description                               | Default                                 |
-| ---------- | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children` | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `class_`   | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`       | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`    | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs` | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -1901,11 +1911,11 @@ def __init__(
     self,
     *children: Renderable,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## Mpath
@@ -1915,9 +1925,9 @@ Mpath(
     *children,
     href=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -1927,14 +1937,14 @@ Defines a motion path
 
 Parameters:
 
-| Name       | Type            | Description                               | Default                                 |
-| ---------- | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children` | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `href`     | \`str           | None\`                                    | Reference to path element.              |
-| `class_`   | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`       | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`    | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs` | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `href`                | \`str           | None\`                                    | Reference to path element.              |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -1944,9 +1954,9 @@ def __init__(
     *children: Renderable,
     href: str | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```

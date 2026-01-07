@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="http://feldroy.github.io/air/learn/cookbook/authentication/">
+        <link rel="canonical" href="https://docs.airwebframework.org/learn/cookbook/authentication/">
       
       
         <link rel="prev" href="../page-decorator/">
@@ -2470,8 +2470,14 @@
         <span class="c1"># login the user</span>
         <span class="n">action</span> <span class="o">=</span> <span class="n">air</span><span class="o">.</span><span class="n">Form</span><span class="p">(</span>
             <span class="n">air</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="s2">&quot;Name:&quot;</span><span class="p">,</span> <span class="n">for_</span><span class="o">=</span><span class="s2">&quot;username&quot;</span><span class="p">),</span>
-            <span class="n">air</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;username&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;username&quot;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">autofocus</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
-            <span class="n">air</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s2">&quot;Login&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span><span class="p">),</span>
+            <span class="n">air</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span>
+                <span class="n">type_</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="p">,</span>
+                <span class="n">name</span><span class="o">=</span><span class="s2">&quot;username&quot;</span><span class="p">,</span>
+                <span class="n">id_</span><span class="o">=</span><span class="s2">&quot;username&quot;</span><span class="p">,</span>
+                <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">autofocus</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="n">air</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s2">&quot;Login&quot;</span><span class="p">,</span> <span class="n">type_</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span><span class="p">),</span>
             <span class="n">action</span><span class="o">=</span><span class="s2">&quot;/login&quot;</span><span class="p">,</span>
             <span class="n">method</span><span class="o">=</span><span class="s2">&quot;post&quot;</span><span class="p">,</span>
         <span class="p">)</span>
@@ -2499,9 +2505,10 @@
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">air</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">fastapi</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTTPException</span>
 
+
 <span class="k">def</span><span class="w"> </span><span class="nf">require_login</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">air</span><span class="o">.</span><span class="n">Request</span><span class="p">):</span>
     <span class="c1"># Replace this with your actual login check</span>
-    <span class="n">user</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;user&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;session&quot;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>  
+    <span class="n">user</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;user&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;session&quot;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="n">user</span><span class="p">:</span>
         <span class="c1"># Redirect if not logged in</span>
@@ -2518,10 +2525,11 @@
 <span class="n">app</span> <span class="o">=</span> <span class="n">air</span><span class="o">.</span><span class="n">Air</span><span class="p">()</span>
 <span class="n">air</span><span class="o">.</span><span class="n">add_middleware</span><span class="p">(</span><span class="n">air</span><span class="o">.</span><span class="n">SessionMiddleware</span><span class="p">,</span> <span class="n">secret_key</span><span class="o">=</span><span class="s2">&quot;change-me&quot;</span><span class="p">)</span>
 
+
 <span class="c1"># --- Dependency ---</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">require_login</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">air</span><span class="o">.</span><span class="n">Request</span><span class="p">):</span>
     <span class="c1"># Replace this with your actual login check</span>
-    <span class="n">user</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;user&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;session&quot;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>  
+    <span class="n">user</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;user&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;session&quot;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="n">user</span><span class="p">:</span>
         <span class="c1"># Redirect if not logged in</span>
@@ -2531,12 +2539,13 @@
         <span class="p">)</span>
     <span class="k">return</span> <span class="n">user</span>
 
+
 <span class="c1"># --- Routes ---</span>
 <span class="nd">@app</span><span class="o">.</span><span class="n">page</span>
 <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">dashboard</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">air</span><span class="o">.</span><span class="n">Request</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="n">Depends</span><span class="p">(</span><span class="n">require_login</span><span class="p">)):</span>
     <span class="k">return</span> <span class="n">air</span><span class="o">.</span><span class="n">layouts</span><span class="o">.</span><span class="n">mvpcss</span><span class="p">(</span>
         <span class="n">air</span><span class="o">.</span><span class="n">H1</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dashboard for </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">][</span><span class="s1">&#39;username&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">),</span>
-        <span class="n">air</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="n">air</span><span class="o">.</span><span class="n">A</span><span class="p">(</span><span class="s1">&#39;Logout&#39;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;/logout&#39;</span><span class="p">))</span>
+        <span class="n">air</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="n">air</span><span class="o">.</span><span class="n">A</span><span class="p">(</span><span class="s2">&quot;Logout&quot;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;/logout&quot;</span><span class="p">)),</span>
     <span class="p">)</span>
 </code></pre></div>
 <p>Here's a more complete example that includes a login page, a protected dashboard page, and logout functionality using the <code>require_login</code> dependency:</p>
@@ -2546,10 +2555,11 @@
 <span class="n">app</span> <span class="o">=</span> <span class="n">air</span><span class="o">.</span><span class="n">Air</span><span class="p">()</span>
 <span class="n">app</span><span class="o">.</span><span class="n">add_middleware</span><span class="p">(</span><span class="n">air</span><span class="o">.</span><span class="n">SessionMiddleware</span><span class="p">,</span> <span class="n">secret_key</span><span class="o">=</span><span class="s2">&quot;change-me&quot;</span><span class="p">)</span>
 
+
 <span class="c1"># --- Dependency ---</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">require_login</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">air</span><span class="o">.</span><span class="n">Request</span><span class="p">):</span>
     <span class="c1"># Replace this with your actual login check</span>
-    <span class="n">user</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;user&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;session&quot;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>  
+    <span class="n">user</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;user&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s2">&quot;session&quot;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
 
     <span class="k">if</span> <span class="ow">not</span> <span class="n">user</span><span class="p">:</span>
         <span class="c1"># Redirect if not logged in</span>
@@ -2559,28 +2569,41 @@
         <span class="p">)</span>
     <span class="k">return</span> <span class="n">user</span>
 
+
 <span class="c1"># --- Routes ---</span>
 <span class="nd">@app</span><span class="o">.</span><span class="n">page</span>
 <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">air</span><span class="o">.</span><span class="n">Request</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">air</span><span class="o">.</span><span class="n">layouts</span><span class="o">.</span><span class="n">mvpcss</span><span class="p">(</span>
-        <span class="n">air</span><span class="o">.</span><span class="n">H1</span><span class="p">(</span><span class="s1">&#39;Landing page&#39;</span><span class="p">),</span>
-        <span class="n">air</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="n">air</span><span class="o">.</span><span class="n">A</span><span class="p">(</span><span class="s1">&#39;Dashboard&#39;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;/dashboard&#39;</span><span class="p">))</span>
-    <span class="p">)</span>    
+        <span class="n">air</span><span class="o">.</span><span class="n">H1</span><span class="p">(</span><span class="s2">&quot;Landing page&quot;</span><span class="p">),</span> <span class="n">air</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="n">air</span><span class="o">.</span><span class="n">A</span><span class="p">(</span><span class="s2">&quot;Dashboard&quot;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;/dashboard&quot;</span><span class="p">))</span>
+    <span class="p">)</span>
+
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">page</span>
 <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">login</span><span class="p">():</span>
     <span class="k">return</span> <span class="n">air</span><span class="o">.</span><span class="n">layouts</span><span class="o">.</span><span class="n">mvpcss</span><span class="p">(</span>
-        <span class="n">air</span><span class="o">.</span><span class="n">H1</span><span class="p">(</span><span class="s1">&#39;Login&#39;</span><span class="p">),</span>
+        <span class="n">air</span><span class="o">.</span><span class="n">H1</span><span class="p">(</span><span class="s2">&quot;Login&quot;</span><span class="p">),</span>
         <span class="c1"># login the user</span>
         <span class="n">air</span><span class="o">.</span><span class="n">Form</span><span class="p">(</span>
             <span class="n">air</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="s2">&quot;Name:&quot;</span><span class="p">,</span> <span class="n">for_</span><span class="o">=</span><span class="s2">&quot;username&quot;</span><span class="p">),</span>
-            <span class="n">air</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;username&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;username&quot;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">autofocus</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+            <span class="n">air</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span>
+                <span class="n">type_</span><span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="p">,</span>
+                <span class="n">name</span><span class="o">=</span><span class="s2">&quot;username&quot;</span><span class="p">,</span>
+                <span class="n">id_</span><span class="o">=</span><span class="s2">&quot;username&quot;</span><span class="p">,</span>
+                <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">autofocus</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="p">),</span>
             <span class="n">air</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="s2">&quot;Password:&quot;</span><span class="p">,</span> <span class="n">for_</span><span class="o">=</span><span class="s2">&quot;password&quot;</span><span class="p">),</span>
-            <span class="n">air</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;password&quot;</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;password&quot;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;password&quot;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">autofocus</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>            
-            <span class="n">air</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s2">&quot;Login&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span><span class="p">),</span>
+            <span class="n">air</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span>
+                <span class="n">type_</span><span class="o">=</span><span class="s2">&quot;password&quot;</span><span class="p">,</span>
+                <span class="n">name</span><span class="o">=</span><span class="s2">&quot;password&quot;</span><span class="p">,</span>
+                <span class="n">id_</span><span class="o">=</span><span class="s2">&quot;password&quot;</span><span class="p">,</span>
+                <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="n">autofocus</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="p">),</span>
+            <span class="n">air</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="s2">&quot;Login&quot;</span><span class="p">,</span> <span class="n">type_</span><span class="o">=</span><span class="s2">&quot;submit&quot;</span><span class="p">),</span>
             <span class="n">action</span><span class="o">=</span><span class="s2">&quot;/login&quot;</span><span class="p">,</span>
             <span class="n">method</span><span class="o">=</span><span class="s2">&quot;post&quot;</span><span class="p">,</span>
-        <span class="p">)</span>    
+        <span class="p">),</span>
     <span class="p">)</span>
 
 
@@ -2588,19 +2611,21 @@
 <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">dashboard</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">air</span><span class="o">.</span><span class="n">Request</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="n">Depends</span><span class="p">(</span><span class="n">require_login</span><span class="p">)):</span>
     <span class="k">return</span> <span class="n">air</span><span class="o">.</span><span class="n">layouts</span><span class="o">.</span><span class="n">mvpcss</span><span class="p">(</span>
         <span class="n">air</span><span class="o">.</span><span class="n">H1</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Dashboard for </span><span class="si">{</span><span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">][</span><span class="s1">&#39;username&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">),</span>
-        <span class="n">air</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="n">air</span><span class="o">.</span><span class="n">A</span><span class="p">(</span><span class="s1">&#39;Logout&#39;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;/logout&#39;</span><span class="p">))</span>
+        <span class="n">air</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="n">air</span><span class="o">.</span><span class="n">A</span><span class="p">(</span><span class="s2">&quot;Logout&quot;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s2">&quot;/logout&quot;</span><span class="p">)),</span>
     <span class="p">)</span>
 
-<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;/login&#39;</span><span class="p">)</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/login&quot;</span><span class="p">)</span>
 <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">login</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">air</span><span class="o">.</span><span class="n">Request</span><span class="p">):</span>
     <span class="n">form</span> <span class="o">=</span> <span class="k">await</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">()</span>
-    <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s1">&#39;user&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;username&#39;</span><span class="p">))</span>
-    <span class="k">return</span> <span class="n">air</span><span class="o">.</span><span class="n">RedirectResponse</span><span class="p">(</span><span class="s1">&#39;/dashboard&#39;</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">303</span><span class="p">)</span>
+    <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="p">[</span><span class="s2">&quot;user&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;username&quot;</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">air</span><span class="o">.</span><span class="n">RedirectResponse</span><span class="p">(</span><span class="s2">&quot;/dashboard&quot;</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">303</span><span class="p">)</span>
+
 
 <span class="nd">@app</span><span class="o">.</span><span class="n">page</span>
 <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">logout</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">air</span><span class="o">.</span><span class="n">Request</span><span class="p">):</span>
-    <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">air</span><span class="o">.</span><span class="n">RedirectResponse</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">303</span><span class="p">)</span>
+    <span class="n">request</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;user&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">air</span><span class="o">.</span><span class="n">RedirectResponse</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">,</span> <span class="n">status_code</span><span class="o">=</span><span class="mi">303</span><span class="p">)</span>
 </code></pre></div>
 
 

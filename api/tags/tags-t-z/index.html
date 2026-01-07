@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="http://feldroy.github.io/air/api/tags/tags-t-z/">
+        <link rel="canonical" href="https://docs.airwebframework.org/api/tags/tags-t-z/">
       
       
         <link rel="prev" href="../tags-n-s/">
@@ -2643,9 +2643,9 @@
     <span class="n">rowspan</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">headers</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 
@@ -2751,7 +2751,7 @@
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>id</code>
+                <code>id_</code>
             </td>
             <td>
                   <code><span title="str">str</span> | None</code>
@@ -2783,7 +2783,7 @@
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>kwargs</code>
+                <code>custom_attributes</code>
             </td>
             <td>
                   <code><span title="air.tags.models.types.AttributeType">AttributeType</span></code>
@@ -2827,11 +2827,11 @@
     <span class="n">rowspan</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">headers</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">custom_attributes</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
 </code></pre></div></td></tr></table></div>
                   </details>
 
@@ -2870,8 +2870,8 @@
     <span class="n">shadowrootclonable</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">shadowrootserializable</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="n">id_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 
@@ -2993,7 +2993,7 @@
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>id</code>
+                <code>id_</code>
             </td>
             <td>
                   <code><span title="str">str</span> | None</code>
@@ -3009,7 +3009,7 @@
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>kwargs</code>
+                <code>custom_attributes</code>
             </td>
             <td>
                   <code><span title="air.tags.models.types.AttributeType">AttributeType</span></code>
@@ -3054,10 +3054,10 @@
     <span class="n">shadowrootclonable</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">shadowrootserializable</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
+    <span class="n">id_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">custom_attributes</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
 </code></pre></div></td></tr></table></div>
                   </details>
 
@@ -3109,9 +3109,9 @@
     <span class="n">spellcheck</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">wrap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 
@@ -3441,7 +3441,7 @@
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>id</code>
+                <code>id_</code>
             </td>
             <td>
                   <code><span title="str">str</span> | None</code>
@@ -3473,7 +3473,7 @@
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>kwargs</code>
+                <code>custom_attributes</code>
             </td>
             <td>
                   <code><span title="air.tags.models.types.AttributeType">AttributeType</span></code>
@@ -3545,11 +3545,11 @@
     <span class="n">spellcheck</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">wrap</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">custom_attributes</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
 </code></pre></div></td></tr></table></div>
                   </details>
 
@@ -3589,9 +3589,9 @@
     <span class="n">rowspan</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">scope</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 
@@ -3729,7 +3729,7 @@
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>id</code>
+                <code>id_</code>
             </td>
             <td>
                   <code><span title="str">str</span> | None</code>
@@ -3761,7 +3761,7 @@
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>kwargs</code>
+                <code>custom_attributes</code>
             </td>
             <td>
                   <code><span title="air.tags.models.types.AttributeType">AttributeType</span></code>
@@ -3809,11 +3809,11 @@
     <span class="n">rowspan</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">scope</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">custom_attributes</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
 </code></pre></div></td></tr></table></div>
                   </details>
 
@@ -3849,9 +3849,9 @@
     <span class="o">*</span><span class="n">children</span><span class="p">,</span>
     <span class="n">datetime</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 
@@ -3925,7 +3925,7 @@
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>id</code>
+                <code>id_</code>
             </td>
             <td>
                   <code><span title="str">str</span> | None</code>
@@ -3957,7 +3957,7 @@
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>kwargs</code>
+                <code>custom_attributes</code>
             </td>
             <td>
                   <code><span title="air.tags.models.types.AttributeType">AttributeType</span></code>
@@ -3997,11 +3997,11 @@
     <span class="o">*</span><span class="n">children</span><span class="p">:</span> <span class="n">Renderable</span><span class="p">,</span>
     <span class="n">datetime</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">custom_attributes</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
 </code></pre></div></td></tr></table></div>
                   </details>
 
@@ -4041,9 +4041,9 @@
     <span class="n">srclang</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">src</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 
@@ -4165,7 +4165,7 @@
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>id</code>
+                <code>id_</code>
             </td>
             <td>
                   <code><span title="str">str</span> | None</code>
@@ -4197,7 +4197,7 @@
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>kwargs</code>
+                <code>custom_attributes</code>
             </td>
             <td>
                   <code><span title="air.tags.models.types.AttributeType">AttributeType</span></code>
@@ -4245,11 +4245,11 @@
     <span class="n">srclang</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">src</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">custom_attributes</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
 </code></pre></div></td></tr></table></div>
                   </details>
 
@@ -4284,11 +4284,11 @@
 <div class="doc-signature highlight"><pre><span></span><code><span class="nf">U</span><span class="p">(</span>
     <span class="o">*</span><span class="n">children</span><span class="p">,</span>
     <span class="n">compact</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="nb">type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">type_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 
@@ -4301,6 +4301,133 @@
         <p>Defines some text that is unarticulated and styled differently from normal text</p>
 
 
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>children</code>
+            </td>
+            <td>
+                  <code><span title="air.tags.models.types.Renderable">Renderable</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Tags, strings, or other rendered content.</p>
+              </div>
+            </td>
+            <td>
+                  <code>()</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>compact</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Specifies that the list should be rendered in a compact style.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>type_</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Specifies the kind of marker to use in the list.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>class_</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Substituted as the DOM <code>class</code> attribute.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>id_</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>DOM ID attribute.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>style</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Inline style attribute.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>custom_attributes</code>
+            </td>
+            <td>
+                  <code><span title="air.tags.models.types.AttributeType">AttributeType</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Keyword arguments transformed into tag attributes.</p>
+              </div>
+            </td>
+            <td>
+                  <code>{}</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
 
 
 
@@ -4309,27 +4436,27 @@
 
                   <details class="mkdocstrings-source">
                     <summary>Source code in <code>src/air/tags/models/stock.py</code></summary>
-                    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">2750</span>
-<span class="normal">2751</span>
-<span class="normal">2752</span>
-<span class="normal">2753</span>
-<span class="normal">2754</span>
-<span class="normal">2755</span>
-<span class="normal">2756</span>
-<span class="normal">2757</span>
-<span class="normal">2758</span>
-<span class="normal">2759</span>
-<span class="normal">2760</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+                    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">2760</span>
+<span class="normal">2761</span>
+<span class="normal">2762</span>
+<span class="normal">2763</span>
+<span class="normal">2764</span>
+<span class="normal">2765</span>
+<span class="normal">2766</span>
+<span class="normal">2767</span>
+<span class="normal">2768</span>
+<span class="normal">2769</span>
+<span class="normal">2770</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="o">*</span><span class="n">children</span><span class="p">:</span> <span class="n">Renderable</span><span class="p">,</span>
     <span class="n">compact</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="nb">type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">type_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">custom_attributes</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
 </code></pre></div></td></tr></table></div>
                   </details>
 
@@ -4378,9 +4505,9 @@
     <span class="n">poster</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">preload</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 
@@ -4393,6 +4520,325 @@
         <p>Defines embedded video content</p>
 
 
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>children</code>
+            </td>
+            <td>
+                  <code><span title="air.tags.models.types.Renderable">Renderable</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Tags, strings, or other rendered content.</p>
+              </div>
+            </td>
+            <td>
+                  <code>()</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>src</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Specifies the URL of the video file.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>autoplay</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Specifies that the video will start playing as soon as it is ready.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>controls</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Specifies that video controls should be displayed (such as a play/pause button etc).</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>controlslist</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Specifies which controls to show on the media element.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>crossorigin</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Specifies how the element handles cross-origin requests.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>disablepictureinpicture</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Prevents the browser from suggesting a Picture-in-Picture context menu.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>disableremoteplayback</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Disables the capability of remote playback on devices.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>height</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | <span title="int">int</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Specifies the height of the video player.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>width</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | <span title="int">int</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Specifies the width of the video player.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>loop</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Specifies that the video will start over again, every time it is finished.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>muted</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Specifies that the audio output of the video should be muted.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>playsinline</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Indicates that the video is to be played inline.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>poster</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Specifies an image to be shown while the video is downloading.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>preload</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Specifies if and how the author thinks the video should be loaded when the page loads.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>class_</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Substituted as the DOM <code>class</code> attribute.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>id_</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>DOM ID attribute.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>style</code>
+            </td>
+            <td>
+                  <code><span title="str">str</span> | None</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Inline style attribute.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>custom_attributes</code>
+            </td>
+            <td>
+                  <code><span title="air.tags.models.types.AttributeType">AttributeType</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Keyword arguments transformed into tag attributes.</p>
+              </div>
+            </td>
+            <td>
+                  <code>{}</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
 
 
 
@@ -4401,29 +4847,29 @@
 
                   <details class="mkdocstrings-source">
                     <summary>Source code in <code>src/air/tags/models/stock.py</code></summary>
-                    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">2794</span>
-<span class="normal">2795</span>
-<span class="normal">2796</span>
-<span class="normal">2797</span>
-<span class="normal">2798</span>
-<span class="normal">2799</span>
-<span class="normal">2800</span>
-<span class="normal">2801</span>
-<span class="normal">2802</span>
-<span class="normal">2803</span>
-<span class="normal">2804</span>
-<span class="normal">2805</span>
-<span class="normal">2806</span>
-<span class="normal">2807</span>
-<span class="normal">2808</span>
-<span class="normal">2809</span>
-<span class="normal">2810</span>
-<span class="normal">2811</span>
-<span class="normal">2812</span>
-<span class="normal">2813</span>
-<span class="normal">2814</span>
-<span class="normal">2815</span>
-<span class="normal">2816</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+                    <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">2842</span>
+<span class="normal">2843</span>
+<span class="normal">2844</span>
+<span class="normal">2845</span>
+<span class="normal">2846</span>
+<span class="normal">2847</span>
+<span class="normal">2848</span>
+<span class="normal">2849</span>
+<span class="normal">2850</span>
+<span class="normal">2851</span>
+<span class="normal">2852</span>
+<span class="normal">2853</span>
+<span class="normal">2854</span>
+<span class="normal">2855</span>
+<span class="normal">2856</span>
+<span class="normal">2857</span>
+<span class="normal">2858</span>
+<span class="normal">2859</span>
+<span class="normal">2860</span>
+<span class="normal">2861</span>
+<span class="normal">2862</span>
+<span class="normal">2863</span>
+<span class="normal">2864</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="o">*</span><span class="n">children</span><span class="p">:</span> <span class="n">Renderable</span><span class="p">,</span>
     <span class="n">src</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -4441,11 +4887,11 @@
     <span class="n">poster</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">preload</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">custom_attributes</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
 </code></pre></div></td></tr></table></div>
                   </details>
 

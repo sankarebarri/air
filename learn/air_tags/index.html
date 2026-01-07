@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="http://feldroy.github.io/air/learn/air_tags/">
+        <link rel="canonical" href="https://docs.airwebframework.org/learn/air_tags/">
       
       
         <link rel="prev" href="../quickstart/">
@@ -2741,28 +2741,30 @@
 <h2 id="how-air-tags-work">How <strong>Air Tags</strong> work</h2>
 <p>Used individually or combined into a greater whole, every Air Tag includes a <code>render()</code> method. When the <code>render()</code> method is called it returns a HTML representation of the Air Tag, as well as all the children of the Air Tag.</p>
 <p>This example:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span><span class="w"> </span><span class="nn">air</span><span class="w"> </span><span class="kn">import</span> <span class="n">Article</span><span class="p">,</span> <span class="n">H1</span><span class="p">,</span> <span class="n">P</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">content</span> <span class="o">=</span> <span class="n">Article</span><span class="p">(</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">air</span><span class="w"> </span><span class="kn">import</span> <span class="n">Article</span><span class="p">,</span> <span class="n">H1</span><span class="p">,</span> <span class="n">P</span>
+
+<span class="n">content</span> <span class="o">=</span> <span class="n">Article</span><span class="p">(</span>
     <span class="n">H1</span><span class="p">(</span><span class="s2">&quot;Air Tags&quot;</span><span class="p">),</span>
-    <span class="n">P</span><span class="p">(</span><span class="s2">&quot;Air Tags are a fast, expressive way to generate HTML.&quot;</span><span class="p">,</span>
-        <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;subtitle&quot;</span><span class="p">)</span>
+    <span class="n">P</span><span class="p">(</span>
+        <span class="s2">&quot;Air Tags are a fast, expressive way to generate HTML.&quot;</span><span class="p">,</span>
+        <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;subtitle&quot;</span><span class="p">,</span>
+    <span class="p">),</span>
 <span class="p">)</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">content</span>
-<span class="o">&lt;</span><span class="n">air</span><span class="o">.</span><span class="n">Article</span><span class="p">(</span><span class="s2">&quot;Defines an article&quot;</span><span class="p">)</span><span class="o">&gt;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>  <span class="c1"># &lt;air.Article(&quot;Defines an article&quot;)&gt;</span>
 </code></pre></div>
 <p>In constructing this example, the <code>Article</code> tag has wrapped the <code>H1</code> and <code>P</code> tags. You can't see that the <code>H1</code> and <code>P</code> tags are inside, but they have been carefully stored.</p>
 <p>This is the output of the <code>render()</code> method for the example above:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">content</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">content</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">article</span><span class="p">&gt;&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Air Tags<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;subtitle&quot;</span><span class="p">&gt;</span>Air Tags are a fast, expressive way to generate HTML.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;&lt;/</span><span class="nt">article</span><span class="p">&gt;</span>
 </code></pre></div>
 <p>A shortcut for the <code>render()</code> method is the <code>str()</code> built-ins.</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">str</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="nb">str</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">article</span><span class="p">&gt;&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Air Tags<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;subtitle&quot;</span><span class="p">&gt;</span>Air Tags are a fast, expressive way to generate HTML.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;&lt;/</span><span class="nt">article</span><span class="p">&gt;</span>
 </code></pre></div>
 <p>The <code>print()</code> built-in also does this conversion, but the result goes to <code>stdout</code>, so can't be saved to a variable.</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">article</span><span class="p">&gt;&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Air Tags<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;subtitle&quot;</span><span class="p">&gt;</span>Air Tags are a fast, expressive way to generate HTML.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;&lt;/</span><span class="nt">article</span><span class="p">&gt;</span>
 </code></pre></div>
@@ -2772,7 +2774,7 @@
 </div>
 <h2 id="pretty-html-renders">Pretty HTML renders</h2>
 <p>What if we want a more human-friendly display of HTML? We can use <code>.pretty_render()</code> method on any Air Tag:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="o">.</span><span class="n">pretty_render</span><span class="p">())</span>
+<div class="highlight"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="n">content</span><span class="o">.</span><span class="n">pretty_render</span><span class="p">())</span>
 </code></pre></div>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">article</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Air Tags<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
@@ -2785,7 +2787,7 @@
 </div>
 <h2 id="attributes">Attributes</h2>
 <p><strong>Air Tags</strong> convert keyword arguments into attributes. So:</p>
-<div class="highlight"><pre><span></span><code><span class="n">air</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;mine&quot;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">air</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">,</span> <span class="n">id_</span><span class="o">=</span><span class="s2">&quot;mine&quot;</span><span class="p">)</span>
 </code></pre></div>
 <p>renders as:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">p</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;mine&quot;</span><span class="p">&gt;</span>Hello<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
@@ -2829,18 +2831,14 @@
 </div>
 <h4 id="setting-the-class-attribute">Setting the <code>class</code> attribute</h4>
 <p>In Python <code>class</code> is a protected word. To set the <code>class</code> attribute in <strong>Air Tags</strong>, use the <code>class_</code> keyword.</p>
-<div class="highlight"><pre><span></span><code><span class="n">air</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;plain&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">air</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;plain&quot;</span><span class="p">)</span>
 </code></pre></div>
 <p>renders as</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;plain&quot;</span><span class="p">&gt;</span>Hello<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
 </code></pre></div>
 <h4 id="setting-the-for-attribute">Setting the <code>for</code> attribute</h4>
 <p>In Python <code>for</code> is a protected word. To set the <code>for</code> attribute in <strong>Air Tags</strong>, use the <code>for_</code> keyword.</p>
-<div class="highlight"><pre><span></span><code><span class="n">air</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span>
-    <span class="s1">&#39;Email&#39;</span><span class="p">,</span>
-    <span class="n">air</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;email&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;email&#39;</span><span class="p">)</span>
-    <span class="n">for_</span><span class="o">=</span><span class="s1">&#39;email&#39;</span>
-<span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">air</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span><span class="s2">&quot;Email&quot;</span><span class="p">,</span> <span class="n">air</span><span class="o">.</span><span class="n">Input</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;email&quot;</span><span class="p">,</span> <span class="n">type_</span><span class="o">=</span><span class="s2">&quot;email&quot;</span><span class="p">),</span> <span class="n">for_</span><span class="o">=</span><span class="s2">&quot;email&quot;</span><span class="p">)</span>
 </code></pre></div>
 <p>renders as</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">label</span> <span class="na">for</span><span class="o">=</span><span class="s">&quot;email&quot;</span><span class="p">&gt;</span>Email<span class="p">&lt;</span><span class="nt">input</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;email&quot;</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;email&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">label</span><span class="p">&gt;</span>
@@ -2857,7 +2855,7 @@
 </code></pre></div>
 <h3 id="attributes-starting-with-special-characters">Attributes starting with special characters</h3>
 <p>To get around that in Python we can't begin function arguments with special characters, we lean into how <strong>Air Tags</strong> is kwargs friendly.</p>
-<div class="highlight"><pre><span></span><code><span class="n">air</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;plain&#39;</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s1">&#39;@data&#39;</span><span class="p">:</span> <span class="mi">6</span><span class="p">})</span>
+<div class="highlight"><pre><span></span><code><span class="n">air</span><span class="o">.</span><span class="n">P</span><span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;plain&quot;</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s2">&quot;@data&quot;</span><span class="p">:</span> <span class="mi">6</span><span class="p">})</span>
 </code></pre></div>
 <p>Renders as:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">p</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;plain&quot;</span> <span class="err">@</span><span class="na">data</span><span class="o">=</span><span class="s">&quot;6&quot;</span><span class="p">&gt;</span>Hello<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
@@ -2865,8 +2863,8 @@
 <h3 id="single-word-attributes">Single word attributes</h3>
 <p>To set or hide single word attributes like <code>@selected</code>, set the tag to <code>True</code> or <code>False</code> respectively.</p>
 <div class="highlight"><pre><span></span><code><span class="n">air</span><span class="o">.</span><span class="n">Select</span><span class="p">(</span>
-    <span class="n">air</span><span class="o">.</span><span class="n">Option</span><span class="p">(</span><span class="s1">&#39;South America&#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s1">&#39;SA&#39;</span><span class="p">,</span> <span class="n">selected</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
-    <span class="n">air</span><span class="o">.</span><span class="n">Option</span><span class="p">(</span><span class="s1">&#39;North America&#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s1">&#39;NA&#39;</span><span class="p">,</span> <span class="n">selected</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">air</span><span class="o">.</span><span class="n">Option</span><span class="p">(</span><span class="s2">&quot;South America&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;SA&quot;</span><span class="p">,</span> <span class="n">selected</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+    <span class="n">air</span><span class="o">.</span><span class="n">Option</span><span class="p">(</span><span class="s2">&quot;North America&quot;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="s2">&quot;NA&quot;</span><span class="p">,</span> <span class="n">selected</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span>
 <span class="p">)</span>
 </code></pre></div>
 <p>Renders as:</p>
@@ -2890,9 +2888,9 @@
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">air</span><span class="w"> </span><span class="kn">import</span> <span class="n">svg</span>
 
 <span class="n">svg</span><span class="o">.</span><span class="n">Svg</span><span class="p">(</span>
-    <span class="n">svg</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span><span class="n">cx</span><span class="o">=</span><span class="s1">&#39;50&#39;</span><span class="p">,</span> <span class="n">cy</span><span class="o">=</span><span class="s1">&#39;50&#39;</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="s1">&#39;40&#39;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">),</span>
-    <span class="n">width</span><span class="o">=</span><span class="s1">&#39;100&#39;</span><span class="p">,</span>
-    <span class="n">height</span><span class="o">=</span><span class="s1">&#39;100&#39;</span>
+    <span class="n">svg</span><span class="o">.</span><span class="n">Circle</span><span class="p">(</span><span class="n">cx</span><span class="o">=</span><span class="s2">&quot;50&quot;</span><span class="p">,</span> <span class="n">cy</span><span class="o">=</span><span class="s2">&quot;50&quot;</span><span class="p">,</span> <span class="n">r</span><span class="o">=</span><span class="s2">&quot;40&quot;</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">),</span>
+    <span class="n">width</span><span class="o">=</span><span class="s2">&quot;100&quot;</span><span class="p">,</span>
+    <span class="n">height</span><span class="o">=</span><span class="s2">&quot;100&quot;</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 <p>This will render the following SVG:</p>
@@ -2908,23 +2906,20 @@
 <p>The best way to define your own <strong>Air Tags</strong> is to subclass the <code>air.Tag</code> class. Here's a simple example:</p>
 <div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">air</span><span class="w"> </span><span class="kn">import</span> <span class="n">Tag</span>
 
+
 <span class="k">class</span><span class="w"> </span><span class="nc">Tasty</span><span class="p">(</span><span class="n">Tag</span><span class="p">):</span>
     <span class="k">pass</span>
 </code></pre></div>
 <p>Let's instantiate this class and call its <code>render()</code> method:</p>
-<div class="highlight"><pre><span></span><code><span class="n">Tasty</span><span class="p">(</span><span class="s1">&#39;Ice Cream&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;dessert&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span class="n">Tasty</span><span class="p">(</span><span class="s2">&quot;Ice Cream&quot;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;dessert&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
 </code></pre></div>
 <p>This will produce the following HTML:</p>
 <div class="highlight"><pre><span></span><code><span class="p">&lt;</span><span class="nt">tasty</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;desert&quot;</span><span class="p">&gt;</span>Ice Cream<span class="p">&lt;/</span><span class="nt">tasty</span><span class="p">&gt;</span>
 </code></pre></div>
 <h2 id="functions-as-custom-air-tags">Functions as Custom <strong>Air Tags</strong></h2>
 <p>Subclasses are not the only way to create custom Air Tags. You can also use functions to create Air Tags. This is particularly useful for putting together components quickly without needing to define a class. Here's an example of a function that creates a custom Air Tag for a <a href="https://picocss.com/docs/card">picocss card</a>:</p>
-<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">card</span><span class="p">(</span><span class="o">*</span><span class="n">content</span><span class="p">,</span> <span class="n">header</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">footer</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">air</span><span class="o">.</span><span class="n">Article</span><span class="p">(</span>
-        <span class="n">air</span><span class="o">.</span><span class="n">Header</span><span class="p">(</span><span class="n">header</span><span class="p">),</span>
-        <span class="o">*</span><span class="n">content</span><span class="p">,</span>
-        <span class="n">air</span><span class="o">.</span><span class="n">Footer</span><span class="p">(</span><span class="n">footer</span><span class="p">)</span>
-    <span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">card</span><span class="p">(</span><span class="o">*</span><span class="n">content</span><span class="p">,</span> <span class="n">header</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">footer</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">air</span><span class="o">.</span><span class="n">Article</span><span class="p">(</span><span class="n">air</span><span class="o">.</span><span class="n">Header</span><span class="p">(</span><span class="n">header</span><span class="p">),</span> <span class="o">*</span><span class="n">content</span><span class="p">,</span> <span class="n">air</span><span class="o">.</span><span class="n">Footer</span><span class="p">(</span><span class="n">footer</span><span class="p">))</span>
 </code></pre></div>
 <p>We can use this function to create a card:</p>
 <div class="highlight"><pre><span></span><code><span class="n">card</span><span class="p">(</span>
@@ -2948,18 +2943,30 @@
 </div>
 <h2 id="returning-multiple-children-used-in-htmx">Returning Multiple Children (used in HTMX)</h2>
 <p>When using HTMX to add reactivity to pages, it is common to return several <strong>Air Tags</strong> so that HTMX can then replace existing DOM elements with new ones. <strong>Air Tags</strong> are hierarchical, you need a base tag that just serves as a wrapper that doesn't generate any HTML. That tag is the <code>air.Tags</code>. Here's how to use it:</p>
-<div class="highlight"><pre><span></span><code><span class="kn">import</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">air</span>
 
-<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">&#39;/cart/add/</span><span class="si">{product_id}</span><span class="s1">/&#39;</span><span class="p">)</span>
+
+<span class="nd">@app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;/cart/add/</span><span class="si">{product_id}</span><span class="s2">/&quot;</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">update_cart</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">air</span><span class="o">.</span><span class="n">Request</span><span class="p">,</span> <span class="n">product_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
     <span class="s2">&quot;This is a simplified update cart view&quot;</span>
     <span class="c1"># air.Tags renders the child tags without adding anything of its own</span>
     <span class="k">return</span> <span class="n">air</span><span class="o">.</span><span class="n">Tags</span><span class="p">(</span>
         <span class="c1"># Mark that an item has been added to the cart</span>
-        <span class="n">Button</span><span class="p">(</span><span class="s1">&#39;Added!&#39;</span><span class="p">,</span> <span class="n">hx_post</span><span class="o">=</span><span class="s1">&#39;/cart/add/{{product.id}}&#39;</span><span class="p">,</span> <span class="n">hx_swap_oob</span><span class="o">=</span><span class="s1">&#39;true&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;add-button&#39;</span><span class="p">),</span>
-
+        <span class="n">Button</span><span class="p">(</span>
+            <span class="s2">&quot;Added!&quot;</span><span class="p">,</span>
+            <span class="n">hx_post</span><span class="o">=</span><span class="s2">&quot;/cart/add/{{product.id}}&quot;</span><span class="p">,</span>
+            <span class="n">hx_swap_oob</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="p">,</span>
+            <span class="n">id_</span><span class="o">=</span><span class="s2">&quot;add-button&quot;</span><span class="p">,</span>
+        <span class="p">),</span>
         <span class="c1"># Cart icon quantity changed</span>
-        <span class="n">A</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Cart </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">,</span> <span class="nb">id</span><span class="o">=</span><span class="s1">&#39;cart-icon&#39;</span><span class="p">,</span> <span class="n">href</span><span class="o">=</span><span class="s1">&#39;/cart&#39;</span><span class="p">,</span> <span class="n">hx_trigger</span><span class="o">=</span><span class="s1">&#39;polling 30s&#39;</span><span class="p">,</span> <span class="n">hx_get</span><span class="o">=</span><span class="s1">&#39;/cart-icon&#39;</span><span class="p">,</span> <span class="n">hx_swap_oob</span><span class="o">=</span><span class="s1">&#39;true&#39;</span><span class="p">),</span>
+        <span class="n">A</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;Cart </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">id_</span><span class="o">=</span><span class="s2">&quot;cart-icon&quot;</span><span class="p">,</span>
+            <span class="n">href</span><span class="o">=</span><span class="s2">&quot;/cart&quot;</span><span class="p">,</span>
+            <span class="n">hx_trigger</span><span class="o">=</span><span class="s2">&quot;polling 30s&quot;</span><span class="p">,</span>
+            <span class="n">hx_get</span><span class="o">=</span><span class="s2">&quot;/cart-icon&quot;</span><span class="p">,</span>
+            <span class="n">hx_swap_oob</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="p">,</span>
+        <span class="p">),</span>
     <span class="p">)</span>
 </code></pre></div>
 <p>This will generate HTML that looks something like this, without any wrapping text around the elements we are passing to the user's browser:</p>
@@ -2977,6 +2984,7 @@
 <h2 id="converting-html-to-air-tags">Converting HTML to Air Tags</h2>
 <p>The easiest way to do that is with the <code>BaseTag.from_html_to_source</code> method.</p>
 <div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">air</span>
+
 <span class="n">air</span><span class="o">.</span><span class="n">BaseTag</span><span class="o">.</span><span class="n">from_html_to_source</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">&lt;html&gt;</span>
 <span class="s2">    &lt;body&gt;</span>
@@ -2987,13 +2995,7 @@
 <span class="s2">&lt;/html&gt;&quot;&quot;&quot;</span><span class="p">)</span>
 </code></pre></div>
 <p>This generates:</p>
-<div class="highlight"><pre><span></span><code><span class="n">air</span><span class="o">.</span><span class="n">Html</span><span class="p">(</span>
-    <span class="n">air</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span>
-        <span class="n">air</span><span class="o">.</span><span class="n">Main</span><span class="p">(</span>
-            <span class="n">air</span><span class="o">.</span><span class="n">H1</span><span class="p">(</span><span class="s1">&#39;Hello, World&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;header&#39;</span><span class="p">)</span>
-        <span class="p">)</span>
-    <span class="p">)</span>
-<span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span class="n">air</span><span class="o">.</span><span class="n">Html</span><span class="p">(</span><span class="n">air</span><span class="o">.</span><span class="n">Body</span><span class="p">(</span><span class="n">air</span><span class="o">.</span><span class="n">Main</span><span class="p">(</span><span class="n">air</span><span class="o">.</span><span class="n">H1</span><span class="p">(</span><span class="s2">&quot;Hello, World&quot;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s2">&quot;header&quot;</span><span class="p">))))</span>
 </code></pre></div>
 
 

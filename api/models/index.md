@@ -80,7 +80,7 @@ def index() -> air.Html:
         air.P("This form demonstrates name, includes, and widget parameters"),
         air.Form(
             contact_form.render(),
-            air.Button("Submit", type="submit"),
+            air.Button("Submit", type_="submit"),
             method="post",
             action="/submit",
         ),
@@ -179,7 +179,7 @@ def to_form(
                 air.P("This form demonstrates name, includes, and widget parameters"),
                 air.Form(
                     contact_form.render(),
-                    air.Button("Submit", type="submit"),
+                    air.Button("Submit", type_="submit"),
                     method="post",
                     action="/submit",
                 ),

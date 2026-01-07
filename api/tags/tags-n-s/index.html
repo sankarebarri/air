@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="http://feldroy.github.io/air/api/tags/tags-n-s/">
+        <link rel="canonical" href="https://docs.airwebframework.org/api/tags/tags-n-s/">
       
       
         <link rel="prev" href="../tags-e-m/">
@@ -2729,7 +2729,7 @@
     <span class="o">*</span><span class="n">children</span><span class="p">,</span>
     <span class="n">archive</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">border</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="n">classid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">classid_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">codebase</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">codetype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -2738,13 +2738,13 @@
     <span class="n">height</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">standby</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="nb">type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">type_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">usemap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">width</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 
@@ -2945,7 +2945,7 @@
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>type</code>
+                <code>type_</code>
             </td>
             <td>
                   <code><span title="str">str</span> | None</code>
@@ -3009,7 +3009,7 @@
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>id</code>
+                <code>id_</code>
             </td>
             <td>
                   <code><span title="str">str</span> | None</code>
@@ -3041,7 +3041,7 @@
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>kwargs</code>
+                <code>custom_attributes</code>
             </td>
             <td>
                   <code><span title="air.tags.models.types.AttributeType">AttributeType</span></code>
@@ -3094,7 +3094,7 @@
     <span class="o">*</span><span class="n">children</span><span class="p">:</span> <span class="n">Renderable</span><span class="p">,</span>
     <span class="n">archive</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">border</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">classid</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">classid_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">codebase</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">codetype</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">data</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -3103,15 +3103,15 @@
     <span class="n">height</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">standby</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="nb">type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">type_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">usemap</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">width</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">custom_attributes</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
 </code></pre></div></td></tr></table></div>
                   </details>
 
@@ -3146,13 +3146,13 @@
 <div class="doc-signature highlight"><pre><span></span><code><span class="nf">Ol</span><span class="p">(</span>
     <span class="o">*</span><span class="n">children</span><span class="p">,</span>
     <span class="n">compact</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="nb">reversed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">reversed_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">start</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="nb">type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">type_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 
@@ -3210,7 +3210,7 @@
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>reversed</code>
+                <code>reversed_</code>
             </td>
             <td>
                   <code><span title="str">str</span> | None</code>
@@ -3242,7 +3242,7 @@
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>type</code>
+                <code>type_</code>
             </td>
             <td>
                   <code><span title="str">str</span> | None</code>
@@ -3274,7 +3274,7 @@
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>id</code>
+                <code>id_</code>
             </td>
             <td>
                   <code><span title="str">str</span> | None</code>
@@ -3306,7 +3306,7 @@
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>kwargs</code>
+                <code>custom_attributes</code>
             </td>
             <td>
                   <code><span title="air.tags.models.types.AttributeType">AttributeType</span></code>
@@ -3348,15 +3348,15 @@
     <span class="bp">self</span><span class="p">,</span>
     <span class="o">*</span><span class="n">children</span><span class="p">:</span> <span class="n">Renderable</span><span class="p">,</span>
     <span class="n">compact</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="nb">reversed</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">reversed_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">start</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="nb">type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">type_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">custom_attributes</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
 </code></pre></div></td></tr></table></div>
                   </details>
 
@@ -3393,9 +3393,9 @@
     <span class="n">disabled</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 
@@ -3485,7 +3485,7 @@
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>id</code>
+                <code>id_</code>
             </td>
             <td>
                   <code><span title="str">str</span> | None</code>
@@ -3517,7 +3517,7 @@
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>kwargs</code>
+                <code>custom_attributes</code>
             </td>
             <td>
                   <code><span title="air.tags.models.types.AttributeType">AttributeType</span></code>
@@ -3559,11 +3559,11 @@
     <span class="n">disabled</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">label</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">custom_attributes</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
 </code></pre></div></td></tr></table></div>
                   </details>
 
@@ -3602,9 +3602,9 @@
     <span class="n">selected</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 
@@ -3726,7 +3726,7 @@
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>id</code>
+                <code>id_</code>
             </td>
             <td>
                   <code><span title="str">str</span> | None</code>
@@ -3758,7 +3758,7 @@
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>kwargs</code>
+                <code>custom_attributes</code>
             </td>
             <td>
                   <code><span title="air.tags.models.types.AttributeType">AttributeType</span></code>
@@ -3804,11 +3804,11 @@
     <span class="n">selected</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">value</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">custom_attributes</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
 </code></pre></div></td></tr></table></div>
                   </details>
 
@@ -3846,9 +3846,9 @@
     <span class="n">form</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 
@@ -3954,7 +3954,7 @@
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>id</code>
+                <code>id_</code>
             </td>
             <td>
                   <code><span title="str">str</span> | None</code>
@@ -3986,7 +3986,7 @@
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>kwargs</code>
+                <code>custom_attributes</code>
             </td>
             <td>
                   <code><span title="air.tags.models.types.AttributeType">AttributeType</span></code>
@@ -4030,11 +4030,11 @@
     <span class="n">form</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">custom_attributes</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
 </code></pre></div></td></tr></table></div>
                   </details>
 
@@ -4071,9 +4071,9 @@
     <span class="n">width</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">wrap</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 
@@ -4163,7 +4163,7 @@
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>id</code>
+                <code>id_</code>
             </td>
             <td>
                   <code><span title="str">str</span> | None</code>
@@ -4195,7 +4195,7 @@
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>kwargs</code>
+                <code>custom_attributes</code>
             </td>
             <td>
                   <code><span title="air.tags.models.types.AttributeType">AttributeType</span></code>
@@ -4237,11 +4237,11 @@
     <span class="n">width</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">wrap</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">custom_attributes</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
 </code></pre></div></td></tr></table></div>
                   </details>
 
@@ -4275,12 +4275,12 @@
 </h2>
 <div class="doc-signature highlight"><pre><span></span><code><span class="nf">Progress</span><span class="p">(</span>
     <span class="o">*</span><span class="n">children</span><span class="p">,</span>
-    <span class="nb">max</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">max_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">value</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 
@@ -4322,7 +4322,7 @@
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>max</code>
+                <code>max_</code>
             </td>
             <td>
                   <code><span title="str">str</span> | None</code>
@@ -4370,7 +4370,7 @@
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>id</code>
+                <code>id_</code>
             </td>
             <td>
                   <code><span title="str">str</span> | None</code>
@@ -4402,7 +4402,7 @@
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>kwargs</code>
+                <code>custom_attributes</code>
             </td>
             <td>
                   <code><span title="air.tags.models.types.AttributeType">AttributeType</span></code>
@@ -4441,14 +4441,14 @@
 <span class="normal">2035</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="o">*</span><span class="n">children</span><span class="p">:</span> <span class="n">Renderable</span><span class="p">,</span>
-    <span class="nb">max</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">max_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">value</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">custom_attributes</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
 </code></pre></div></td></tr></table></div>
                   </details>
 
@@ -4484,9 +4484,9 @@
     <span class="o">*</span><span class="n">children</span><span class="p">,</span>
     <span class="n">cite</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 
@@ -4560,7 +4560,7 @@
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>id</code>
+                <code>id_</code>
             </td>
             <td>
                   <code><span title="str">str</span> | None</code>
@@ -4592,7 +4592,7 @@
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>kwargs</code>
+                <code>custom_attributes</code>
             </td>
             <td>
                   <code><span title="air.tags.models.types.AttributeType">AttributeType</span></code>
@@ -4632,11 +4632,11 @@
     <span class="o">*</span><span class="n">children</span><span class="p">:</span> <span class="n">Renderable</span><span class="p">,</span>
     <span class="n">cite</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">custom_attributes</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
 </code></pre></div></td></tr></table></div>
                   </details>
 
@@ -4673,7 +4673,7 @@
     <span class="o">/</span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>
     <span class="n">src</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="nb">type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">type_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">async_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">defer</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">nomodule</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -4685,9 +4685,9 @@
     <span class="n">attributionsrc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">nonce</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 
@@ -4746,7 +4746,7 @@ Warning: Script tag does not protect against code injection.</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>type</code>
+                <code>type_</code>
             </td>
             <td>
                   <code><span title="str">str</span> | None</code>
@@ -4942,7 +4942,7 @@ a JavaScript MIME type (e.g. <code>text/javascript</code>), or empty for classic
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>id</code>
+                <code>id_</code>
             </td>
             <td>
                   <code><span title="str">str</span> | None</code>
@@ -4974,7 +4974,7 @@ a JavaScript MIME type (e.g. <code>text/javascript</code>), or empty for classic
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>kwargs</code>
+                <code>custom_attributes</code>
             </td>
             <td>
                   <code><span title="air.tags.models.types.AttributeType">AttributeType</span></code>
@@ -5040,7 +5040,7 @@ a JavaScript MIME type (e.g. <code>text/javascript</code>), or empty for classic
     <span class="o">/</span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>
     <span class="n">src</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="nb">type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">type_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">async_</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">defer</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">nomodule</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -5062,11 +5062,11 @@ a JavaScript MIME type (e.g. <code>text/javascript</code>), or empty for classic
     <span class="n">attributionsrc</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">nonce</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">text_child</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">text_child</span><span class="p">,</span> <span class="o">**</span><span class="n">custom_attributes</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
 </code></pre></div></td></tr></table></div>
                   </details>
 
@@ -5109,9 +5109,9 @@ a JavaScript MIME type (e.g. <code>text/javascript</code>), or empty for classic
     <span class="n">required</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 
@@ -5297,7 +5297,7 @@ a JavaScript MIME type (e.g. <code>text/javascript</code>), or empty for classic
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>id</code>
+                <code>id_</code>
             </td>
             <td>
                   <code><span title="str">str</span> | None</code>
@@ -5329,7 +5329,7 @@ a JavaScript MIME type (e.g. <code>text/javascript</code>), or empty for classic
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>kwargs</code>
+                <code>custom_attributes</code>
             </td>
             <td>
                   <code><span title="air.tags.models.types.AttributeType">AttributeType</span></code>
@@ -5383,11 +5383,11 @@ a JavaScript MIME type (e.g. <code>text/javascript</code>), or empty for classic
     <span class="n">required</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">size</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">custom_attributes</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
 </code></pre></div></td></tr></table></div>
                   </details>
 
@@ -5422,16 +5422,16 @@ a JavaScript MIME type (e.g. <code>text/javascript</code>), or empty for classic
 <div class="doc-signature highlight"><pre><span></span><code><span class="nf">Source</span><span class="p">(</span>
     <span class="o">*</span><span class="n">children</span><span class="p">,</span>
     <span class="n">src</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="nb">type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">type_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">sizes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">media</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">srcset</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">height</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">width</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 
@@ -5489,7 +5489,7 @@ a JavaScript MIME type (e.g. <code>text/javascript</code>), or empty for classic
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>type</code>
+                <code>type_</code>
             </td>
             <td>
                   <code><span title="str">str</span> | None</code>
@@ -5601,7 +5601,7 @@ a JavaScript MIME type (e.g. <code>text/javascript</code>), or empty for classic
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>id</code>
+                <code>id_</code>
             </td>
             <td>
                   <code><span title="str">str</span> | None</code>
@@ -5633,7 +5633,7 @@ a JavaScript MIME type (e.g. <code>text/javascript</code>), or empty for classic
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>kwargs</code>
+                <code>custom_attributes</code>
             </td>
             <td>
                   <code><span title="air.tags.models.types.AttributeType">AttributeType</span></code>
@@ -5678,18 +5678,18 @@ a JavaScript MIME type (e.g. <code>text/javascript</code>), or empty for classic
     <span class="bp">self</span><span class="p">,</span>
     <span class="o">*</span><span class="n">children</span><span class="p">:</span> <span class="n">Renderable</span><span class="p">,</span>
     <span class="n">src</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="nb">type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">type_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">sizes</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">media</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">srcset</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">height</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">width</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">children</span><span class="p">,</span> <span class="o">**</span><span class="n">custom_attributes</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
 </code></pre></div></td></tr></table></div>
                   </details>
 
@@ -5729,11 +5729,11 @@ a JavaScript MIME type (e.g. <code>text/javascript</code>), or empty for classic
     <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">blocking</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">nonce</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="nb">type</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">type_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">class_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">,</span>
 <span class="p">)</span>
 </code></pre></div>
 
@@ -5840,7 +5840,7 @@ Warning: Style tag does not protect against code injection.</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>type</code>
+                <code>type_</code>
             </td>
             <td>
                   <code><span title="str">str</span> | None</code>
@@ -5872,7 +5872,7 @@ Warning: Style tag does not protect against code injection.</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>id</code>
+                <code>id_</code>
             </td>
             <td>
                   <code><span title="str">str</span> | None</code>
@@ -5904,7 +5904,7 @@ Warning: Style tag does not protect against code injection.</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>kwargs</code>
+                <code>custom_attributes</code>
             </td>
             <td>
                   <code><span title="air.tags.models.types.AttributeType">AttributeType</span></code>
@@ -5956,13 +5956,13 @@ Warning: Style tag does not protect against code injection.</p>
     <span class="n">title</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">blocking</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;render&quot;</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">nonce</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="nb">type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>  <span class="c1"># deprecated</span>
+    <span class="n">type_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>  <span class="c1"># deprecated</span>
     <span class="n">class_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="nb">id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">id_</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">style</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">custom_attributes</span><span class="p">:</span> <span class="n">AttributeType</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">text_child</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
+    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">text_child</span><span class="p">,</span> <span class="o">**</span><span class="n">custom_attributes</span> <span class="o">|</span> <span class="n">locals_cleanup</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
 </code></pre></div></td></tr></table></div>
                   </details>
 

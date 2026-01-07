@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="http://feldroy.github.io/air/about/roadmap/">
+        <link rel="canonical" href="https://docs.airwebframework.org/about/roadmap/">
       
       
         <link rel="prev" href="../story/">
@@ -2722,7 +2722,7 @@
 <li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Confirm fonts resizing works properly</li>
 </ul>
 <h3 id="bringing-airmarkdown-into-air-core">Bringing AirMarkdown Into Air Core</h3>
-<p>AirMarkdown is currently a separate package. While it works, it is extremely challenging to alter the configuration. In trying to fix it we discovered that the architecture of AirMarkdown is not quite right, and when combined with the extra layer of abstraction in having it as a separate package makes it hard to correct. </p>
+<p>AirMarkdown is currently a separate package. While it works, it is extremely challenging to alter the configuration. In trying to fix it we discovered that the architecture of AirMarkdown is not quite right, and when combined with the extra layer of abstraction in having it as a separate package makes it hard to correct.</p>
 <p>Our plan is to bring AirMarkdown into Air core with an optional dependency group, and redesign the architecture to make it more flexible and easier to configure. Then we'll extract it again once we're happy with the result.</p>
 <h3 id="airblog-tutorial">AirBlog Tutorial</h3>
 <p>In writing the blog tutorial we discovered a number of gaps in the documentation as well as bugs and missing features in Air itself. In our own professional work we often just hop over these by leaning into hard-won knowledge, but we can't expect new users to do the same. Especially when existing documentation for both FastAPI and Air on certain topics (Async SQLModel and SQLAlchemy come to mind) is either sparse or wrong.</p>
@@ -2737,7 +2737,7 @@
 <h3 id="aircomponents">AirComponents</h3>
 <p>This will be a layout library that provides elegant defaults for making awesome layouts.</p>
 <p>Tools like <a href="https://ui.shadcn.com/">shadcn</a> and other Tailwind-powered projects are really powerful, but require an understanding of CSS (or tailwind) to be able to use. AirComponents will address this through intelligent defaults so those of us who don't know CSS can use it to make incredible looking sites. Yet AirComponents will be built so that it can be easily modified to support all kinds of usecases.</p>
-<p>AirComponents may be a separate repo and package, managed in its own <a href="https://github.com/feldroy/AirComponents">GitHub repo</a>. That will allow for faster velocity and provide room for playing with architecture and design. </p>
+<p>AirComponents may be a separate repo and package, managed in its own <a href="https://github.com/feldroy/AirComponents">GitHub repo</a>. That will allow for faster velocity and provide room for playing with architecture and design.</p>
 <h2 id="whats-already-been-completed">What's already been completed</h2>
 <h3 id="air-tag-api">Air Tag API</h3>
 <p>The Air Tag API is complete and stable. This is based off working projects as well as experiences in other frameworks. There are no planned breaking changes to this API, just incremental improvements including bugfixes, more helpful error messages, and finished stock tag documentation.</p>

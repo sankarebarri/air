@@ -10,9 +10,9 @@ Path(
     d=None,
     pathLength=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -22,15 +22,15 @@ Defines a path
 
 Parameters:
 
-| Name         | Type            | Description                               | Default                                 |
-| ------------ | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children`   | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `d`          | \`str           | None\`                                    | Path data defining the shape.           |
-| `pathLength` | \`float         | None\`                                    | Total path length in user units.        |
-| `class_`     | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`         | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`      | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs`   | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `d`                   | \`str           | None\`                                    | Path data defining the shape.           |
+| `pathLength`          | \`float         | None\`                                    | Total path length in user units.        |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -41,11 +41,11 @@ def __init__(
     d: str | None = None,
     pathLength: float | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## Pattern
@@ -64,9 +64,9 @@ Pattern(
     viewBox=None,
     preserveAspectRatio=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -90,9 +90,9 @@ Parameters:
 | `viewBox`             | \`str           | None\`                                    | Viewport bounds for pattern.            |
 | `preserveAspectRatio` | \`str           | None\`                                    | Aspect ratio handling.                  |
 | `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`                  | \`str           | None\`                                    | DOM ID attribute.                       |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
 | `style`               | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs`            | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -111,11 +111,11 @@ def __init__(
     viewBox: str | None = None,
     preserveAspectRatio: str | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## Polygon
@@ -126,9 +126,9 @@ Polygon(
     points=None,
     pathLength=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -138,15 +138,15 @@ Defines a polygon
 
 Parameters:
 
-| Name         | Type            | Description                               | Default                                 |
-| ------------ | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children`   | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `points`     | \`str           | None\`                                    | List of x,y coordinate pairs.           |
-| `pathLength` | \`float         | None\`                                    | Total path length in user units.        |
-| `class_`     | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`         | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`      | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs`   | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `points`              | \`str           | None\`                                    | List of x,y coordinate pairs.           |
+| `pathLength`          | \`float         | None\`                                    | Total path length in user units.        |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -157,11 +157,11 @@ def __init__(
     points: str | None = None,
     pathLength: float | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## Polyline
@@ -172,9 +172,9 @@ Polyline(
     points=None,
     pathLength=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -184,15 +184,15 @@ Defines a polyline
 
 Parameters:
 
-| Name         | Type            | Description                               | Default                                 |
-| ------------ | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children`   | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `points`     | \`str           | None\`                                    | List of x,y coordinate pairs.           |
-| `pathLength` | \`float         | None\`                                    | Total path length in user units.        |
-| `class_`     | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`         | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`      | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs`   | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `points`              | \`str           | None\`                                    | List of x,y coordinate pairs.           |
+| `pathLength`          | \`float         | None\`                                    | Total path length in user units.        |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -203,11 +203,11 @@ def __init__(
     points: str | None = None,
     pathLength: float | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## RadialGradient
@@ -226,9 +226,9 @@ RadialGradient(
     href=None,
     spreadMethod=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -238,23 +238,23 @@ Defines a radial gradient
 
 Parameters:
 
-| Name                | Type            | Description                               | Default                                 |
-| ------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children`          | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `cx`                | \`str           | float                                     | None\`                                  |
-| `cy`                | \`str           | float                                     | None\`                                  |
-| `r`                 | \`str           | float                                     | None\`                                  |
-| `fx`                | \`str           | float                                     | None\`                                  |
-| `fy`                | \`str           | float                                     | None\`                                  |
-| `fr`                | \`str           | float                                     | None\`                                  |
-| `gradientUnits`     | \`str           | None\`                                    | Coordinate system.                      |
-| `gradientTransform` | \`str           | None\`                                    | Additional transformation.              |
-| `href`              | \`str           | None\`                                    | Reference to template gradient.         |
-| `spreadMethod`      | \`str           | None\`                                    | Gradient behavior.                      |
-| `class_`            | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`                | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`             | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs`          | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `cx`                  | \`str           | float                                     | None\`                                  |
+| `cy`                  | \`str           | float                                     | None\`                                  |
+| `r`                   | \`str           | float                                     | None\`                                  |
+| `fx`                  | \`str           | float                                     | None\`                                  |
+| `fy`                  | \`str           | float                                     | None\`                                  |
+| `fr`                  | \`str           | float                                     | None\`                                  |
+| `gradientUnits`       | \`str           | None\`                                    | Coordinate system.                      |
+| `gradientTransform`   | \`str           | None\`                                    | Additional transformation.              |
+| `href`                | \`str           | None\`                                    | Reference to template gradient.         |
+| `spreadMethod`        | \`str           | None\`                                    | Gradient behavior.                      |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -273,11 +273,11 @@ def __init__(
     href: str | None = None,
     spreadMethod: str | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## Rect
@@ -293,9 +293,9 @@ Rect(
     ry=None,
     pathLength=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -305,20 +305,20 @@ Defines a rectangle
 
 Parameters:
 
-| Name         | Type            | Description                               | Default                                 |
-| ------------ | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children`   | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `x`          | \`str           | float                                     | None\`                                  |
-| `y`          | \`str           | float                                     | None\`                                  |
-| `width`      | \`str           | float                                     | None\`                                  |
-| `height`     | \`str           | float                                     | None\`                                  |
-| `rx`         | \`str           | float                                     | None\`                                  |
-| `ry`         | \`str           | float                                     | None\`                                  |
-| `pathLength` | \`float         | None\`                                    | Total perimeter length in user units.   |
-| `class_`     | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`         | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`      | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs`   | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `x`                   | \`str           | float                                     | None\`                                  |
+| `y`                   | \`str           | float                                     | None\`                                  |
+| `width`               | \`str           | float                                     | None\`                                  |
+| `height`              | \`str           | float                                     | None\`                                  |
+| `rx`                  | \`str           | float                                     | None\`                                  |
+| `ry`                  | \`str           | float                                     | None\`                                  |
+| `pathLength`          | \`float         | None\`                                    | Total perimeter length in user units.   |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -334,11 +334,11 @@ def __init__(
     ry: str | float | None = None,
     pathLength: float | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## Script
@@ -346,14 +346,14 @@ def __init__(
 ```
 Script(
     *children,
-    type=None,
+    type_=None,
     href=None,
     crossorigin=None,
     fetchpriority=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -363,17 +363,17 @@ Defines a script
 
 Parameters:
 
-| Name            | Type            | Description                               | Default                                 |
-| --------------- | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children`      | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `type`          | \`str           | None\`                                    | Script MIME type.                       |
-| `href`          | \`str           | None\`                                    | External script URL.                    |
-| `crossorigin`   | \`str           | None\`                                    | CORS credentials flag.                  |
-| `fetchpriority` | \`str           | None\`                                    | Fetch priority hint (experimental).     |
-| `class_`        | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`            | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`         | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs`      | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `type_`               | \`str           | None\`                                    | Script MIME type.                       |
+| `href`                | \`str           | None\`                                    | External script URL.                    |
+| `crossorigin`         | \`str           | None\`                                    | CORS credentials flag.                  |
+| `fetchpriority`       | \`str           | None\`                                    | Fetch priority hint (experimental).     |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -381,16 +381,16 @@ Source code in `src/air/tags/models/svg.py`
 def __init__(
     self,
     *children: Renderable,
-    type: str | None = None,
+    type_: str | None = None,
     href: str | None = None,
     crossorigin: str | None = None,
     fetchpriority: str | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## Set
@@ -403,9 +403,9 @@ Set(
     begin=None,
     dur=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -415,17 +415,17 @@ Sets an attribute value
 
 Parameters:
 
-| Name            | Type            | Description                               | Default                                 |
-| --------------- | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children`      | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `to`            | \`str           | None\`                                    | Value to apply for animation duration.  |
-| `attributeName` | \`str           | None\`                                    | Target attribute to set.                |
-| `begin`         | \`str           | None\`                                    | Animation start time.                   |
-| `dur`           | \`str           | None\`                                    | Animation duration.                     |
-| `class_`        | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`            | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`         | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs`      | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `to`                  | \`str           | None\`                                    | Value to apply for animation duration.  |
+| `attributeName`       | \`str           | None\`                                    | Target attribute to set.                |
+| `begin`               | \`str           | None\`                                    | Animation start time.                   |
+| `dur`                 | \`str           | None\`                                    | Animation duration.                     |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -438,11 +438,11 @@ def __init__(
     begin: str | None = None,
     dur: str | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## Stop
@@ -454,9 +454,9 @@ Stop(
     stop_color=None,
     stop_opacity=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -466,16 +466,16 @@ Defines a gradient stop
 
 Parameters:
 
-| Name           | Type            | Description                               | Default                                 |
-| -------------- | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children`     | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `offset`       | \`str           | float                                     | None\`                                  |
-| `stop_color`   | \`str           | None\`                                    | Color of gradient stop.                 |
-| `stop_opacity` | \`str           | float                                     | None\`                                  |
-| `class_`       | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`           | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`        | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs`     | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `offset`              | \`str           | float                                     | None\`                                  |
+| `stop_color`          | \`str           | None\`                                    | Color of gradient stop.                 |
+| `stop_opacity`        | \`str           | float                                     | None\`                                  |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -487,11 +487,11 @@ def __init__(
     stop_color: str | None = None,
     stop_opacity: str | float | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## Style
@@ -499,12 +499,12 @@ def __init__(
 ```
 Style(
     *children,
-    type=None,
+    type_=None,
     media=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -514,15 +514,15 @@ Defines style information
 
 Parameters:
 
-| Name       | Type            | Description                               | Default                                 |
-| ---------- | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children` | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `type`     | \`str           | None\`                                    | Style sheet language MIME type.         |
-| `media`    | \`str           | None\`                                    | Media query for when styles apply.      |
-| `class_`   | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`       | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`    | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs` | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `type_`               | \`str           | None\`                                    | Style sheet language MIME type.         |
+| `media`               | \`str           | None\`                                    | Media query for when styles apply.      |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -530,14 +530,14 @@ Source code in `src/air/tags/models/svg.py`
 def __init__(
     self,
     *children: Renderable,
-    type: str | None = None,
+    type_: str | None = None,
     media: str | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## Svg
@@ -552,9 +552,9 @@ Svg(
     viewBox=None,
     preserveAspectRatio=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -574,9 +574,9 @@ Parameters:
 | `viewBox`             | \`str           | None\`                                    | SVG viewport coordinates.               |
 | `preserveAspectRatio` | \`str           | None\`                                    | Aspect ratio handling.                  |
 | `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`                  | \`str           | None\`                                    | DOM ID attribute.                       |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
 | `style`               | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs`            | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -591,18 +591,22 @@ def __init__(
     viewBox: str | None = None,
     preserveAspectRatio: str | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## Switch
 
 ```
 Switch(
-    *children, class_=None, id=None, style=None, **kwargs
+    *children,
+    class_=None,
+    id_=None,
+    style=None,
+    **custom_attributes,
 )
 ```
 
@@ -612,13 +616,13 @@ Defines conditional processing
 
 Parameters:
 
-| Name       | Type            | Description                               | Default                                 |
-| ---------- | --------------- | ----------------------------------------- | --------------------------------------- |
-| `children` | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
-| `class_`   | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`       | \`str           | None\`                                    | DOM ID attribute.                       |
-| `style`    | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs` | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| Name                  | Type            | Description                               | Default                                 |
+| --------------------- | --------------- | ----------------------------------------- | --------------------------------------- |
+| `children`            | `Renderable`    | Tags, strings, or other rendered content. | `()`                                    |
+| `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
+| `style`               | \`str           | None\`                                    | Inline style attribute.                 |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -627,11 +631,11 @@ def __init__(
     self,
     *children: Renderable,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```
 
 ## Symbol
@@ -648,9 +652,9 @@ Symbol(
     refX=None,
     refY=None,
     class_=None,
-    id=None,
+    id_=None,
     style=None,
-    **kwargs,
+    **custom_attributes,
 )
 ```
 
@@ -672,9 +676,9 @@ Parameters:
 | `refX`                | \`str           | float                                     | None\`                                  |
 | `refY`                | \`str           | float                                     | None\`                                  |
 | `class_`              | \`str           | None\`                                    | Substituted as the DOM class attribute. |
-| `id`                  | \`str           | None\`                                    | DOM ID attribute.                       |
+| `id_`                 | \`str           | None\`                                    | DOM ID attribute.                       |
 | `style`               | \`str           | None\`                                    | Inline style attribute.                 |
-| `**kwargs`            | `AttributeType` | Additional attributes.                    | `{}`                                    |
+| `**custom_attributes` | `AttributeType` | Additional attributes.                    | `{}`                                    |
 
 Source code in `src/air/tags/models/svg.py`
 
@@ -691,9 +695,9 @@ def __init__(
     refX: str | float | None = None,
     refY: str | float | None = None,
     class_: str | None = None,
-    id: str | None = None,
+    id_: str | None = None,
     style: str | None = None,
-    **kwargs: AttributeType,
+    **custom_attributes: AttributeType,
 ) -> None:
-    super().__init__(*children, **kwargs | locals_cleanup(locals()))
+    super().__init__(*children, **custom_attributes | locals_cleanup(locals()))
 ```

@@ -2,10 +2,10 @@
 
 In the spirit of helping our users, every **Air SVG Tag** has copious documentation—enough that sometimes it breaks the documentation build process. Therefore, **Air SVG Tag** that directly correspond to their SVG equivalents can be found in smaller, easier-to-compile pages.
 
-- [SVG Air Tags A-D](http://feldroy.github.io/air/api/svg/svg-tags-a-d/index.md)
-- [SVG Air Tags E-M](http://feldroy.github.io/air/api/svg/svg-tags-e-m/index.md)
-- [SVG Air Tags N-S](http://feldroy.github.io/air/api/svg/svg-tags-n-s/index.md)
-- [SVG Air Tags T-Z](http://feldroy.github.io/air/api/svg/svg-tags-t-z/index.md)
+- [SVG Air Tags A-D](https://docs.airwebframework.org/api/svg/svg-tags-a-d/index.md)
+- [SVG Air Tags E-M](https://docs.airwebframework.org/api/svg/svg-tags-e-m/index.md)
+- [SVG Air Tags N-S](https://docs.airwebframework.org/api/svg/svg-tags-n-s/index.md)
+- [SVG Air Tags T-Z](https://docs.airwebframework.org/api/svg/svg-tags-t-z/index.md)
 
 What remains on this page are core **Air SVG Tag** that either have great utility or are base classes for other tags.
 

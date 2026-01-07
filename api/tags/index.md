@@ -2,14 +2,14 @@
 
 Note
 
-Tags, or **Air Tag**, are explained in the [concepts document about tags](http://feldroy.github.io/air/learn/air_tags/index.md).
+Tags, or **Air Tag**, are explained in the [concepts document about tags](https://docs.airwebframework.org/learn/air_tags/index.md).
 
 In the spirit of helping our users, every **Air Tag** has copious documentation—enough that sometimes it breaks the documentation build process. Therefore, **Air Tag** that directly correspond to their HTML equivalents can be found in smaller, easier-to-compile pages.
 
-- [HTML Air Tags A-D](http://feldroy.github.io/air/api/tags/tags-a-d/index.md)
-- [HTML Air Tags E-M](http://feldroy.github.io/air/api/tags/tags-e-m/index.md)
-- [HTML Air Tags N-S](http://feldroy.github.io/air/api/tags/tags-n-s/index.md)
-- [HTML Air Tags T-Z](http://feldroy.github.io/air/api/tags/tags-t-z/index.md)
+- [HTML Air Tags A-D](https://docs.airwebframework.org/api/tags/tags-a-d/index.md)
+- [HTML Air Tags E-M](https://docs.airwebframework.org/api/tags/tags-e-m/index.md)
+- [HTML Air Tags N-S](https://docs.airwebframework.org/api/tags/tags-n-s/index.md)
+- [HTML Air Tags T-Z](https://docs.airwebframework.org/api/tags/tags-t-z/index.md)
 
 What remains on this page are core **Air Tag** that either have great utility (**Raw** and **Children** come to mind), or are base classes for other tags.
 
@@ -36,7 +36,7 @@ def __init__(
 ## Raw
 
 ```
-Raw(text_child='', /, **kwargs)
+Raw(text_child='', /, **attributes)
 ```
 
 Bases: `UnSafeTag`, `Transparent`
@@ -65,14 +65,14 @@ Source code in `src/air/tags/models/special.py`
 
 ```
 @override
-def __init__(self, text_child: str = "", /, **kwargs: AttributeType) -> None:
+def __init__(self, text_child: str = "", /, **attributes: AttributeType) -> None:
     if not isinstance(text_child, str):
         msg = f"{self!r} only accepts string content"
         raise TypeError(msg)
     if text_child:
-        super().__init__(text_child, **kwargs)
+        super().__init__(text_child, **attributes)
     else:
-        super().__init__(**kwargs)
+        super().__init__(**attributes)
 ```
 
 ## Children
@@ -439,7 +439,7 @@ def from_dict(cls, source_dict: TagDictType) -> BaseTag:
     name: str = source_dict[TagKeys.NAME]
     attributes: TagAttributesType = source_dict[TagKeys.ATTRIBUTES]
     children_dict: TagChildrenTypeForDict = source_dict[TagKeys.CHILDREN]
-    children: TagChildrenTypeForDict = cls._from_child_dict(children_dict)
+    children: TagChildrenType = cls._from_child_dict(children_dict)
     return cls._create_tag(name, *children, **attributes)
 ```
 
@@ -499,7 +499,88 @@ def from_html(cls, html_source: str) -> BaseTag:
     if not _is_lexbor_html_parser_valid(parser=parser, is_fragment=is_fragment):
         msg = f"{cls.__name__}.from_html(html_source) is unable to parse the HTML content."
         raise ValueError(msg)
-    return cls._from_lexbor_node(parser.root)  # type: ignore[arg-type,return-value]
+    air_tag = cls._from_lexbor_node(parser.root)  # type: ignore[arg-type]
+    if not air_tag or not isinstance(air_tag, BaseTag):
+        msg = f"{cls.__name__}.from_html(html_source) is unable to parse the HTML content."
+        raise ValueError(msg)
+    return air_tag
+```
+
+### from_html_file
+
+```
+from_html_file(*, file_path)
+```
+
+Reconstruct the corresponding air-tag tree from the given HTML file.
+
+Parameters:
+
+| Name        | Type      | Description                                                                                   | Default    |
+| ----------- | --------- | --------------------------------------------------------------------------------------------- | ---------- |
+| `file_path` | `StrPath` | The file path pointing to the HTML file or a folder with an index file to be read and parsed. | *required* |
+
+Returns:
+
+| Type      | Description                                         |
+| --------- | --------------------------------------------------- |
+| `BaseTag` | The root air-tag built from the provided HTML file. |
+
+Source code in `src/air/tags/models/base.py`
+
+```
+@classmethod
+def from_html_file(cls, *, file_path: StrPath) -> BaseTag:
+    """Reconstruct the corresponding air-tag tree from the given HTML file.
+
+    Args:
+        file_path: The file path pointing to the HTML file or a folder with an index file to be read and parsed.
+
+    Returns:
+        The root air-tag built from the provided HTML file.
+    """
+    return cls.from_html(html_source=read_html(file_path=file_path))
+```
+
+### from_html_file_to_source
+
+```
+from_html_file_to_source(*, file_path)
+```
+
+Reconstruct the instantiable-formatted representation of the tag from the given HTML file.
+
+For converting the corresponding air-tag tree from the given HTML file, into the instantiable-formatted representation of the tag.
+
+Parameters:
+
+| Name        | Type      | Description                                                                                   | Default    |
+| ----------- | --------- | --------------------------------------------------------------------------------------------- | ---------- |
+| `file_path` | `StrPath` | The file path pointing to the HTML file or a folder with an index file to be read and parsed. | *required* |
+
+Returns:
+
+| Type  | Description                                                     |
+| ----- | --------------------------------------------------------------- |
+| `str` | The formatted instantiation call for this tag and its children. |
+
+Source code in `src/air/tags/models/base.py`
+
+```
+@classmethod
+def from_html_file_to_source(cls, *, file_path: StrPath) -> str:
+    """Reconstruct the instantiable-formatted representation of the tag from the given HTML file.
+
+    For converting the corresponding air-tag tree from the given HTML file,
+    into the instantiable-formatted representation of the tag.
+
+    Args:
+        file_path: The file path pointing to the HTML file or a folder with an index file to be read and parsed.
+
+    Returns:
+        The formatted instantiation call for this tag and its children.
+    """
+    return cls.from_html_file(file_path=file_path).to_source()
 ```
 
 ### from_html_to_source

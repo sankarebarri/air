@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="http://feldroy.github.io/air/learn/sqlmodel/">
+        <link rel="canonical" href="https://docs.airwebframework.org/learn/sqlmodel/">
       
       
         <link rel="prev" href="../layouts/">
@@ -2514,8 +2514,12 @@
 
 <span class="n">app</span> <span class="o">=</span> <span class="n">air</span><span class="o">.</span><span class="n">Air</span><span class="p">(</span><span class="n">lifespan</span><span class="o">=</span><span class="n">sql</span><span class="o">.</span><span class="n">async_db_lifespan</span><span class="p">)</span>
 
+
 <span class="nd">@app</span><span class="o">.</span><span class="n">page</span>
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">index</span><span class="p">(</span><span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">,</span> <span class="n">session</span><span class="p">:</span> <span class="n">sql</span><span class="o">.</span><span class="n">AsyncSession</span> <span class="o">=</span> <span class="n">air</span><span class="o">.</span><span class="n">Depends</span><span class="p">(</span><span class="n">sql</span><span class="o">.</span><span class="n">async_session_dependency</span><span class="p">)):</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">index</span><span class="p">(</span>
+    <span class="n">request</span><span class="p">:</span> <span class="n">Request</span><span class="p">,</span>
+    <span class="n">session</span><span class="p">:</span> <span class="n">sql</span><span class="o">.</span><span class="n">AsyncSession</span> <span class="o">=</span> <span class="n">air</span><span class="o">.</span><span class="n">Depends</span><span class="p">(</span><span class="n">sql</span><span class="o">.</span><span class="n">async_session_dependency</span><span class="p">),</span>
+<span class="p">):</span>
     <span class="c1"># Use the session to interact with the database</span>
     <span class="n">result</span> <span class="o">=</span> <span class="k">await</span> <span class="n">session</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">select</span><span class="p">(</span><span class="n">User</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">User</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">&quot;John&quot;</span><span class="p">))</span>
     <span class="n">user</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">scalars</span><span class="p">()</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
@@ -2531,6 +2535,7 @@
 <div class="highlight"><span class="filename">tasks.py</span><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">air</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">airsqlmodel</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sql</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sqlmodel</span><span class="w"> </span><span class="kn">import</span> <span class="n">SQLModel</span><span class="p">,</span> <span class="n">Field</span><span class="p">,</span> <span class="n">select</span>
+
 
 <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">some_background_task</span><span class="p">():</span>
     <span class="k">async</span> <span class="k">with</span> <span class="n">sql</span><span class="o">.</span><span class="n">get_async_session</span><span class="p">()</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>

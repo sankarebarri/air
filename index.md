@@ -13,9 +13,9 @@
 
 ______________________________________________________________________
 
-**Documentation**: <https://feldroy.github.io/air/>
+**Documentation**: [<https://docs.airwebframework.org>](https://docs.airwebframework.org)
 
-**Source Code**: <https://github.com/feldroy/air>
+**Source Code**: [<https://github.com/feldroy/air>](https://github.com/feldroy/air)
 
 ## Installation
 
@@ -48,7 +48,7 @@ async def index():
 
 Note
 
-This example uses [Air Tags](http://feldroy.github.io/air/api/tags/index.md), which are Python classes that render as HTML. Air Tags are typed and documented, designed to work well with any code completion tool.
+This example uses [Air Tags](https://docs.airwebframework.org/api/tags/index.md), which are Python classes that render as HTML. Air Tags are typed and documented, designed to work well with any code completion tool.
 
 ## Combining FastAPI and Air
 
@@ -60,6 +60,7 @@ from fastapi import FastAPI
 
 app = air.Air()
 api = FastAPI()
+
 
 @app.get("/")
 def landing_page():
@@ -75,6 +76,7 @@ def landing_page():
 @api.get("/")
 def api_root():
     return {"message": "Awesome SaaS is powered by FastAPI"}
+
 
 # Combining the Air and FastAPI apps into one
 app.mount("/api", api)
@@ -94,13 +96,16 @@ api = FastAPI()
 # Air's JinjaRenderer is a shortcut for using Jinja templates
 jinja = air.JinjaRenderer(directory="templates")
 
+
 @app.get("/")
 def index(request: air.Request):
     return jinja(request, name="home.html")
 
+
 @api.get("/")
 def api_root():
     return {"message": "Awesome SaaS is powered by FastAPI"}
+
 
 # Combining the Air and and FastAPI apps into one
 app.mount("/api", api)
